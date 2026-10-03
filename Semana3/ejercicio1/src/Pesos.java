@@ -5,7 +5,7 @@ import java.io.Console;
  class Person{
 
 private    String name;
-private    int weight, height;
+private    float weight, height;
 
 //getters y setters
 
@@ -19,26 +19,26 @@ public void setName(String name){
 }
 
 
-public int getWeight(){
+public float getWeight(){
 
     return weight;
 }
 
 
-public void setWeight(int weight){
+public void setWeight(float weight){
 
     this.weight=weight;
 }
 
 
 
-public int getHeight(){
+public float getHeight(){
 
     return height;
 }
 
 
-public void setHeight(int height){
+public void setHeight(float height){
 
     this.height=height;
 }
@@ -79,14 +79,14 @@ public class Pesos {
     }
 
        try{
-        p1.setWeight(Integer.parseInt(c.readLine("Ingrese su peso: ")));
+        p1.setWeight(Float.parseFloat(c.readLine("Ingrese su peso: ")));
        }catch(Exception e){
         System.out.println("Error al ingresar el peso");
     return;   
     }
 
        try{
-        p1.setHeight(Integer.parseInt(c.readLine("Ingrese su altura: ")));
+        p1.setHeight(Float.parseFloat(c.readLine("Ingrese su altura: ")));
        }catch(Exception e){
         System.out.println("Error al ingresar la altura");
        return;
@@ -107,7 +107,7 @@ public class Pesos {
     }
 
        try{
-        p2.setWeight(Integer.parseInt(c.readLine("Ingrese su peso: ")));
+        p2.setWeight(Float.parseFloat(c.readLine("Ingrese su peso: ")));
        
     }catch(Exception e){
 
@@ -117,7 +117,7 @@ public class Pesos {
     }
 
     try{
-        p2.setHeight(Integer.parseInt(c.readLine("Ingrese su altura: ")));
+        p2.setHeight(Float.parseFloat(c.readLine("Ingrese su altura: ")));
     
     }catch(Exception e){
 
@@ -142,14 +142,14 @@ public class Pesos {
 
 
     try{
-        p3.setWeight(Integer.parseInt(c.readLine("Ingrese su peso: ")));
+        p3.setWeight(Float.parseFloat(c.readLine("Ingrese su peso: ")));
     }catch(Exception e){
         System.out.println("Error al ingresar el peso");
         return;
     }
 
     try{
-        p3.setHeight(Integer.parseInt(c.readLine("Ingrese su altura: ")));
+        p3.setHeight(Float.parseFloat(c.readLine("Ingrese su altura: ")));
     }catch(Exception e){
         System.out.println("Error al ingresar la altura");
         return;
