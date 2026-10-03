@@ -7,6 +7,20 @@ import java.io.Console;
 private    String name;
 private    float weight, height;
 
+
+//Constructor
+
+
+
+public Person(){
+
+    this.name="Fulanito";
+    this.weight=0;
+    this.height=0;
+
+}
+
+
 //getters y setters
 
 public String getName(){
@@ -60,10 +74,6 @@ public void setHeight(float height){
 
 
 }
-
-
-
-
 
 
 
