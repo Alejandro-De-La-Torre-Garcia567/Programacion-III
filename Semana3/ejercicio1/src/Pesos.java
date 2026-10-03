@@ -68,7 +68,7 @@ public void setHeight(float height){
 
 
 public class Pesos {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         
 
     Console c = System.console();        
@@ -174,20 +174,20 @@ public class Pesos {
 
     if(p1.getWeight() == p2.getWeight() && p2.getWeight() == p3.getWeight()){
 
-        System.out.println(p1.getName()+", "+p2.getName()+" y "+p3.getName()+" tienen el mismo peso");
+        System.out.printf("Todos tienen el mismo peso");
     
     
     }else if (p1.getWeight() > p2.getWeight() && p1.getWeight() > p3.getWeight()){
 
-        System.out.println(p1.getName()+" es el más pesado");
+        System.out.printf("El mas pesado es %s (%.2f kg)\n", p1.getName(),p1.getWeight());
 
     }else if (p2.getWeight() > p1.getWeight() && p2.getWeight() > p3.getWeight()){
 
-        System.out.println(p2.getName()+" es el más pesado");
+        System.out.printf("El más pesado es %s (%.2f kg)\n", p2.getName(), p2.getWeight());
 
     }else{
 
-        System.out.println(p3.getName()+" es el más pesado");
+        System.out.printf("El más pesado es %s (%.2f kg)\n",p3.getName(),p3.getWeight());
 
     }
 
@@ -195,8 +195,29 @@ public class Pesos {
     //Quién es el más alto?
 
 
+    if( (p1.getHeight() == p2.getHeight()) && (p1.getHeight() == p3.getHeight()) && (p2.getHeight() == p3.getHeight()) ){
 
-    
+        System.out.printf("Todas las personas tienen la misma altura");
+
+    }
+
+
+    else if( ( p2.getHeight() > p1.getHeight() ) && (p2.getHeight()> p3.getHeight())){
+
+        System.out.printf("El más alto es %s (%.2f m)\n", p2.getName(), p2.getHeight());
+
+    } 
+
+    else if( ( p1.getHeight() > p2.getHeight() ) && (p1.getHeight()> p2.getHeight())){
+
+        System.out.printf("El más alto es %s (%.2f m)\n", p1.getName(), p1.getHeight());
+
+    }else{
+
+        System.out.printf("El más alto es %s (%.2f m)\n", p3.getName(), p3.getHeight());
+
+
+    }
 
 
 }
