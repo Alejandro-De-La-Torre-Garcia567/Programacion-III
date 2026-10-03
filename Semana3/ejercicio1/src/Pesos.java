@@ -27,6 +27,13 @@ public float getWeight(){
 
 public void setWeight(float weight){
 
+    if(weight<0 || weight>200){
+
+        System.out.printf("Error: peso erroneo");
+        System.exit(1);
+
+    }
+
     this.weight=weight;
 }
 
@@ -39,6 +46,13 @@ public float getHeight(){
 
 
 public void setHeight(float height){
+
+    if(height<0 || height>3){
+
+        System.out.printf("Error: altura incorrecta");
+        System.exit(1);
+        
+    }
 
     this.height=height;
 }
@@ -61,7 +75,7 @@ public class Pesos {
 
         if(c==null){
 
-            System.err.println("No console.");
+            System.err.println("No hay una consola disponible");
             return;
         }
     
@@ -79,14 +93,14 @@ public class Pesos {
     }
 
        try{
-        p1.setWeight(Float.parseFloat(c.readLine("Ingrese su peso: ")));
+        p1.setWeight(Float.parseFloat(c.readLine("Ingrese su peso en kg: ")));
        }catch(Exception e){
         System.out.println("Error al ingresar el peso");
     return;   
     }
 
        try{
-        p1.setHeight(Float.parseFloat(c.readLine("Ingrese su altura: ")));
+        p1.setHeight(Float.parseFloat(c.readLine("Ingrese su altura en m: ")));
        }catch(Exception e){
         System.out.println("Error al ingresar la altura");
        return;
@@ -107,7 +121,7 @@ public class Pesos {
     }
 
        try{
-        p2.setWeight(Float.parseFloat(c.readLine("Ingrese su peso: ")));
+        p2.setWeight(Float.parseFloat(c.readLine("Ingrese su peso en kg: ")));
        
     }catch(Exception e){
 
@@ -117,7 +131,7 @@ public class Pesos {
     }
 
     try{
-        p2.setHeight(Float.parseFloat(c.readLine("Ingrese su altura: ")));
+        p2.setHeight(Float.parseFloat(c.readLine("Ingrese su altura en m: ")));
     
     }catch(Exception e){
 
@@ -142,19 +156,21 @@ public class Pesos {
 
 
     try{
-        p3.setWeight(Float.parseFloat(c.readLine("Ingrese su peso: ")));
+        p3.setWeight(Float.parseFloat(c.readLine("Ingrese su peso en kg: ")));
     }catch(Exception e){
         System.out.println("Error al ingresar el peso");
         return;
     }
 
     try{
-        p3.setHeight(Float.parseFloat(c.readLine("Ingrese su altura: ")));
+        p3.setHeight(Float.parseFloat(c.readLine("Ingrese su altura en m: ")));
     }catch(Exception e){
         System.out.println("Error al ingresar la altura");
         return;
     }
 
+
+    //Quién es el más pesado?
 
     if(p1.getWeight() == p2.getWeight() && p2.getWeight() == p3.getWeight()){
 
@@ -175,6 +191,12 @@ public class Pesos {
 
     }
 
+
+    //Quién es el más alto?
+
+
+
+    
 
 
 }
