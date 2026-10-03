@@ -1,11 +1,10 @@
 import java.io.Console;
 
 
-
  class Person{
 
 private    String name;
-private    float weight, height;
+private    float weight, height, IMC;
 
 
 //Constructor
@@ -17,7 +16,24 @@ public Person(){
     this.name="Fulanito";
     this.weight=0;
     this.height=0;
+    this.IMC=0;
 
+}
+
+//IMC
+
+public float IMC() {
+
+    if(this.height<=0 || this.weight<=0){
+
+        System.out.printf("Error: Valores incorrectos");
+        System.exit(1);
+    }
+
+
+    this.IMC=(this.weight/(this.height)*(this.height));
+
+    return this.IMC;
 }
 
 
