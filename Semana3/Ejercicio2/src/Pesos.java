@@ -31,7 +31,7 @@ public float IMC() {
     }
 
 
-    this.IMC=(this.weight/(this.height)*(this.height));
+    this.IMC=(this.weight/((this.height)*(this.height)));
 
     return this.IMC;
 }
@@ -57,7 +57,7 @@ public float getWeight(){
 
 public void setWeight(float weight){
 
-    if(weight<0 || weight>200){
+    if(weight<=0 || weight>200){
 
         System.out.printf("Error: peso erroneo");
         System.exit(1);
@@ -77,7 +77,7 @@ public float getHeight(){
 
 public void setHeight(float height){
 
-    if(height<0 || height>3){
+    if(height<=0 || height>=3){
 
         System.out.printf("Error: altura incorrecta");
         System.exit(1);
@@ -234,7 +234,7 @@ public class Pesos {
 
     } 
 
-    else if( ( p1.getHeight() > p2.getHeight() ) && (p1.getHeight()> p2.getHeight())){
+    else if( ( p1.getHeight() > p2.getHeight() ) && (p1.getHeight()> p3.getHeight())){
 
         System.out.printf("El más alto es %s (%.2f m)\n", p1.getName(), p1.getHeight());
 
