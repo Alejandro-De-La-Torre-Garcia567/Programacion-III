@@ -80,7 +80,8 @@ public class Pesos {
 
 
 
-        System.out.printf("PESO\tALTURA\tNOMBRE");
+        System.out.printf("NOMBRE\tPESO\tALTURA\tIMC");
+        System.out.printf("%s\t%.2f\t%.2f\t%.2f",u.nombre,u.peso,u.altura,u.IMC());
         
 
     }
