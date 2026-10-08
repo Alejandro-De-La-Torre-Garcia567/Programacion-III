@@ -10,9 +10,16 @@ public class parametros {
 
         float sum1,sum2;
 
+        try{
         sum1=Float.parseFloat(args[0]);
         sum2=Float.parseFloat(args[1]);
+    
+         }catch(Exception e){
 
+        System.out.printf("Tipo de parámetros incorrecto");
+        return;
+
+        }
         System.out.printf("El resultado es: %.3f",sum1+sum2);
 
 
