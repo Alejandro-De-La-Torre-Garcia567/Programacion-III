@@ -10,12 +10,14 @@ public Usuario(String nombre,float peso, float altura){
 if(peso<0 || peso>300){
 
     System.out.printf("Valor del peso incorrecto");
+    System.exit(1);
 
 }
 
 if(altura<0 || altura >3){
 
     System.out.printf("Valor de altura incorrecto");
+    System.exit(1);
 
 }
 
