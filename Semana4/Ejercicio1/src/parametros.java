@@ -4,15 +4,16 @@ public class parametros {
         if(args.length!=2){
 
             System.out.printf("Numero de parárametros introducidos incorrecto");
+            return;
         }
 
 
-        int sum1,sum2;
+        float sum1,sum2;
 
-        sum1=Integer.parseInt(args[0]);
-        sum2=Integer.parseInt(args[1]);
+        sum1=Float.parseFloat(args[0]);
+        sum2=Float.parseFloat(args[1]);
 
-        System.out.printf("El resultado es: %d",sum1+=sum2);
+        System.out.printf("El resultado es: %.3f",sum1+sum2);
 
 
     }
