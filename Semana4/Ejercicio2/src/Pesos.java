@@ -7,6 +7,17 @@ class Usuario{
 
 public Usuario(String nombre,float peso, float altura){
 
+if(peso<0 || peso>300){
+
+    System.out.printf("Valor del peso incorrecto");
+
+}
+
+if(altura<0 || altura >3){
+
+    System.out.printf("Valor de altura incorrecto");
+
+}
 
     this.nombre=nombre;
     this.peso=peso;
@@ -40,6 +51,14 @@ float npeso=0;
 }
 
 
+public float IMC(){
+
+ float IMC=(this.peso/(this.altura*this.altura));
+
+ return IMC;
+}
+
+
 
 }
 
@@ -57,7 +76,12 @@ public class Pesos {
             return;
         }
 
+        Usuario u=Usuario.factory(args);
 
+
+
+        System.out.printf("PESO\tALTURA\tNOMBRE");
+        
 
     }
 }
