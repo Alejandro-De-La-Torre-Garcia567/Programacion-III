@@ -8,7 +8,7 @@
         {
             "type": "java",
             "name": "Current File",
-            "args": "5 7"
+            "args": "5 7",
             "request": "launch",
             "mainClass": "${file}"
         }
