@@ -5,6 +5,9 @@ class Fruta{
     private float precio, cantidad;
     private String nombre;
     final float IVA=(float)1.04;
+    private float precioIVA;
+    private float precioTotal;
+
 
 
     public Fruta(String nombre, float precio){
@@ -19,8 +22,43 @@ class Fruta{
         this.precio=precio;
         this.nombre=nombre;
         this.cantidad=0;
+        this.precioIVA=0;
+        this.precioTotal=0;
 
     }
+
+    public float getIVA(){
+
+        return this.precioIVA;
+    }
+
+
+    public float getTotal(){
+
+        return this.precioTotal;
+    }
+
+    public float calcularIVA(){
+
+        precioIVA=(this.precio*IVA);
+
+        return precioIVA;
+    }
+
+
+    public float precioTotal(){
+
+        if(precioIVA==0){
+
+            System.out.printf("El precio con IVA no ha sido calculado o asignado");
+            return 0;
+        }
+
+        precioTotal=precioIVA*cantidad;
+
+        return precioTotal;
+    }
+    
 
    public String getNombre(){
 
@@ -135,12 +173,19 @@ public class Fruteria{
             }
 
                 frutas[i].setCantidad(cantidad);
+                frutas[i].calcularIVA();
+                frutas[i].precioTotal();
 
-                System.out.printf("");
-                
             }
 
-          
+ System.out.printf("\n\n|---------------------------------------------------|\n");
+ System.out.printf("| Cliente                                       | %2d |\n",cliente);
+ System.out.printf("|---------------------------------------------------|\n");
+ System.out.printf("| %-8s | %3.2f kg | precio Kg con IVA %3.2f | %3.2f € |\n", frutas[0].getNombre(),frutas[0].getCantidad(), frutas[0].getIVA(),frutas[0].getTotal());
+ System.out.printf("| %-88s | %3.2f kg | precio Kg con IVA %3.2f | %3.2f € |\n",frutas[1].getNombre(),frutas[1].getCantidad(), frutas[1].getIVA(),frutas[1].getTotal());
+ System.out.printf("|---------------------------------------------------|\n");
+ System.out.printf("| Total con IVA %3.2f €                             |\n",frutas[0].getTotal()+frutas[1].getTotal());
+ System.out.printf("|---------------------------------------------------|\n\n\n");
 
             String respuesta= c.readLine ("¿Desea incluir otro cliente?(s/n)");
             
@@ -149,7 +194,7 @@ public class Fruteria{
 
                 cliente++;
             }else
-                break;
+                s=true;
 
         }
 
