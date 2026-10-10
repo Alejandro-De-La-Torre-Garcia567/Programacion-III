@@ -118,7 +118,7 @@ public class Fruteria{
           
             }
 
-        n=(c.readLine("Introduzca el nombre de la segunda fruta: "));
+        String n1=(c.readLine("Introduzca el nombre de la segunda fruta: "));
 
         try{
 
@@ -136,7 +136,7 @@ public class Fruteria{
         Fruta frutas[] =new Fruta[2];
 
         frutas[0]=new Fruta(n,p1);
-        frutas[1]=new Fruta(n,p2);
+        frutas[1]=new Fruta(n1,p2);
 
 
         boolean s=false;
@@ -178,14 +178,14 @@ public class Fruteria{
 
             }
 
- System.out.printf("\n\n|---------------------------------------------------|\n");
- System.out.printf("| Cliente                                       | %2d |\n",cliente);
- System.out.printf("|---------------------------------------------------|\n");
- System.out.printf("| %-8s | %3.2f kg | precio Kg con IVA %3.2f | %3.2f € |\n", frutas[0].getNombre(),frutas[0].getCantidad(), frutas[0].getIVA(),frutas[0].getTotal());
- System.out.printf("| %-88s | %3.2f kg | precio Kg con IVA %3.2f | %3.2f € |\n",frutas[1].getNombre(),frutas[1].getCantidad(), frutas[1].getIVA(),frutas[1].getTotal());
- System.out.printf("|---------------------------------------------------|\n");
- System.out.printf("| Total con IVA %3.2f €                             |\n",frutas[0].getTotal()+frutas[1].getTotal());
- System.out.printf("|---------------------------------------------------|\n\n\n");
+ System.out.printf("\n\n|------------------------------------------------------------------|\n");
+ System.out.printf("| Cliente                                                     | %2d |\n",cliente);
+ System.out.printf("|------------------------------------------------------------------|\n");
+ System.out.printf("| %-10s | %6.2f kg | precio Kg con IVA %8.2f | %8.2f € |\n", frutas[0].getNombre(),frutas[0].getCantidad(), frutas[0].getIVA(),frutas[0].getTotal());
+ System.out.printf("| %-10s | %6.2f kg | precio Kg con IVA %8.2f | %8.2f € |\n",frutas[1].getNombre(),frutas[1].getCantidad(), frutas[1].getIVA(),frutas[1].getTotal());
+ System.out.printf("|------------------------------------------------------------------|\n");
+ System.out.printf("| Total con IVA %8.2f €                                         |\n",frutas[0].getTotal()+frutas[1].getTotal());
+ System.out.printf("|------------------------------------------------------------------|\n\n\n");
 
             String respuesta= c.readLine ("¿Desea incluir otro cliente?(s/n)");
             
