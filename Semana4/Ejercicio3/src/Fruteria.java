@@ -101,11 +101,57 @@ public class Fruteria{
         frutas[1]=new Fruta(n,p2);
 
 
+        boolean s=false;
+            int i;
+            int cliente=1;
+            String inputKilos;
+            float cantidad;
+            
+        while(s!=true){
 
 
 
+            for(i=0;i<frutas.length;i++){
 
+            inputKilos=c.readLine("Introduzca la cantidad de kilos a comprar de %s: ", frutas[i].getNombre());
 
+            try {
+                
+                cantidad=Float.parseFloat(inputKilos);
+
+            }catch (Exception e){
+
+                System.out.printf("Tipo de valor incorrecto");
+                i--;
+                continue;
+            }
+
+            if(cantidad<0){
+
+                System.out.printf("Los kilos no pueden ser negativos");
+                i--;
+                continue;
+
+            }
+
+                frutas[i].setCantidad(cantidad);
+
+                System.out.printf("");
+                
+            }
+
+          
+
+            String respuesta= c.readLine ("¿Desea incluir otro cliente?(s/n)");
+            
+            
+            if(respuesta.equalsIgnoreCase("s")){
+
+                cliente++;
+            }else
+                break;
+
+        }
 
 
     }
