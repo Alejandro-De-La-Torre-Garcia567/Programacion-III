@@ -6,6 +6,16 @@ class Alumno{
     private float parcial1,parcial2;
     private float fnal;
 
+
+    public Alumno(){
+
+        this.parcial1=0;
+        this.parcial2=0;
+        this.fnal=0;
+
+    }
+
+
     public void setParcial1 (float nota){
 
         this.parcial1=nota;
@@ -89,7 +99,7 @@ public class Alumnos{
             alumnos[i]=new Alumno();
 
             try{
-            alumnos[i].setParcial1(Float.parseFloat(c.readLine("Introduzca la nota del primer parcial del alumno"+ " "+(i+1)+": ")));
+            alumnos[i].setParcial1(Float.parseFloat(c.readLine("Introduzca la nota del primer parcial del alumno"+" "+(i+1)+": ")));
             
         }catch(Exception e){
 
@@ -101,7 +111,7 @@ public class Alumnos{
 
 
             try{
-            alumnos[i].setParcial2(Float.parseFloat(c.readLine("Introduzca la nota del segundo parcial del alumno"+ " "+(i+1)+": ")));
+            alumnos[i].setParcial2(Float.parseFloat(c.readLine("Introduzca la nota del segundo parcial del alumno"+" "+(i+1)+": ")));
             
         }catch(Exception e){
 
@@ -123,6 +133,8 @@ public class Alumnos{
 
         }
 
+        System.out.printf("\n\n");
+
         }
 
         float notaFinal=0;
@@ -132,6 +144,31 @@ public class Alumnos{
             notaFinal+=alumnos[i].calcularMediaAlumno();
 
         }
+
+
+        notaFinal=(notaFinal/a);
+
+
+        System.out.printf("\n\n");
+        System.out.printf("+---------------------------------------------------------+\n");
+        System.out.printf("|                     BOLETIN DE NOTAS                    |\n");
+        System.out.printf("+---------------------------------------------------------+\n");
+        System.out.printf("| Alumno   | Parcial 1 | Parcial 2 |   Final   |    Nota Final |\n");
+        System.out.printf("+---------------------------------------------------------+\n");
+
+        for(i = 0; i < a; i++){
+            System.out.printf("| Alumno %-2d|   %5.2f   |   %5.2f   |   %5.2f   |     %5.2f     |\n", 
+                (i + 1), 
+                alumnos[i].getParcial1(), 
+                alumnos[i].getParcial2(), 
+                alumnos[i].getFinal(), 
+                alumnos[i].calcularMediaAlumno()
+            );
+        }
+
+        System.out.printf("+---------------------------------------------------------+\n");
+        System.out.printf("| MEDIA DE LA CLASE:                                %5.2f |\n", notaFinal);
+        System.out.printf("+---------------------------------------------------------+\n\n");
 
 
 
