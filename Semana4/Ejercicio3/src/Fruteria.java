@@ -2,27 +2,47 @@ import java.io.Console;
 
 class Fruta{
 
-    float precio, cantidad;
-    String nombre;
-    final float IVA=1.04;
+    private float precio, cantidad;
+    private String nombre;
+    final float IVA=(float)1.04;
 
 
     public Fruta(String nombre, float precio){
 
+        if(precio<0){
+
+            System.out.printf("Precio erróneo");
+            System.exit(1);
+        }
+
+
         this.precio=precio;
         this.nombre=nombre;
+        this.cantidad=0;
 
     }
 
+   public String getNombre(){
 
-    public float pIVA(){
+    return this.nombre;
+   }
 
-        float pIVa=precio*IVA;
-        return pIva;
+   public float getPrecio(){
 
-    }
+    return this.precio;
+   }
 
 
+   public void setCantidad(float cantidad){
+
+    this.cantidad=cantidad;
+   }
+
+
+   public float getCantidad (){
+
+    return this.cantidad;
+   }
 
 }
 
@@ -39,7 +59,7 @@ public class Fruteria{
 
         Console c= System.console();
 
-        if (c==NULL){
+        if (c==null){
 
             System.out.printf("No hay una consola disponible");
             return;
@@ -47,16 +67,43 @@ public class Fruteria{
 
 
 
-        
+        float p2,p1;
         String n=(c.readLine("Introduzca el nombre de la primera fruta: "));
-        float p1=Float.parseFloat(c.readLine("Inntroduzca el precio por kilo de las peras: "));
 
-        Fruta p=new Fruta(n,p1);
+        try{
+        p1=Float.parseFloat(c.readLine("Introduzca el precio por kilo: "));
+
+            }catch(Exception e){
+
+                System.out.printf("Tipo de valor incorreto");
+                return;
+          
+            }
 
         n=(c.readLine("Introduzca el nombre de la segunda fruta: "));
-        float p2=Float.parseFloat(c.readLine("Inntroduzca el precio por kilo de las manzanas: "));
 
-        Fruta m=new Fruta(n,p2);
+        try{
+
+        p2=Float.parseFloat(c.readLine("Introduzca el precio por kilo: "));
+        
+
+            }catch (Exception e){
+
+                System.out.printf("Tipo de valor incorrecto");
+                return;
+
+            }
+
+
+        Fruta frutas[] =new Fruta[2];
+
+        frutas[0]=new Fruta(n,p1);
+        frutas[1]=new Fruta(n,p2);
+
+
+
+
+
 
 
 
