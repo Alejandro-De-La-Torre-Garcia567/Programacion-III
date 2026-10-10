@@ -58,7 +58,7 @@ class Alumno{
 
 public class Alumnos{
 
-    public static void main(String args){
+    public static void main(String[] args){
 
         
         Console c= System.console();
@@ -84,12 +84,12 @@ public class Alumnos{
         Alumno alumnos []= new Alumno[a];
 
 
-
         for(i=0;i<alumnos.length;i++){
 
+            alumnos[i]=new Alumno();
 
             try{
-            alumnos[i].setParcial1(Float.parseFloat(c.readLine("Introduzca la nota del primer parcial del alumno"+ " "+(i+1))));
+            alumnos[i].setParcial1(Float.parseFloat(c.readLine("Introduzca la nota del primer parcial del alumno"+ " "+(i+1)+": ")));
             
         }catch(Exception e){
 
@@ -101,7 +101,7 @@ public class Alumnos{
 
 
             try{
-            alumnos[i].setParcial2(Float.parseFloat(c.readLine("Introduzca la nota del segundo parcial del alumno"+ " "+(i+1))));
+            alumnos[i].setParcial2(Float.parseFloat(c.readLine("Introduzca la nota del segundo parcial del alumno"+ " "+(i+1)+": ")));
             
         }catch(Exception e){
 
@@ -112,8 +112,8 @@ public class Alumnos{
         }
 
 
-                    try{
-            alumnos[i].setFinal(Float.parseFloat(c.readLine("Introduzca la nota del final del alumno"+ " "+(i+1))));
+            try{
+            alumnos[i].setFinal(Float.parseFloat(c.readLine("Introduzca la nota del final del alumno"+ " "+(i+1)+": ")));
             
         }catch(Exception e){
 
@@ -125,7 +125,13 @@ public class Alumnos{
 
         }
 
+        float notaFinal=0;
 
+        for(i=0;i<a;i++){
+
+            notaFinal+=alumnos[i].calcularMediaAlumno();
+
+        }
 
 
 
