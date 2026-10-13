@@ -14,14 +14,14 @@ public class Numeros{
         }
 
 
-        System.out.printf("Introduzca un número: ")
+        System.out.printf("Introduzca un número: ");
 
         int n1,n2;
 
         n1=(Integer.parseInt(c.readLine()));
 
 
-        System.out.printf("Introduzca otro número: ")
+        System.out.printf("Introduzca otro número: ");
 
         n2=Integer.parseInt(c.readLine());
 
