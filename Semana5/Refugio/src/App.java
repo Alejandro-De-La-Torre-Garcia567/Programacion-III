@@ -58,7 +58,7 @@ public class App{
                 animal.setNombre(c.readLine("Introduzca el nombre del animal: ")); 
                 animal.setEspecie(c.readLine("Introduzca la especie del animal: "));
                 animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
-                animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo del animal: ")));
+                animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo de alimento de los animales: ")));
                 animal.setNombreC(c.readLine("Introduzca el nombre del cuidador: ")); 
                 animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: ")); 
                 
@@ -73,7 +73,7 @@ public class App{
             }else if (opcion==4){
 
 
-                
+
                 
 
 

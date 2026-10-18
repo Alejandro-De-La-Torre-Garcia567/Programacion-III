@@ -4,7 +4,7 @@ public class Refugio {
 
 
     private Animal [] animales;
-    private float precio;
+    private static float precio;
     private int cantidad;
     private int c;
 
@@ -22,13 +22,13 @@ public class Refugio {
         int i;
         float peso=0;
 
-        if(animales.length==0){
+        if(this.c==0){
 
             System.out.printf("Error: no hay animales registrados en el refugio");
             return 0;
         }
 
-        for(i=0;i<animales.length;i++){
+        for(i=0;i<this.c;i++){
 
             peso+=animales[i].getPeso();
 
@@ -38,11 +38,27 @@ public class Refugio {
     }
 
 
-    public float calcularCosteDiario(){
+    public float calcularCosteDiarioTotal(){
 
-        
-        return (animales[i].getConsumo) * (animales[i].getPrecio);
-        
+        int i;
+        float coste=0;
+
+        for(i=0;i<this.c;i++){
+
+            coste+=this.precio*animales[i].getConsumo();
+            
+        }
+
+        return coste;
+
+
+    }
+
+       public float calcularCosteDiario(int i){
+
+           return this.precio*animales[i].getConsumo();
+
+
     }
 
 
