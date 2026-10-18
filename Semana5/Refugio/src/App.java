@@ -55,10 +55,14 @@ public class App{
                 Animal animal = new Animal();
         
 
-                animal.setNombre(c.readLine("Introduzca el nombre del cuidador: ")); 
+                animal.setNombre(c.readLine("Introduzca el nombre del animal: ")); 
                 animal.setEspecie(c.readLine("Introduzca la especie del animal: "));
                 animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
                 animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo del animal: ")));
+                animal.setNombreC(c.readLine("Introduzca el nombre del cuidador: ")); 
+                animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: ")); 
+                
+
 
                 miRefugio.añadirAnimal(animal);
 
@@ -69,11 +73,13 @@ public class App{
             }else if (opcion==4){
 
 
+                
+                
 
 
             }else if(opcion==5){
 
-
+                System.exit(0);
 
 
             }else{

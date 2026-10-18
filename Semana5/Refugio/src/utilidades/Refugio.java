@@ -17,6 +17,35 @@ public class Refugio {
 
     }
 
+    public float calcularPesoMedio(){
+
+        int i;
+        float peso=0;
+
+        if(animales.length==0){
+
+            System.out.printf("Error: no hay animales registrados en el refugio");
+            return 0;
+        }
+
+        for(i=0;i<animales.length;i++){
+
+            peso+=animales[i].getPeso();
+
+        }
+
+        return peso/animales.length;
+    }
+
+
+    public float calcularCosteDiario(){
+
+        
+        return (animales[i].getConsumo) * (animales[i].getPrecio);
+        
+    }
+
+
     public void setPrecio(float p){
 
         if(p<0){
@@ -39,6 +68,7 @@ public class Refugio {
         return;
         }
 
+        this.c=0;
         this.animales=new Animal[c];
 
     }
