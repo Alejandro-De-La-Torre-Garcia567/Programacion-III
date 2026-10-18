@@ -4,7 +4,7 @@ public class Refugio {
 
 
     private Animal [] animales;
-    private static float precio;
+    private float precio;
     private int c;
 
 
@@ -22,7 +22,7 @@ public class Refugio {
 
         if(this.c==0){
 
-            System.out.printf("Error: no hay animales registrados en el refugio");
+            System.out.printf("Error: no hay animales registrados en el refugio\n\n");
             return 0;
         }
 
@@ -66,7 +66,7 @@ public class Refugio {
 
         if(p<0){
 
-            System.out.printf("Error: el precio no puede ser negativo");
+            System.out.printf("Error: el precio no puede ser negativo\n\n");
             return;
 
         }
@@ -80,7 +80,7 @@ public class Refugio {
 
         if(c<=0){
 
-            System.out.printf("Error: la cantidad debe ser mayor a cero");
+            System.out.printf("Error: la cantidad debe ser mayor a cero\n\n");
         return;
         }
 
@@ -94,7 +94,7 @@ public class Refugio {
     
         if(c==(animales.length)){
 
-            System.out.printf("El registro de animales está lleno");
+            System.out.printf("El registro de animales está lleno\n\n");
             return;
 
         }
