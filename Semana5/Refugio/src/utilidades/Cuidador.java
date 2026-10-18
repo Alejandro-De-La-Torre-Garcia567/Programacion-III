@@ -25,6 +25,29 @@ private boolean formacion;
 
     }
 
+
+    public String getFormacion(){
+
+        if(this.formacion==true){
+
+            return "Si";
+        
+        }else
+            
+            return "No";
+    }
+
+
+    public String getApellidosC(){
+
+        return this.apellidos;
+    }
+
+    public String getNombreC(){
+
+        return this.nombre;
+    }
+
 }
 
 

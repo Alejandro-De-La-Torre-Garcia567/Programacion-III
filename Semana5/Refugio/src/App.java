@@ -60,7 +60,8 @@ public class App{
                 animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
                 animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo de alimento de los animales: ")));
                 animal.setNombreC(c.readLine("Introduzca el nombre del cuidador: ")); 
-                animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: ")); 
+                animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: "));
+                animal.setFormacion(c.readLine("¿El cuidador tiene Fomación?: "));
                 
 
 
@@ -72,10 +73,7 @@ public class App{
 
             }else if (opcion==4){
 
-
-
-                
-
+              miRefugio.mostrarAnimales();  
 
             }else if(opcion==5){
 

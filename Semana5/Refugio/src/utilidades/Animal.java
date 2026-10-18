@@ -23,6 +23,15 @@ public class Animal {
 
     }
 
+    public String getEspecie(){
+
+        return this.especie;
+    }
+
+    public String getNombre(){
+
+        return this.nombre;
+    }
 
     public float getConsumo(){
 
@@ -79,6 +88,18 @@ public class Animal {
 
     }
 
+    public String getNombreC(){
+
+        return this.cuidador.getNombreC();
+
+    }
+
+
+    public String getApellidosC(){
+
+        return this.cuidador.getApellidosC();
+
+    }
 
     public void setApellidos(String a){
 
@@ -86,17 +107,28 @@ public class Animal {
     }
 
 
-    public void setFormacion(char t){
+    public void setFormacion(String t){
 
-        if (t=='s' || t=='S'){
+        if (t=="s" || t=="S"){
 
 
         this.cuidador.setFormacion(true);
 
-        }else if (t=='n' || t=='N'){
+        }else if (t=="n" || t=="N"){
 
             this.cuidador.setFormacion(false);
-        }
+        }else
+
+            System.out.printf("Error: Tecla incorrecta");
+            return;
+    }
+
+
+
+    public String getFormacion(){
+
+
+        return this.cuidador.getFormacion();
     }
 
 }
