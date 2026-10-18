@@ -1,5 +1,6 @@
-import utilidades.*;
 import java.io.Console;
+
+import modelo.*;
 
 
 public class App{

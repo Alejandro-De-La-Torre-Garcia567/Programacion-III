@@ -1,4 +1,4 @@
-package utilidades;
+package modelo;
 
 public class Cuidador {
 
@@ -30,7 +30,7 @@ private boolean formacion;
 
         if(this.formacion==true){
 
-            return "Si";
+            return "Sí";
         
         }else
             

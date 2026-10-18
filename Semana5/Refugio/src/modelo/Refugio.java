@@ -1,4 +1,4 @@
-package utilidades;
+package modelo;
 
 public class Refugio {
 
@@ -64,7 +64,7 @@ public class Refugio {
 
     public void setPrecio(float p){
 
-        if(p<0){
+        if(p<=0){
 
             System.out.printf("Error: el precio no puede ser negativo\n\n");
             return;
