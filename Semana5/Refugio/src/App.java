@@ -16,7 +16,7 @@ public class App{
         }
 
 
-        int opcion;
+        int opcion,i;
 
         Refugio miRefugio =new Refugio();
 
@@ -47,12 +47,23 @@ public class App{
 
             }else if(opcion==2){
 
-
+                miRefugio.setPrecio(Float.parseFloat(c.readLine("Introduzca el precio por kilogramo: ")));
 
 
             }else if(opcion==3){
 
+                Animal animal = new Animal();
+        
 
+                animal.setNombre(c.readLine("Introduzca el nombre del cuidador: ")); 
+                animal.setEspecie(c.readLine("Introduzca la especie del animal: "));
+                animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
+                animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo del animal: ")));
+
+                miRefugio.añadirAnimal(animal);
+
+               
+               
 
 
             }else if (opcion==4){

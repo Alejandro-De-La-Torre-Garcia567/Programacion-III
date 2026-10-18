@@ -6,10 +6,12 @@ public class Refugio {
     private Animal [] animales;
     private float precio;
     private int cantidad;
+    private int c;
 
 
     public Refugio(){
 
+        this.c=0;
         this.cantidad=0;
         this.precio=3;
 
@@ -23,7 +25,7 @@ public class Refugio {
             return;
 
         }
-        
+
         this.precio=p;
 
     }
@@ -39,6 +41,20 @@ public class Refugio {
 
         this.animales=new Animal[c];
 
+    }
+
+
+    public void añadirAnimal(Animal a){
+    
+        if(c==(animales.length)){
+
+            System.out.printf("El registro de animales está lleno");
+            return;
+
+        }
+
+        this.animales[c]=a;
+        this.c++;
     }
 
 
