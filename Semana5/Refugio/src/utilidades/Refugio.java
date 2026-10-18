@@ -5,14 +5,12 @@ public class Refugio {
 
     private Animal [] animales;
     private static float precio;
-    private int cantidad;
     private int c;
 
 
     public Refugio(){
 
         this.c=0;
-        this.cantidad=0;
         this.precio=3;
 
     }
@@ -60,6 +58,8 @@ public class Refugio {
 
 
     }
+
+    public boolean existeRegistro(){ return animales!=null;}
 
 
     public void setPrecio(float p){
@@ -109,6 +109,13 @@ public class Refugio {
 
         int i;
 
+        if(this.c == 0){
+
+            System.out.printf("No hay animales registrados en el refugio\n\n");
+            return;
+        }
+
+
     System.out.printf("|--------------------------------------------------------------------------------------------|\n");
     System.out.printf("| ANIMALES DEL REFUGIO                                                                       |\n");
     System.out.printf("|--------------------------------------------------------------------------------------------|\n");            
@@ -119,15 +126,16 @@ public class Refugio {
 
     for(i=0;i<this.c;i++){
     
-        System.out.printf("| %8s | %8s | %s %8s | %s | %8.2f | %8.2f | %8.2f |\n", animales[i].getNombre(), animales[i].getEspecie(), animales[i].getNombreC(), animales[i], animales[i].getFormacion(),animales[i].getPeso(),animales[i].getConsumo(),calcularCosteDiario(i));
+        System.out.printf("| %8s | %8s | %s %8s | %s | %8.2f | %8.2f | %8.2f |\n", animales[i].getNombre(), animales[i].getEspecie(), animales[i].getNombreC(),animales[i].getApellidosC(), animales[i].getFormacion(),animales[i].getPeso(),animales[i].getConsumo(),calcularCosteDiario(i));
 
     
 
     }
 
-
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n");
     System.out.printf("| Coste diario total de alimentación: %.2f EUR|\n", calcularCosteDiarioTotal());            
     System.out.printf("| Peso medio de los animales: %.2f kg         |\n",calcularPesoMedio());            
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n");            
 
     
     

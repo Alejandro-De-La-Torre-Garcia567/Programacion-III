@@ -12,8 +12,8 @@ public class Animal {
     public Animal(){
 
         this.cuidador= new Cuidador();
-        this.peso=0;
-        this.consumo=0;
+        this.peso=-1;
+        this.consumo=-1;
 
     }
 
@@ -109,18 +109,13 @@ public class Animal {
 
     public void setFormacion(String t){
 
-        if (t=="s" || t=="S"){
-
-
+    if ("s".equalsIgnoreCase(t)) {
         this.cuidador.setFormacion(true);
-
-        }else if (t=="n" || t=="N"){
-
-            this.cuidador.setFormacion(false);
-        }else
-
-            System.out.printf("Error: Tecla incorrecta");
-            return;
+    } else if ("n".equalsIgnoreCase(t)) {
+        this.cuidador.setFormacion(false);
+    } else {
+        System.out.println("Error: Tecla incorrecta");
+        }
     }
 
 

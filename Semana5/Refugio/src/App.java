@@ -16,7 +16,7 @@ public class App{
         }
 
 
-        int opcion,i;
+        int opcion;
 
         Refugio miRefugio =new Refugio();
 
@@ -50,18 +50,26 @@ public class App{
                 miRefugio.setPrecio(Float.parseFloat(c.readLine("Introduzca el precio por kilogramo: ")));
 
 
-            }else if(opcion==3){
+            }else if(opcion==3 && miRefugio.existeRegistro()){
 
                 Animal animal = new Animal();
         
 
                 animal.setNombre(c.readLine("Introduzca el nombre del animal: ")); 
                 animal.setEspecie(c.readLine("Introduzca la especie del animal: "));
+               
+
+
                 animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
+                if(animal.getPeso()==-1) continue;
+
                 animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo de alimento de los animales: ")));
+                if(animal.getConsumo()==-1) continue;
+
+
                 animal.setNombreC(c.readLine("Introduzca el nombre del cuidador: ")); 
                 animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: "));
-                animal.setFormacion(c.readLine("¿El cuidador tiene Fomación?: "));
+                animal.setFormacion(c.readLine("¿El cuidador tiene Fomación? (s/n): "));
                 
 
 
@@ -71,19 +79,20 @@ public class App{
                
 
 
-            }else if (opcion==4){
+            }else if (opcion==4 && miRefugio.existeRegistro()){
 
               miRefugio.mostrarAnimales();  
 
             }else if(opcion==5){
 
+                System.out.printf("Ha salido del programa");
                 System.exit(0);
 
 
             }else{
 
 
-                System.out.printf("Error: opcion incorrecta, vuelva a intentarlo\n\n\n");
+                System.out.printf("\n\nError: opcion incorrecta o no existe un registro para mostrar o añadir animales, vuelva a intentarlo\n\n\n");
 
             }
 
