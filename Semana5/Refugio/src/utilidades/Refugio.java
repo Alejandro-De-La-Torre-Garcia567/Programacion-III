@@ -126,16 +126,16 @@ public class Refugio {
 
     for(i=0;i<this.c;i++){
     
-        System.out.printf("| %8s | %8s | %s %8s | %s | %8.2f | %8.2f | %8.2f |\n", animales[i].getNombre(), animales[i].getEspecie(), animales[i].getNombreC(),animales[i].getApellidosC(), animales[i].getFormacion(),animales[i].getPeso(),animales[i].getConsumo(),calcularCosteDiario(i));
+    System.out.printf("| %-8s | %-8s | %s %8s | %s | %-8.2f | %-8.2f | %-8.2f                  |\n", animales[i].getNombre(), animales[i].getEspecie(), animales[i].getNombreC(),animales[i].getApellidosC(), animales[i].getFormacion(),animales[i].getPeso(),animales[i].getConsumo(),calcularCosteDiario(i));
 
     
 
     }
 
     System.out.printf("|--------------------------------------------------------------------------------------------|\n");
-    System.out.printf("| Coste diario total de alimentación: %.2f EUR|\n", calcularCosteDiarioTotal());            
-    System.out.printf("| Peso medio de los animales: %.2f kg         |\n",calcularPesoMedio());            
-    System.out.printf("|--------------------------------------------------------------------------------------------|\n");            
+    System.out.printf("| Coste diario total de alimentación: %.2f EUR                                              |\n", calcularCosteDiarioTotal());            
+    System.out.printf("| Peso medio de los animales: %.2f kg                                                       |\n",calcularPesoMedio());            
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n\n\n");            
 
     
     

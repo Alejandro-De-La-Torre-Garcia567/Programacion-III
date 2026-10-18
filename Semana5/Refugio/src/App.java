@@ -35,20 +35,34 @@ public class App{
             
             
             
-            
+            try{
             
             opcion=Integer.parseInt(c.readLine("\nSeleccione una opción (1-5): "));
-
+               
+            }catch(Exception e){
+                    System.out.printf("Excepción: espacio introducido como opción\n\n");
+                    opcion=0;
+                    continue;
+                }
 
             if(opcion==1){
 
+                try{
             miRefugio.setArray(Integer.parseInt(c.readLine("Introduzca un tamaño para el nuevo registro de animales: ")));
+            }catch(Exception e){
 
+                System.out.printf("Error: Tipo de dato incorrecto\n\n");
+                continue;
+            }
 
             }else if(opcion==2){
 
+                try{
                 miRefugio.setPrecio(Float.parseFloat(c.readLine("Introduzca el precio por kilogramo: ")));
+                    }catch(Exception e){
 
+                        System.out.printf("Error: Tipo de dato incorrecto\n\n");
+                    }
 
             }else if(opcion==3 && miRefugio.existeRegistro()){
 
@@ -59,13 +73,25 @@ public class App{
                 animal.setEspecie(c.readLine("Introduzca la especie del animal: "));
                
 
-
+                try{
                 animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
-                if(animal.getPeso()==-1) continue;
+                if(animal.getPeso()==-1)continue;
+                    
+                }catch(Exception e){
 
+                        System.out.printf("Error: Tipo de dato incorrecto\n\n");
+                        continue;
+                    }
+
+                    try{
                 animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo de alimento de los animales: ")));
                 if(animal.getConsumo()==-1) continue;
 
+                }catch(Exception e){
+
+                    System.out.printf("Tipo de dato incorrecto\n\n");
+                    continue;
+                }
 
                 animal.setNombreC(c.readLine("Introduzca el nombre del cuidador: ")); 
                 animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: "));
