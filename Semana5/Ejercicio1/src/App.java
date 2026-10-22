@@ -28,7 +28,31 @@ public class App extends Clase1 {
         //accedemos al atributo protected a través de un objeto de la clase hija App
 
 
-        
+        //c1.a4=5; no podemos acceder directamente debido al modificador private, tenemos que implementar un setter para cambiar el valor o un getter para obtenerlo en la clase1
+
+        //llamamos al método setter para cambiar el valor, se utiliza para poner una serie de condiciones a la hora de poner el valor del atributo
+        c1.setA4(5);
+
+
+        //podemos acceder directamente porque tiene el public
+        c1.m1();
+
+        //no podemos acceder al método porque solo tiene visibilidad de paquete
+        //c1.m2();
+
+
+        //no podemos acceder directamente con una instancia de la clase principal porque el protected solo nos permite el acceso con instancias u objetos de la clase hija
+        //c1.m3();
+
+        //usamos el objeto de la clase que recibe herencia de la clase 1
+        app.m3();
+
+        // no podemos acceder porque el modificador private solo permite visibilidad dentro de su propia clase 
+        //c1.m4();
+
+
+
+
 
     }
 
