@@ -29,7 +29,7 @@ public class ordenar{
 
         for(i=0;i<5;i++){
 
-            System.out.printf("cadena: %d %s\n",i+1,cadenas[i]);
+            System.out.printf("cadena %d: %s\n",i+1,cadenas[i]);
         }
 
     }
