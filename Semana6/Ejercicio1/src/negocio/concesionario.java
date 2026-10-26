@@ -57,6 +57,7 @@ public int actualizarCoche(String matricula,String modelo, double precio,String 
             lista.get(i).setModelo(modelo);
             lista.get(i).setMatricula(matricula1);
 
+            return 1;
 
         }
 

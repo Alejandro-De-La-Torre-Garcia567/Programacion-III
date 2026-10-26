@@ -36,16 +36,16 @@ public class App{
         
         System.out.printf("\nIntroduzca la matrícula del vehículo: ");
         c.setMatricula(sc.nextLine());
-        sc.nextLine();
 
 
         System.out.printf("\nIntroduzca el modelo del vehículo: ");
         c.setModelo(sc.nextLine());
-        sc.nextLine();
+
 
         System.out.printf("\nIntroduzca el precio del vehículo: ");
         c.setPrecio(sc.nextDouble());
         sc.nextLine();
+
 
         if(c.getPrecio()==0){
             continue;
@@ -91,10 +91,10 @@ public class App{
 
             System.out.printf("Introduzca el precio del nuevo vehículo: ");
             double precio=sc.nextDouble();
+            sc.nextLine();
 
             System.out.printf("Introduzca la matrícula del nuevo vehículo: ");
             String matricula1=sc.nextLine();
-            sc.nextLine();
             
             
            int i= cn.actualizarCoche(matricula,modelo,precio,matricula1);
