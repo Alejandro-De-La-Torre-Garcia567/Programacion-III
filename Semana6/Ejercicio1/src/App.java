@@ -17,7 +17,7 @@ public class App{
 
         do{
 
-        System.out.printf("MENÚ\n\n");
+        System.out.printf("\n\nMENÚ\n\n");
         System.out.printf("1: Agregar un nuevo coche al sistema\n");
         System.out.printf("2: Listar todos los coches en el sistema\n");
         System.out.printf("3: Buscar un coche específico en el sistema\n");

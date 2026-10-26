@@ -20,7 +20,7 @@ public void imprimirLista(){
 
     for(Coche p: lista){
 
-        System.out.printf("Vehículo %d: %s %s %F",i,p.getModelo(),p.getMatricula(),p.getPrecio());
+        System.out.printf("Vehículo %d: %s %s %.2f\n\n",i,p.getModelo(),p.getMatricula(),p.getPrecio());
         i++;
     }
 
