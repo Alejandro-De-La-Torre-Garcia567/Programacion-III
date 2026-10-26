@@ -1,8 +1,17 @@
 package coche;
 
-public class coche {
+public class Coche {
 
-    private int matricula;
+    private String matricula, modelo;
     private boolean estado;
+    private double precio;
+
+
+    public Coche(){
+
+        
+
+    }
+
 
 }
