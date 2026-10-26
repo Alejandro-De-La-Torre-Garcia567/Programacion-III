@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 public class Concesionario {
 
-    ArrayList<Coche> lista = new ArrayList<Coche>();
+   private ArrayList<Coche> lista = new ArrayList<Coche>();
 
- 
-    
 
 public void añadirLista(Coche ch){
 
@@ -28,6 +26,71 @@ public void imprimirLista(){
 
 
 }
+
+public int buscarCoche(String matricula){
+
+
+   int i;
+
+    for(i=0;i<lista.size();i++){
+
+        if(lista.get(i).getMatricula().equalsIgnoreCase(matricula)){
+        
+            return i;
+        }
+
+    }
+
+            return -1;
+}
+
+public int actualizarCoche(String matricula,String modelo, double precio,String matricula1){
+
+    int i;
+
+    for(i=0;i<lista.size();i++){
+
+        if(lista.get(i).getMatricula().equalsIgnoreCase(matricula)){
+
+
+            lista.get(i).setPrecio(precio);
+            lista.get(i).setModelo(modelo);
+            lista.get(i).setMatricula(matricula1);
+
+
+        }
+
+
+    }
+
+
+    return -1;
+}
+
+
+public int eliminarCoche(String matricula){
+
+    int i;
+
+
+    for(i=0;i<lista.size();i++){
+
+        if(lista.get(i).getMatricula().equalsIgnoreCase(matricula)){
+
+            lista.remove(i);
+
+            return 1;
+
+        }
+
+    }
+
+
+    return -1;
+
+}
+
+
 
 }
 

@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import coche.Coche;
-import java.util.ArrayList;
 import negocio.Concesionario;
 
 
@@ -69,16 +68,53 @@ public class App{
 
         }else if(o==3){
 
+            int k;
 
+            System.out.printf("Introduzca la matrícula del vehículo a buscar: ");
+            k=cn.buscarCoche(sc.nextLine());
+
+            if(k==-1){
+
+                System.out.printf("No se ha encontrado el vehículo");
+            
+            }else
+
+                System.out.printf("El vehículo se encuentra en la posición %d",k);
 
         }else if(o==4){
 
+            System.out.printf("Introduzca la matrícula del vehículo a actualizar: ");
+            String matricula= sc.nextLine();
 
+            System.out.printf("Introduzca el modelo del nuevo vehículo: ");
+            String modelo=sc.nextLine();
+
+            System.out.printf("Introduzca el precio del nuevo vehículo: ");
+            double precio=sc.nextDouble();
+
+            System.out.printf("Introduzca la matrícula del nuevo vehículo: ");
+            String matricula1=sc.nextLine();
+            sc.nextLine();
+            
+            
+           int i= cn.actualizarCoche(matricula,modelo,precio,matricula1);
+
+            if(i==-1){
+
+                System.out.println("No se ha encontrado el vehículo en el sistema");
+            }
 
 
         }else if(o==5){
 
 
+            System.out.printf("Introduzca la matrícula del vehículo a eliminar del sistema: ");
+            int i=cn.eliminarCoche(sc.nextLine());
+
+            if(i==-1){
+
+                System.out.printf("No se ha encontrado el vehiculo en el sistema");
+            }
 
 
         }else
@@ -88,6 +124,9 @@ public class App{
         }while(o!=6);
 
 
+
+
+        sc.close();
     }
 
 }
