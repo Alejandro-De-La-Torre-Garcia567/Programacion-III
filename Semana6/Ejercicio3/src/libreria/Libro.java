@@ -50,4 +50,10 @@ public class Libro {
     }
 
 
+    public String getGenero(){
+
+        return this.genero;
+    }
+
+
 }

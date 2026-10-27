@@ -29,5 +29,17 @@ public class Biblioteca {
 
     }
 
+    public Libro actualizarLibro(String isbn){
+
+        if(base.containsKey(isbn)){
+    
+        return base.get(isbn);
+    }else
+
+        System.out.printf("No se ha encotrado el libro");
+     return null;
+
+    }
+
 
 }

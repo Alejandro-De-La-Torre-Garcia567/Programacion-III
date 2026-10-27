@@ -61,14 +61,38 @@ public class App{
 
 
             System.out.printf("Introduzca el Isbn del libro a buscar: ");
-            sc.nextLine();
+            Libro t=bl.buscarLibro(sc.nextLine());
+
+            System.out.printf("Título: %s\n\nGénero: %s\n\nAutor: %s\n",t.getTitulo(),t.getGenero(),t.getAutor());
 
    
 
         }else if(o==4){
 
-       
+            
+            System.out.printf("Introduzca el Isbn del libro a actualizar: ");
+            Libro t=bl.actualizarLibro(sc.nextLine());
 
+
+            if(t==null){
+
+                continue;
+            }
+            
+            System.out.printf("Introduzca el título del libro: ");
+            t.setTitulo(sc.nextLine());
+
+            System.out.printf("Introduzca al autor del libro: ");
+            t.setAutor(sc.nextLine());
+
+
+            System.out.printf("Introduzca el género del libro: ");
+            t.setGenero(sc.nextLine());
+
+            System.out.printf("Introduzca el isbn del libro: ");
+            t.setIsbn(sc.nextLine());
+
+            
         }else if(o==5){
 
 
