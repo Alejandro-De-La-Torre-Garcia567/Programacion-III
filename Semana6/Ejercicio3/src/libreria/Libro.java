@@ -58,7 +58,7 @@ public class Libro {
     @Override
     public String toString(){
 
-        return "Libro [Título:"+ this.titulo + ", Autor: " + this.autor +", Género: " + this.genero + "Isbn: " + this.isbn + "]";
+        return "Libro [Título: "+ this.titulo + ", Autor: " + this.autor +", Género: " + this.genero + ", Isbn: " + this.isbn + "]";
 
     }
 
