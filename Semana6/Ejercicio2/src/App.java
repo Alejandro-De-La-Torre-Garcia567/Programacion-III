@@ -105,12 +105,8 @@ public class App{
 
             }else{
 
-
                 System.out.printf("\n\nError: opcion incorrecta, vuelva a intentarlo\n\n\n");
 
-           
-           
-           
             }
             
             }while (opcion!=6);

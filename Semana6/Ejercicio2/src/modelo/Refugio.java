@@ -10,7 +10,7 @@ public class Refugio {
 
     public Refugio(){
 
-        this.precio=3;
+        this.precio=0;
 
     }
 
@@ -186,6 +186,12 @@ public class Refugio {
 
     public void mostrarAnimales(){
         int i;
+
+        if(this.precio==0){
+
+            System.out.printf("No se ha configurado un precio por alimento");
+            return;
+        }
 
         if(animales.size() == 0){
 
