@@ -9,9 +9,25 @@ public class Biblioteca {
 
 
 
-    
+    public void agregarLibro(String isbn, Libro l){
+
+        base.put(isbn,l);
+
+    }    
 
 
+    public Libro buscarLibro(String isbn){
+
+        if(base.containsKey(isbn)){
+            
+            Libro l =base.get(isbn);
+
+            return l;
+            }
+
+            else return null;
+
+    }
 
 
 }
