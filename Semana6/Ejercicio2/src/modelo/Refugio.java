@@ -25,7 +25,9 @@ public class Refugio {
                     animales.remove(i);
                     System.out.println("Se ha eliminado al animal "+ a);
 
+                    return;
                 }
+                
                 
             }
 
@@ -96,6 +98,9 @@ public class Refugio {
 
                 System.out.printf("Introduzca los apellidos del cuidador: ");
                 a.setApellidos(sc.nextLine());
+
+                System.out.printf("¿El cuidador tiene formación?(S/N): ");
+                a.setFormacion(sc.nextLine());
 
 
             return;

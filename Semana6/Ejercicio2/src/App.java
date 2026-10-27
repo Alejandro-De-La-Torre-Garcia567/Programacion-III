@@ -52,9 +52,19 @@ public class App{
                 a.setPeso(sc.nextFloat());
                 sc.nextLine();
 
+                if(a.getPeso()==-1){
+
+                    continue;
+                }
+
                 System.out.printf("Introduzca el consumo del animal: ");
                 a.setConsumo(sc.nextFloat());
                 sc.nextLine();
+
+                if(a.getConsumo()==-1){
+
+                    continue;
+                }
 
                 System.out.printf("Introduzca el nombre del cuidador: ");
                 a.setNombreC(sc.nextLine());
@@ -62,7 +72,8 @@ public class App{
                 System.out.printf("Introduzca los apellidos del cuidador: ");
                 a.setApellidos(sc.nextLine());
 
-
+                System.out.printf("¿El cuidador tiene formación?(S/N): ");
+                a.setFormacion(sc.nextLine());
 
             miRefugio.añadirAnimal(a);
             
