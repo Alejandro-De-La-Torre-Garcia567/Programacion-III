@@ -4,19 +4,25 @@ public class Concesionario {
 
    private Coche[] lista;
    private int i;
+   private boolean existe;
 
 
 
 
 public Concesionario(){
 
-
+    this.existe=false;
     this.i=0;
+}
+
+public boolean getExiste(){
+
+    return this.existe;
 }
 
 
 public int getContador(){
-    
+
     return this.i;
 }
 
@@ -28,6 +34,7 @@ public void setLista(int n){
         return;
     }
 
+    this.existe=true;
     this.lista= new Coche[n];
 
 }

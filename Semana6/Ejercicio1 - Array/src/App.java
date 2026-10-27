@@ -20,16 +20,25 @@ public class App{
         System.out.printf("\n\nMENÚ\n\n");
         System.out.printf("1: Establecer el tamaño del registro del sistema\n");
         System.out.printf("2: Añadir un nuevo coche al sistema\n");
-        System.out.printf("3: Buscar un coche específico en el sistema\n");
-        System.out.printf("4: Actualizar la información de un coche específico\n");
-        System.out.printf("5: Eliminar un coche específico del sistema\n");
-        System.out.printf("6: Salida del programa\n");
+        System.out.printf("3: Lista de todos los vehículos en el sistema");
+        System.out.printf("4: Buscar un coche específico en el sistema\n");
+        System.out.printf("5: Actualizar la información de un coche específico\n");
+        System.out.printf("6: Eliminar un coche específico del sistema\n");
+        System.out.printf("7: Salida del programa (se eliminará el registro)\n");
 
         System.out.printf("\nElija una opción: ");
         o=sc.nextInt();
         sc.nextLine();
 
-        if(o==2){
+        System.out.printf("\n\n\n(Antes de utilizar el resto de opciones debe crear un registro)\n\n");
+
+
+        if(o==1){
+
+            System.out.printf("\n\nIntroduzca el tamaño del registro: ");
+            cn.setLista(sc.nextInt());
+
+        }else if(o==2 && cn.getExiste()){
 
         c=new Coche();
 
@@ -48,25 +57,25 @@ public class App{
 
 
         if(c.getPrecio()==0){
+            System.out.printf("No se ha añadido nada\n");
             continue;
         }
 
         
-       cn.
-
+       cn.añadirCoche(c);
         System.out.printf("\n\nVehículo añadido correctamente");
 
 
         
 
 
-        }else if(o==2){
+        }else if(o==3 && cn.getExiste()){
 
         System.out.printf("\n\nVEHICULOS REGISTRADOS\n\n");
         cn.imprimirLista();
 
 
-        }else if(o==3){
+        }else if(o==4 && cn.getExiste()){
 
             int k;
 
@@ -75,13 +84,13 @@ public class App{
 
             if(k==-1){
 
-                System.out.printf("No se ha encontrado el vehículo");
-            
+                continue;
+
             }else
 
                 System.out.printf("El vehículo se encuentra en la posición %d",k);
 
-        }else if(o==4){
+        }else if(o==5 && cn.getExiste()){
 
             System.out.printf("Introduzca la matrícula del vehículo a actualizar: ");
             String matricula= sc.nextLine();
@@ -101,11 +110,12 @@ public class App{
 
             if(i==-1){
 
-                System.out.println("No se ha encontrado el vehículo en el sistema");
+
+                continue;
             }
 
 
-        }else if(o==5){
+        }else if(o==6 && cn.getExiste()){
 
 
             System.out.printf("Introduzca la matrícula del vehículo a eliminar del sistema: ");
@@ -121,7 +131,7 @@ public class App{
 
         System.out.printf("\nHa elegido una opción incorrecta, vuelva a intentarlo\n\n");
 
-        }while(o!=6);
+        }while(o!=7);
 
 
 
