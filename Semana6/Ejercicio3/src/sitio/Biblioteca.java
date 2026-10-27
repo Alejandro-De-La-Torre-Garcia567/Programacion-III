@@ -42,4 +42,30 @@ public class Biblioteca {
     }
 
 
+    public int eliminarLibro(String isbn){
+
+        if(base.containsKey(isbn)){
+
+            base.remove(isbn);
+            return 1;
+
+        }
+
+        System.out.println("No se ha encontrado el libro a eliminar en el sistema");
+
+        return -1;
+    }
+
+
+    public void mostrarLibros(){
+
+        for(Libro t:base.values()){
+
+
+            System.out.println(t);
+        }
+
+
+    }
+
 }

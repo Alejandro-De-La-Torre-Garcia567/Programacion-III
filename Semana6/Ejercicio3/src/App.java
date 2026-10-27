@@ -53,7 +53,9 @@ public class App{
 
         }else if(o==2){
 
+            System.out.println("LISTA DE TODOS LOS LIBROS EN EL SISTEMA\n\n");
 
+            bl.mostrarLibros();
 
 
 
@@ -62,6 +64,15 @@ public class App{
 
             System.out.printf("Introduzca el Isbn del libro a buscar: ");
             Libro t=bl.buscarLibro(sc.nextLine());
+            
+
+            if(t==null){
+
+            System.out.printf("No se encontró ningún libro con ese isbn");
+            continue;
+            }
+
+            
 
             System.out.printf("Título: %s\n\nGénero: %s\n\nAutor: %s\n",t.getTitulo(),t.getGenero(),t.getAutor());
 
@@ -78,7 +89,7 @@ public class App{
 
                 continue;
             }
-            
+
             System.out.printf("Introduzca el título del libro: ");
             t.setTitulo(sc.nextLine());
 
@@ -89,13 +100,12 @@ public class App{
             System.out.printf("Introduzca el género del libro: ");
             t.setGenero(sc.nextLine());
 
-            System.out.printf("Introduzca el isbn del libro: ");
-            t.setIsbn(sc.nextLine());
 
             
         }else if(o==5){
 
-
+            System.out.printf("Introduzca el isbn del libro a eliminar: ");
+            bl.eliminarLibro(sc.nextLine());   
 
         }else
 
