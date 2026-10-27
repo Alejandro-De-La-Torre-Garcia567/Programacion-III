@@ -1,6 +1,7 @@
 package modelo;
 import java.util.ArrayList;
 import modelo.Animal;
+import java.util.Scanner;
 
 public class Refugio {
 
@@ -13,6 +14,49 @@ public class Refugio {
         this.precio=3;
 
     }
+
+
+    public void actualizarAnimal(String nombre){
+
+        Scanner sc = new Scanner(System.in);
+
+        for(Animal a: animales){
+
+           if(a.getNombre().equalsIgnoreCase(nombre)){
+
+                System.out.printf("Introduzca el nombre del animal: ");
+                a.setNombre(sc.nextLine());
+
+                System.out.printf("Introduzca la especie del animal: ");
+                a.setEspecie(sc.nextLine());
+
+                System.out.printf("Introduzca el peso del animal: ");
+                a.setPeso(sc.nextFloat());
+                sc.nextLine();
+
+                System.out.printf("Introduzca el consumo del animal: ");
+                a.setConsumo(sc.nextFloat());
+                sc.nextLine();
+
+                System.out.printf("Introduzca el nombre del cuidador: ");
+                a.setNombreC(sc.nextLine());
+
+                System.out.printf("Introduzca los apellidos del cuidador: ");
+                a.setApellidos(sc.nextLine());
+
+
+            return;
+
+           }
+
+           
+         
+        }
+        sc.close();
+        System.out.printf("No se ha encontrado ningún animal con ese nombre");
+    }
+
+
 
     public float calcularPesoMedio(){
 
@@ -58,7 +102,6 @@ public class Refugio {
 
     }
 
-    public boolean existeRegistro(){ return animales!=null;}
 
 
     public void setPrecio(float p){

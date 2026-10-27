@@ -22,10 +22,10 @@ public class App{
             System.out.printf("|---------------------------------------------------|\n");
             System.out.printf("| 1) Añadir un nuevo animal                         |\n");
             System.out.printf("| 2) Configurar el precio del alimento por kg       |\n");
-            System.out.printf("| 3) Añadir un nuevo animal al refugio              |\n");
-            System.out.printf("| 3) Eliminar un animal del refugio                 |\n");
-            System.out.printf("| 4) Mostrar información de los animales            |\n");
-            System.out.printf("| 5) Salir (se borrará toda la información)         |\n");
+            System.out.printf("| 3) Actualizar la información de un animal         |\n");
+            System.out.printf("| 4) Eliminar un animal del refugio                 |\n");
+            System.out.printf("| 5) Mostrar información de los animales            |\n");
+            System.out.printf("| 6) Salir (se borrará toda la información)         |\n");
             System.out.printf("|---------------------------------------------------|\n");
             
             
@@ -66,19 +66,23 @@ public class App{
             
             }else if(opcion==2){
 
-           
 
-            }else if(opcion==3 && miRefugio.existeRegistro()){
+            System.out.printf("Introduzca el precio del alimento por kg (para todos los animales): ");
 
-                Animal animal = new Animal();
-        
+            miRefugio.setPrecio(sc.nextFloat());
+            sc.nextLine();
 
+
+
+            }else if(opcion==3){
+
+                System.out.printf("Introduzca el nombre del animal a actualizar: ");
+                miRefugio.actualizarAnimal(sc.nextLine());
                
-               
 
+            }else if (opcion==4){
 
-            }else if (opcion==4 && miRefugio.existeRegistro()){
-
+                
 
             }else if(opcion==5){
 
