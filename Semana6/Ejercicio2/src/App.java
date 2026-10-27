@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import modelo.*;
-import java.util.ArrayList;
+
+
+
 
 public class App{
 
@@ -30,8 +32,9 @@ public class App{
             
             
             
-            System.out.printf("Introduzca una opción (1-5");
+            System.out.printf("Introduzca una opción (1-6): ");
             opcion=sc.nextInt();    
+            sc.nextLine();
 
 
 
@@ -63,7 +66,6 @@ public class App{
 
             miRefugio.añadirAnimal(a);
             
-            
             }else if(opcion==2){
 
 
@@ -77,14 +79,17 @@ public class App{
             }else if(opcion==3){
 
                 System.out.printf("Introduzca el nombre del animal a actualizar: ");
-                miRefugio.actualizarAnimal(sc.nextLine());
+                miRefugio.actualizarAnimal(sc.nextLine(), sc);
                
 
             }else if (opcion==4){
 
-                
+                System.out.println("Introduzca el nombre del animal que desea eliminar: ");
+                miRefugio.eliminarAnimal(sc.nextLine());
 
             }else if(opcion==5){
+                
+                miRefugio.mostrarAnimales();
 
 
             }else{
@@ -97,14 +102,14 @@ public class App{
            
             }
             
-            }while (opcion!=5);
+            }while (opcion!=6);
 
 
-
+             sc.close();
         }
     
     
-    
+       
     }
 
 

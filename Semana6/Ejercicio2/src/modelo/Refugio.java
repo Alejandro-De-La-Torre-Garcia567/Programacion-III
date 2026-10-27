@@ -1,6 +1,5 @@
 package modelo;
 import java.util.ArrayList;
-import modelo.Animal;
 import java.util.Scanner;
 
 public class Refugio {
@@ -15,10 +14,64 @@ public class Refugio {
 
     }
 
+    public void eliminarAnimal(String a){
 
-    public void actualizarAnimal(String nombre){
+            int i;
 
-        Scanner sc = new Scanner(System.in);
+            for(i=0;i<animales.size();i++){
+
+                if(animales.get(i).getNombre().equalsIgnoreCase(a)){
+
+                    animales.remove(i);
+                    System.out.println("Se ha eliminado al animal "+ a);
+
+                }
+                
+            }
+
+        System.out.println("No se ha encontrado el animal en el sistema");
+    }
+
+
+    public void mostrarLista(){
+
+        int i;
+
+        if(animales.size() == 0){
+
+            System.out.printf("No hay animales registrados en el refugio\n\n");
+            return;
+        }
+
+
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n");
+    System.out.printf("| ANIMALES DEL REFUGIO                                                                       |\n");
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n");            
+    System.out.printf("| Nombre  | Especie | Cuidador        | Formación | Peso  (kg)  | Consumo (kg)  | Coste EUR  |\n");       
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n");            
+
+
+
+    for(i=0;i<animales.size();i++){
+    
+    System.out.printf("| %-8s | %-8s | %s %8s | %s | %-8.2f | %-8.2f | %-8.2f                  |\n", animales.get(i).getNombre(), animales.get(i).getEspecie(), animales.get(i).getNombreC(),animales.get(i).getApellidosC(), animales.get(i).getFormacion(),animales.get(i).getPeso(),animales.get(i).getConsumo(),calcularCosteDiario(i));
+
+    
+
+    }
+
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n");
+    System.out.printf("| Coste diario total de alimentación: %.2f EUR                                              |\n", calcularCosteDiarioTotal());            
+    System.out.printf("| Peso medio de los animales: %.2f kg                                                       |\n",calcularPesoMedio());            
+    System.out.printf("|--------------------------------------------------------------------------------------------|\n\n\n");            
+
+    
+    
+    }
+
+
+    public void actualizarAnimal(String nombre, Scanner sc){
+
 
         for(Animal a: animales){
 
@@ -47,12 +100,11 @@ public class Refugio {
 
             return;
 
+           
            }
 
-           
-         
+       
         }
-        sc.close();
         System.out.printf("No se ha encontrado ningún animal con ese nombre");
     }
 
@@ -161,7 +213,6 @@ public class Refugio {
     
     
     }
-
 
 
 }
