@@ -1,5 +1,134 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+import java.io.Console;
+
+import modelo.*;
+
+
+public class App{
+
+    public static void main(String [] args){
+
+        Console c=System.console();
+
+        if (c==null){
+
+            System.out.printf("Error: No hay una consola disponible");
+            return;
+
+        }
+
+
+        int opcion;
+
+        Refugio miRefugio =new Refugio();
+
+        do{
+
+
+            System.out.printf("|---------------------------------------------------|\n");
+            System.out.printf("| GESTIÓN DEL REFUGIO                               |\n");
+            System.out.printf("|---------------------------------------------------|\n");
+            System.out.printf("| 1) Crear un nuevo registro de animales            |\n");
+            System.out.printf("| 2) Configurar el precio del alimento por kg       |\n");
+            System.out.printf("| 3) Añadir un nuevo animal al refugio              |\n");
+            System.out.printf("| 4) Mostrar información de los animales            |\n");
+            System.out.printf("| 5) Salir (se borrará toda la información)         |\n");
+            System.out.printf("|---------------------------------------------------|\n");
+            
+            
+            
+            try{
+            
+            opcion=Integer.parseInt(c.readLine("\nSeleccione una opción (1-5): "));
+               
+            }catch(Exception e){
+                    System.out.printf("Excepción: espacio introducido como opción\n\n");
+                    opcion=0;
+                    continue;
+                }
+
+            if(opcion==1){
+
+                try{
+            miRefugio.setArray(Integer.parseInt(c.readLine("Introduzca un tamaño para el nuevo registro de animales: ")));
+            }catch(Exception e){
+
+                System.out.printf("Error: Tipo de dato incorrecto\n\n");
+                continue;
+            }
+
+            }else if(opcion==2){
+
+                try{
+                miRefugio.setPrecio(Float.parseFloat(c.readLine("Introduzca el precio por kilogramo: ")));
+                    }catch(Exception e){
+
+                        System.out.printf("Error: Tipo de dato incorrecto\n\n");
+                    }
+
+            }else if(opcion==3 && miRefugio.existeRegistro()){
+
+                Animal animal = new Animal();
+        
+
+                animal.setNombre(c.readLine("Introduzca el nombre del animal: ")); 
+                animal.setEspecie(c.readLine("Introduzca la especie del animal: "));
+               
+
+                try{
+                animal.setPeso(Float.parseFloat(c.readLine("Introduzca el peso del animal: ")));
+                if(animal.getPeso()==-1)continue;
+                    
+                }catch(Exception e){
+
+                        System.out.printf("Error: Tipo de dato incorrecto\n\n");
+                        continue;
+                    }
+
+                    try{
+                animal.setConsumo(Float.parseFloat(c.readLine("Introduzca el consumo de alimento de los animales: ")));
+                if(animal.getConsumo()==-1) continue;
+
+                }catch(Exception e){
+
+                    System.out.printf("Tipo de dato incorrecto\n\n");
+                    continue;
+                }
+
+                animal.setNombreC(c.readLine("Introduzca el nombre del cuidador: ")); 
+                animal.setApellidos(c.readLine("Introduzca los apellidos del cuidador: "));
+                animal.setFormacion(c.readLine("¿El cuidador tiene Fomación? (s/n): "));
+                
+
+
+                miRefugio.añadirAnimal(animal);
+
+               
+               
+
+
+            }else if (opcion==4 && miRefugio.existeRegistro()){
+
+              miRefugio.mostrarAnimales();  
+
+            }else if(opcion==5){
+
+                System.out.printf("Ha salido del programa");
+                System.exit(0);
+
+
+            }else{
+
+
+                System.out.printf("\n\nError: opcion incorrecta o no existe un registro para mostrar o añadir animales, vuelva a intentarlo\n\n\n");
+
+            }
+
+
+
+        }while (opcion!=5);
+
+
+
     }
+
 }
