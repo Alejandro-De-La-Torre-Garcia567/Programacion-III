@@ -57,13 +57,13 @@ public void añadirCoche(Coche c){
 
 public void imprimirLista(){
 
-    int i=1;
+    int i;
 
 
-    for(Coche p: lista){
+    for(i=0;i<this.i;i++){
 
-        System.out.printf("Vehículo %d: %s %s %.2f\n\n",i,p.getModelo(),p.getMatricula(),p.getPrecio());
-        i++;
+        System.out.printf("Vehículo %d: %s %s %.2f\n\n",i+1,lista[i].getModelo(),lista[i].getMatricula(),lista[i].getPrecio());
+        
     }
 
 
@@ -127,6 +127,8 @@ public int eliminarCoche(String matricula){
 
                 }
 
+            lista[i]=null;
+            this.i-=1;
             return 1;
 
         }

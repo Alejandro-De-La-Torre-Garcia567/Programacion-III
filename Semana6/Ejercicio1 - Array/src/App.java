@@ -20,7 +20,7 @@ public class App{
         System.out.printf("\n\nMENÚ\n\n");
         System.out.printf("1: Establecer el tamaño del registro del sistema\n");
         System.out.printf("2: Añadir un nuevo coche al sistema\n");
-        System.out.printf("3: Lista de todos los vehículos en el sistema");
+        System.out.printf("3: Lista de todos los vehículos en el sistema\n");
         System.out.printf("4: Buscar un coche específico en el sistema\n");
         System.out.printf("5: Actualizar la información de un coche específico\n");
         System.out.printf("6: Eliminar un coche específico del sistema\n");
@@ -37,6 +37,7 @@ public class App{
 
             System.out.printf("\n\nIntroduzca el tamaño del registro: ");
             cn.setLista(sc.nextInt());
+            sc.nextLine();
 
         }else if(o==2 && cn.getExiste()){
 
