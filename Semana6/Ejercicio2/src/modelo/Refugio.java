@@ -1,16 +1,15 @@
 package modelo;
+import java.util.ArrayList;
+import modelo.Animal;
 
 public class Refugio {
 
 
-    private Animal [] animales;
+    private ArrayList<Animal> animales= new ArrayList<>();
     private float precio;
-    private int c;
-
 
     public Refugio(){
 
-        this.c=0;
         this.precio=3;
 
     }
@@ -20,19 +19,19 @@ public class Refugio {
         int i;
         float peso=0;
 
-        if(this.c==0){
+        if(animales.size()==0){
 
             System.out.printf("Error: no hay animales registrados en el refugio\n\n");
             return 0;
         }
 
-        for(i=0;i<this.c;i++){
+        for(i=0;i<animales.size();i++){
 
-            peso+=animales[i].getPeso();
+            peso+=animales.get(i).getPeso();
 
         }
 
-        return peso/this.c;
+        return peso/animales.size();
     }
 
 
@@ -41,9 +40,9 @@ public class Refugio {
         int i;
         float coste=0;
 
-        for(i=0;i<this.c;i++){
+        for(i=0;i<animales.size();i++){
 
-            coste+=this.precio*animales[i].getConsumo();
+            coste+=this.precio*animales.get(i).getConsumo();
             
         }
 
@@ -54,7 +53,7 @@ public class Refugio {
 
        public float calcularCosteDiario(int i){
 
-           return this.precio*animales[i].getConsumo();
+           return this.precio*animales.get(i).getConsumo();
 
 
     }
@@ -76,40 +75,19 @@ public class Refugio {
     }
 
 
-    public void setArray(int c){
-
-        if(c<=0){
-
-            System.out.printf("Error: la cantidad debe ser mayor a cero\n\n");
-        return;
-        }
-
-        this.c=0;
-        this.animales=new Animal[c];
-
-    }
-
 
     public void añadirAnimal(Animal a){
     
-        if(c==(animales.length)){
+        this.animales.add(a);
 
-            System.out.printf("El registro de animales está lleno\n\n");
-            return;
-
-        }
-
-        this.animales[c]=a;
-        this.c++;
     }
 
 
 
     public void mostrarAnimales(){
-
         int i;
 
-        if(this.c == 0){
+        if(animales.size() == 0){
 
             System.out.printf("No hay animales registrados en el refugio\n\n");
             return;
@@ -124,9 +102,9 @@ public class Refugio {
 
 
 
-    for(i=0;i<this.c;i++){
+    for(i=0;i<animales.size();i++){
     
-    System.out.printf("| %-8s | %-8s | %s %8s | %s | %-8.2f | %-8.2f | %-8.2f                  |\n", animales[i].getNombre(), animales[i].getEspecie(), animales[i].getNombreC(),animales[i].getApellidosC(), animales[i].getFormacion(),animales[i].getPeso(),animales[i].getConsumo(),calcularCosteDiario(i));
+    System.out.printf("| %-8s | %-8s | %s %8s | %s | %-8.2f | %-8.2f | %-8.2f                  |\n", animales.get(i).getNombre(), animales.get(i).getEspecie(), animales.get(i).getNombreC(),animales.get(i).getApellidosC(), animales.get(i).getFormacion(),animales.get(i).getPeso(),animales.get(i).getConsumo(),calcularCosteDiario(i));
 
     
 
