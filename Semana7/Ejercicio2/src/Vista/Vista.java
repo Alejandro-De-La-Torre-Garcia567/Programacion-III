@@ -38,15 +38,19 @@ public class Vista {
 
     public void showFinalResults(int i,double ingresosPorAlmacen){
 
-        System.out.printf("Almacen %d: %.3f\n",i+1,ingresosPorAlmacen);
+        System.out.printf("Almacen %d: %.2f\n",i+1,ingresosPorAlmacen);
     
     }
 
 
     public void showTotal(double t){
 
-        System.out.printf("Total de ingresos entre todos los almacenes: %f", t);
+        System.out.printf("\nTotal de ingresos entre todos los almacenes: %.2f", t);
     }
 
+    public void buffer(){
+
+        sc.nextLine();
+    }
 
 }

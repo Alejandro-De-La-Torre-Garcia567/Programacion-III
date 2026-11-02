@@ -22,7 +22,9 @@ public class Controlador {
 
 
         while(t){
-    
+            
+            v.showMessage("\n\n");
+
             v.showMenu();
             String o= v.getUserOption();
 
@@ -30,6 +32,7 @@ public class Controlador {
             if(o.equals("q")){
 
                 v.showMessage("\n\nSaliendo del programa");
+                break;
 
             
             }else if(1==Integer.parseInt(o)){
@@ -38,6 +41,7 @@ public class Controlador {
 
                 if(ventas==true){
 
+                    v.showMessage("\n\nSe han eliminado los almacenes anteriores\n\n");
                 m.deleteAlmacen();
 
                 }
@@ -47,7 +51,7 @@ public class Controlador {
                     m.setAlmacen();
 
                     v.getAlmacenUnidadesText("\n\nIntroduzca la cantidad de unidades vendidas por el almacen %d del primer producto: ",i);
-                    m.setUnidades1(i,v.getAlmacenUnidades());
+                    m.setUnidades1(v.getAlmacenUnidades(),i);
                     
                 }
 
@@ -55,10 +59,11 @@ public class Controlador {
                 for(i=0;i<5;i++){
 
                     v.getAlmacenUnidadesText("\n\nIntroduzca la cantidad de unidades vendidas por el almacen %d del segundo producto: ",i);
-                    m.setUnidades2(i,v.getAlmacenUnidades());
+                    m.setUnidades2(v.getAlmacenUnidades(),i);
                     
                 }
 
+                v.buffer();
 
                 ventas=true;
 
@@ -67,11 +72,13 @@ public class Controlador {
             }else if(2==Integer.parseInt(o) && ventas){
 
 
-                v.showMessage("Introduzca el precio global para el producto 1");
+                v.showMessage("Introduzca el precio global para el producto 1: ");
                 m.setPrecio1(v.getUserPrecio());
 
-                v.showMessage("\nIntroduzca el precio global para el producto 2");
+                v.showMessage("\nIntroduzca el precio global para el producto 2: ");
                 m.setPrecio2(v.getUserPrecio());
+
+                v.buffer();
 
                 precios=true;
 
