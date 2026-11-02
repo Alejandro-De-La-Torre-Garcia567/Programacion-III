@@ -2,7 +2,7 @@ package Modelo;
 
 public class Modelo {
 
-    private int num1,num2,suma,resta;
+    private int num1,num2,suma;
     
 
     public void setNum1(int n){
@@ -17,17 +17,10 @@ public class Modelo {
        this.suma=this.num1+this.num2;
     }
 
-    public void calcularResta(){
-        this.resta=this.num1-this.num2;
-    }
-
     public int getSuma(){
         return suma;
     }
 
-    public int getResta(){
-        return resta;
-    }
 
     public int getNum1(){
         return this.num1;
