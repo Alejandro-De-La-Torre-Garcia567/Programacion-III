@@ -157,7 +157,7 @@ class Almacen{
 
     public void calcularIngresos2(double precio2){
 
-        this.ingresos1= precio2* this.unidades2;
+        this.ingresos2= precio2* this.unidades2;
     }
 
 
