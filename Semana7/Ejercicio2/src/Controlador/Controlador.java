@@ -26,9 +26,21 @@ public class Controlador {
             v.showMenu();
             String o= v.getUserOption();
 
-            if(1==Integer.parseInt(o)){
+
+            if(o.equals("q")){
+
+                v.showMessage("\n\nSaliendo del programa");
+
+            
+            }else if(1==Integer.parseInt(o)){
 
                 int i;
+
+                if(ventas==true){
+
+                m.deleteAlmacen();
+
+                }
 
                 for(i=0;i<5;i++){
 
@@ -42,8 +54,6 @@ public class Controlador {
 
                 for(i=0;i<5;i++){
 
-                    m.setAlmacen();
-
                     v.getAlmacenUnidadesText("\n\nIntroduzca la cantidad de unidades vendidas por el almacen %d del segundo producto: ",i);
                     m.setUnidades2(i,v.getAlmacenUnidades());
                     
@@ -53,10 +63,11 @@ public class Controlador {
                 ventas=true;
 
 
-                
+
             }else if(2==Integer.parseInt(o) && ventas){
 
 
+                
 
 
                 precios=true;
@@ -74,9 +85,6 @@ public class Controlador {
 
 
 
-            }else if(v.getUserOption().equals("q")){
-
-                v.showMessage("\n\nSaliendo del programa");
 
             }else
 

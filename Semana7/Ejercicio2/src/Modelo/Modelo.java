@@ -15,6 +15,11 @@ public class Modelo {
         lista.add(new Almacen());
     }
 
+    public void deleteAlmacen(){
+
+        lista.clear();
+    }
+
     public void setPrecio1(double p1){
 
         this.precio1=p1;
