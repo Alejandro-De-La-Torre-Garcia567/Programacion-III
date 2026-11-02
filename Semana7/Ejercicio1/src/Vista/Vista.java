@@ -12,13 +12,26 @@ public class Vista {
     }
 
 
-    public int getNumberInput(){
-
+    public int getNumberInput(String prompt){
+        System.out.printf("%s",prompt);
         return sc.nextInt();
     }
 
 
-    
+    public void showResult(int r,String resultado){
 
+        System.out.printf("%s",resultado);
+        System.out.printf("%d",r);
+
+    }
+
+
+    public int getOption(){
+        return sc.nextInt();
+    }
+
+    public void showMessage(String m){
+        System.out.printf("%s",m);
+    }
 
 }
