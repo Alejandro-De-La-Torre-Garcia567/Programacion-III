@@ -12,6 +12,7 @@ public class Vista {
     }
 
     public String getUserOption(){
+        System.out.printf("\n\nIntroduzca una opción: ");
         return sc.nextLine();
     }
 
@@ -19,12 +20,23 @@ public class Vista {
         System.out.printf("%s",m);
     }
 
-    public double getNumber(String m){
+    public double getUserData(){
 
-        System.out.printf("%s",m);
         return sc.nextDouble();
         
     }
+
+    public int getAlmacenUnidades(){
+
+        return sc.nextInt();
+    }
+
+    public void getAlmacenUnidadesText(String m, int i){
+
+        System.out.printf(m,i+1);
+    }
+
+
 
 
 }
