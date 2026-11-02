@@ -67,24 +67,42 @@ public class Controlador {
             }else if(2==Integer.parseInt(o) && ventas){
 
 
-                
+                v.showMessage("Introduzca el precio global para el producto 1");
+                m.setPrecio1(v.getUserPrecio());
 
+                v.showMessage("\nIntroduzca el precio global para el producto 2");
+                m.setPrecio2(v.getUserPrecio());
 
                 precios=true;
 
             }else if(3==Integer.parseInt(o) && precios && ventas){
             
 
+                int i;
+
+                for(i=0;i<5;i++){
+
+                    m.calcularIngresos1(i);
+                    m.calcularIngresos2(i);
+                }
+
+                m.calcularIngresosTotales();
+                v.showMessage("\n\nIngresos calculados correctamente\n\n");
 
 
-                
                 calculos=true;
 
             }else if(4==Integer.parseInt(o) && precios && ventas && calculos){
 
+                int i;
 
+                for(i=0;i<5;i++){
 
+                    v.showFinalResults(i,m.getIngresos1(i)+m.getIngresos2(i));
 
+                }
+
+                v.showTotal(m.getIngresosTotales());
 
             }else
 

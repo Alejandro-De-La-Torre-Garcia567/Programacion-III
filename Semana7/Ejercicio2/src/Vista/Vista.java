@@ -20,7 +20,7 @@ public class Vista {
         System.out.printf("%s",m);
     }
 
-    public double getUserData(){
+    public double getUserPrecio(){
 
         return sc.nextDouble();
         
@@ -36,7 +36,17 @@ public class Vista {
         System.out.printf(m,i+1);
     }
 
+    public void showFinalResults(int i,double ingresosPorAlmacen){
 
+        System.out.printf("Almacen %d: %.3f\n",i+1,ingresosPorAlmacen);
+    
+    }
+
+
+    public void showTotal(double t){
+
+        System.out.printf("Total de ingresos entre todos los almacenes: %f", t);
+    }
 
 
 }
