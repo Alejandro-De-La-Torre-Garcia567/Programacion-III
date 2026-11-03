@@ -32,4 +32,30 @@ public class ModeloArrays {
 
         return false;
     }
+
+    public boolean modificarPersona(String nombre, String nuevoNombre, int nuevaEdad, double nuevaAltura) {
+        for (int i = 0; i < personaCount; i++) {
+            if (personas[i].getNombre().equals(nombre)) {
+                personas[i].setNombre(nuevoNombre);
+                personas[i].setEdad(nuevaEdad);
+                personas[i].setAltura(nuevaAltura);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public String listarPersonas() {
+        if (personaCount == 0) {
+            return "No hay personas en el array.";
+        }
+
+        String resultado = "";
+        for (int i = 0; i < personaCount; i++) {
+            resultado += personas[i].getEstadoComoString() + "\n";
+        }
+
+        return resultado;
+    }
 }
