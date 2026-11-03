@@ -1,8 +1,16 @@
 package ejerciciocrudarrays;
 
+import ejerciciocrudarrays.MVC_Arrays.C.ControladorArrays;
+import ejerciciocrudarrays.MVC_Arrays.M.ModeloArrays;
+import ejerciciocrudarrays.MVC_Arrays.V.VistaArrays;
+
 public class Principal_Arrays {
 
     public static void main(String[] args) {
-        // En las siguientes tandas conectaremos el modelo, la vista y el controlador.
+        ModeloArrays modelo = new ModeloArrays();
+        VistaArrays vista = new VistaArrays();
+        ControladorArrays controlador = new ControladorArrays();
+
+        controlador.run(modelo, vista);
     }
 }
