@@ -1,14 +1,107 @@
 package ejerciciocrudcollections.MVC_ArrayList.ModeloArrayList;
 import java.util.ArrayList;
+import static es.usal.progiii.tools.Esdia.*;
+import java.util.Iterator;
+
 
 public class ModeloArrayList {
 
 
-    ArrayList<Persona>lista=new ArrayList<>();
+    private ArrayList<Persona>personas=new ArrayList<>();
+
+
 
     
+    public void agregarPersona(String nombre, int edad, double altura) {
 
+        personas.add(new Persona(nombre, edad, altura));
 
+    }
+
+    public void eliminarPersonaConIterator() {
+        String nombre = readString_ne("Ingrese el nombre de la persona a eliminar: ");
+        boolean eliminado = false;
+        Iterator<Persona> iterator = personas.iterator();
+        while (iterator.hasNext()) {
+            Persona persona = iterator.next();
+            if (persona.getNombre().equals(nombre)) {
+                iterator.remove();
+                eliminado = true;
+                break;
+            }
+        }
+
+        if (eliminado) {
+            System.out.println("Persona eliminada.");
+        } else {
+            System.out.println("Persona no encontrada.");
+        }
+    }
+
+    public void eliminarPersona() {
+
+        String nombre = readString_ne("Ingrese el nombre de la persona a eliminar: ");
+        Persona personaAEliminar = null;
+
+        // Atención se debe tener especial cuidado cuando se recorre una
+        // colección y se elimina uno de sus elementos. No deberíamos
+        // eliminar un elemento empleando el bucle for each
+        // Como alternativa se podría eliminar utilizando un iterator.
+        for (Persona persona : personas) {
+            if (persona.getNombre().equals(nombre)) {
+                personaAEliminar = persona;
+                break;
+            }
+        }
+        if (personaAEliminar != null) {
+            personas.remove(personaAEliminar);
+            System.out.println("Persona eliminada.");
+        } else {
+            System.out.println("Persona no encontrada.");
+        }
+    }
+
+    public boolean modificarPersona(String nombre,String nuevoNombre, int nuevaEdad, double nuevaAltura) {
+
+        boolean e=true;
+
+        Persona personaAModificar = null;
+        for (Persona persona : personas) {
+            if (persona.getNombre().equals(nombre)) {
+                personaAModificar = persona;
+                break;
+            }
+        }
+        if (personaAModificar != null) {
+            personaAModificar.setNombre(nuevoNombre);
+            personaAModificar.setEdad(nuevaEdad);
+            personaAModificar.setAltura(nuevaAltura);
+        
+        return e;
+        
+        } else {
+            
+            e=false;
+            return e;
+        }
+    }
+
+    public boolean listarPersonas() {
+
+        boolean a=true;
+
+        if (personas.isEmpty()) {
+
+            a=false;
+            return a;
+        }
+
+        for (Persona persona : personas) {
+            System.out.println(persona.getEstadoComoString());
+        }
+
+        return a;
+    }
 
 
 }
