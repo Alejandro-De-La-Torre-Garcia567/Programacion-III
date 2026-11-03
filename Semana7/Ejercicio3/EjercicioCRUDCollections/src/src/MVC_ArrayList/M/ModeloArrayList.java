@@ -68,19 +68,22 @@ public class ModeloArrayList {
         }
     }
 
-    public boolean listarPersonas() {
+    public String listarPersonas() {
 
-        boolean a=true;
+        String r="";
 
         if (personas.isEmpty()) {
 
-            a=false;
-            return a;
+            return "No hay persona en la lista";
+        }else
+
+            
+        for(Persona p: personas){
+
+            r+=(p.getEstadoComoString() + "\n");
         }
 
-
-
-        return a;
+        return r;
     }
 
 

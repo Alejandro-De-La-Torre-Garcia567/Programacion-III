@@ -6,21 +6,20 @@ import src.MVC_ArrayList.V.VistaArrayList;
 
 public class ControladorArrayList {
 
-
-
-
     public void run(ModeloArrayList modelo, VistaArrayList vista ){
 
     
         vista.showMenu();
-        int opcion=vista.getUserOption();
+        int opcion;
         
         do {
 
+            opcion=vista.getUserOption();
 
             switch (opcion) {
                 
                 
+
                 case 1:
 
                     String nombre=vista.getPersonaName();
@@ -34,6 +33,7 @@ public class ControladorArrayList {
                     nombre=vista.getPersonaName();
                     modelo.eliminarPersona(nombre);
                     break;
+                    
                 case 3:
                     
                     nombre=vista.getPersonaName();
@@ -43,8 +43,10 @@ public class ControladorArrayList {
 
                     modelo.modificarPersona(nombre,nuevoNombre,edad,altura);
                     break;
+
                 case 4:
-                    modelo.listarPersonas();
+                    
+                    vista.showMessage(modelo.listarPersonas());
                     break;
                 case 5:
 
