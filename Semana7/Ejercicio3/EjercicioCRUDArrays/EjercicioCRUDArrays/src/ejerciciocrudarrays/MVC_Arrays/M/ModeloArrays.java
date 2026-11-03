@@ -16,4 +16,20 @@ public class ModeloArrays {
         personas[personaCount++] = new Persona(nombre, edad, altura);
         return true;
     }
+
+    public boolean eliminarPersona(String nombre) {
+        for (int i = 0; i < personaCount; i++) {
+            if (personas[i].getNombre().equals(nombre)) {
+                for (int j = i; j < personaCount - 1; j++) {
+                    personas[j] = personas[j + 1];
+                }
+
+                personaCount--;
+                personas[personaCount] = null;
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
