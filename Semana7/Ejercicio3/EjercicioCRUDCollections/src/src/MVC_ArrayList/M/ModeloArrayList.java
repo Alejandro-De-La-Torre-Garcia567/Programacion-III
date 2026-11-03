@@ -35,9 +35,7 @@ public class ModeloArrayList {
             personas.remove(personaAEliminar);
             return p;
         
-        } else {
-            System.out.println("Persona no encontrada.");
-            
+        } else {            
             p=false;
             return p;
         }
@@ -74,7 +72,7 @@ public class ModeloArrayList {
 
         if (personas.isEmpty()) {
 
-            return "No hay persona en la lista";
+            return "No hay personas en la lista";
         }else
 
             

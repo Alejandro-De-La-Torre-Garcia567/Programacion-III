@@ -9,11 +9,12 @@ public class ControladorArrayList {
     public void run(ModeloArrayList modelo, VistaArrayList vista ){
 
     
-        vista.showMenu();
+        
         int opcion;
         
         do {
 
+            vista.showMenu();
             opcion=vista.getUserOption();
 
             switch (opcion) {
@@ -26,14 +27,25 @@ public class ControladorArrayList {
                     int edad=vista.getPersonaAge();
                     double altura=vista.getPersonaHeight();
                     modelo.agregarPersona(nombre,edad,altura);
+
+                    vista.showMessage("Persona añadida correctamente");
+
                     break;
+                    
                 
                 case 2:
 
                     nombre=vista.getPersonaName();
-                    modelo.eliminarPersona(nombre);
+
+                   if(modelo.eliminarPersona(nombre)==false){
+                    vista.showMessage("No se ha encontrado ninguna persona con ese nombre");
+                   
                     break;
+                    }
                     
+                    vista.showMessage("Persona eliminada correctamente");
+                    break;
+
                 case 3:
                     
                     nombre=vista.getPersonaName();
@@ -41,7 +53,14 @@ public class ControladorArrayList {
                     edad=vista.getPersonaAge();
                     altura=vista.getPersonaHeight();
 
-                    modelo.modificarPersona(nombre,nuevoNombre,edad,altura);
+                    if(modelo.modificarPersona(nombre,nuevoNombre,edad,altura)==false){
+
+                        vista.showMessage("No se ha encontrado ninguna persona con ese nombre");
+                        break;
+                    }
+
+                    vista.showMessage("Persona modificada correctamente");
+
                     break;
 
                 case 4:

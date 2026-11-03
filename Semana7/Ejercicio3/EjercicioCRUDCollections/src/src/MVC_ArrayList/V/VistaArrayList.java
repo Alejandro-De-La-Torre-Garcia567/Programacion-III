@@ -54,7 +54,7 @@ public class VistaArrayList {
 
     public String getPersonaNewName(){
 
-        return readString_ne("Introduzca un nombre nuevo para la persona eligida");
+        return readString_ne("Introduzca un nombre nuevo para la persona eligida: ");
     }
 
 
