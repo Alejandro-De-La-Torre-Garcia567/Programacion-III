@@ -2,16 +2,15 @@ package src.MVC_HashMap.C;
 import src.MVC_HashMap.V.*;
 import src.MVC_HashMap.M.*;
 
-import static es.usal.progiii.tools.Esdia.readInt;
-
-public class Controlador_HashMap {
+public class ControladorHashMap {
 
         public void run(ModeloHashMap modelo, VistaHashMap vista){
+        int opcion;
 
         do {
-            int opcion;
+            vista.showMenu();
             opcion = vista.getUserOption();
-
+            
             switch (opcion) {
                 case 1:
 
@@ -26,6 +25,7 @@ public class Controlador_HashMap {
 
                 case 2:
 
+                    dni=vista.getPersonaDni();
 
                     if(false==modelo.eliminarPersona(dni)){
 
@@ -44,12 +44,19 @@ public class Controlador_HashMap {
                     edad=vista.getPersonaAge();
                     altura=vista.getPersonaHeight();
                     
-                    if(modelo.modificarPersona(dni,nombre,edad,altura);
+                    if (!modelo.modificarPersona(dni, nombre, edad, altura)) {
 
+                        vista.showMessage("No se ha encontrado a ninguna persona con ese DNI");
+                    } else {
+                        vista.showMessage("Persona modificada correctamente");
+                    }
 
                     break;
+
                 case 4:
-                    listarPersonas();
+
+                    vista.showMessage(modelo.listarPersonas());
+
                     break;
                 case 5:
                     System.out.println("¡Hasta luego!");

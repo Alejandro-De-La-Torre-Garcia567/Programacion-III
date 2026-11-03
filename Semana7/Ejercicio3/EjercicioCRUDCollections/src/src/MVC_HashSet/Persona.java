@@ -1,9 +1,6 @@
 package ejerciciocrudcollections;
 
-/**
- *
- * @author Loza
- */
+
 public class Persona {
     
     private String nombre;

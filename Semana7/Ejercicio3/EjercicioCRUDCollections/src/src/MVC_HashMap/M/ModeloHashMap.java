@@ -57,7 +57,7 @@ public class ModeloHashMap {
 
         for(Persona p: personas.values()){
 
-            r+=p.getEstadoComoString();
+            r += p.getEstadoComoString() + "\n";
         }
 
         return r;
@@ -68,7 +68,7 @@ public class ModeloHashMap {
 
  class Persona {
     
-    private String nombre, DNI;
+    private String nombre;
     private int edad;
     private double altura;
 
@@ -76,7 +76,6 @@ public class ModeloHashMap {
         this.nombre = nombre;
         this.edad = edad;
         this.altura = altura;
-        this.DNI=DNI;
     }
 
     public String getNombre() {
