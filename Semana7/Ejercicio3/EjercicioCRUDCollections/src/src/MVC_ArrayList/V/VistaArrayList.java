@@ -47,10 +47,15 @@ public class VistaArrayList {
 
     public int getUserOption(){
 
-    int opcion;
-
-       return opcion = readInt("Ingrese una opción: ");
+       return readInt("Ingrese una opción: ");
 
     }
+
+
+    public String getPersonaNewName(){
+
+        return readString_ne("Introduzca un nombre nuevo para la persona eligida");
+    }
+
 
 }

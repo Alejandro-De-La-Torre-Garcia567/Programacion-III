@@ -12,9 +12,8 @@ public class ControladorArrayList {
     public void run(ModeloArrayList modelo, VistaArrayList vista ){
 
     
-
-        int opcion;
-
+        vista.showMenu();
+        int opcion=vista.getUserOption();
         
         do {
 
@@ -32,20 +31,28 @@ public class ControladorArrayList {
                 
                 case 2:
 
-                
-                    eliminarPersona();
+                    nombre=vista.getPersonaName();
+                    modelo.eliminarPersona(nombre);
                     break;
                 case 3:
-                    modificarPersona();
+                    
+                    nombre=vista.getPersonaName();
+                    String nuevoNombre=vista.getPersonaNewName();
+                    edad=vista.getPersonaAge();
+                    altura=vista.getPersonaHeight();
+
+                    modelo.modificarPersona(nombre,nuevoNombre,edad,altura);
                     break;
                 case 4:
-                    listarPersonas();
+                    modelo.listarPersonas();
                     break;
                 case 5:
-                    System.out.println("¡Hasta luego!");
+
+                    vista.showMessage("Saliendo del programa");
                     break;
                 default:
-                    System.out.println("Opción no válida.");
+                
+                vista.showMessage("Opción no válida");
             }
         } while (opcion != 5);
 

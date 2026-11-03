@@ -1,6 +1,5 @@
 package src.MVC_ArrayList.M;
 import java.util.ArrayList;
-import static es.usal.progiii.tools.Esdia.*;
 
 public class ModeloArrayList {
 
@@ -17,10 +16,9 @@ public class ModeloArrayList {
     }
 
 
-    public boolean eliminarPersona() {
+    public boolean eliminarPersona(String nombre) {
 
         boolean p=true;
-        String nombre = readString_ne("Ingrese el nombre de la persona a eliminar: ");
         Persona personaAEliminar = null;
 
         // Atención se debe tener especial cuidado cuando se recorre una
