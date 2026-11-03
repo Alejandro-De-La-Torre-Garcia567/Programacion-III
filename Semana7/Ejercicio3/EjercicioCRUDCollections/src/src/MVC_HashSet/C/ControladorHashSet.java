@@ -27,6 +27,7 @@ public class ControladorHashSet {
                 }
                 case 2: {
                     String nombre = vista.getPersonaName();
+
                     if (modelo.eliminarPersona(nombre)) {
                         vista.showMessage("Persona eliminada correctamente.");
                     } else {
