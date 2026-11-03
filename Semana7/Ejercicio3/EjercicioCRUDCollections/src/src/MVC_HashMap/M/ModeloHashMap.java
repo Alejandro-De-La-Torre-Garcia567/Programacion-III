@@ -1,9 +1,8 @@
 package src.MVC_HashMap.M;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class ModeloArrayList {
+public class ModeloHashMap {
 
 
     private HashMap<String,Persona>personas= new HashMap<>();

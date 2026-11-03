@@ -2,7 +2,7 @@ package src.MVC_HashMap.V;
 import static es.usal.progiii.tools.Esdia.*;
 
 
-public class Vista_HashMap {
+public class VistaHashMap {
 
 
     public void showMenu(){
@@ -16,6 +16,16 @@ public class Vista_HashMap {
         }
 
 
+        public int getPersonaAge(){
+
+            return readInt("Introduzca la edad de la persona: ");
+        }
+
+
+        public double getPersonaHeight(){
+
+            return readDouble("Introduzca la altura de la persona: ");
+        }
 
         public void showMessage(String prompt){
 
@@ -28,6 +38,10 @@ public class Vista_HashMap {
             return readInt("Introduzca una opción: ");
         }
 
+        public String getPersonaDni(){
+
+            return readString("Introduzca el DNI de la persona: ");
+        }
 
         public String getPersonaName(){
 
