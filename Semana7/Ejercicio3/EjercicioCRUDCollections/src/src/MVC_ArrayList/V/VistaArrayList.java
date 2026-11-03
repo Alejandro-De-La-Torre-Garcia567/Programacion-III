@@ -1,4 +1,4 @@
-package ejerciciocrudcollections.MVC_ArrayList.VistaArrayList;
+package src.MVC_ArrayList.V;
 import static es.usal.progiii.tools.Esdia.*;
 
 

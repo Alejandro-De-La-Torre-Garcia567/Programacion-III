@@ -1,8 +1,6 @@
-package ejerciciocrudcollections.MVC_ArrayList.ModeloArrayList;
+package src.MVC_ArrayList.M;
 import java.util.ArrayList;
 import static es.usal.progiii.tools.Esdia.*;
-import java.util.Iterator;
-
 
 public class ModeloArrayList {
 
@@ -18,28 +16,10 @@ public class ModeloArrayList {
 
     }
 
-    public void eliminarPersonaConIterator() {
-        String nombre = readString_ne("Ingrese el nombre de la persona a eliminar: ");
-        boolean eliminado = false;
-        Iterator<Persona> iterator = personas.iterator();
-        while (iterator.hasNext()) {
-            Persona persona = iterator.next();
-            if (persona.getNombre().equals(nombre)) {
-                iterator.remove();
-                eliminado = true;
-                break;
-            }
-        }
 
-        if (eliminado) {
-            System.out.println("Persona eliminada.");
-        } else {
-            System.out.println("Persona no encontrada.");
-        }
-    }
+    public boolean eliminarPersona() {
 
-    public void eliminarPersona() {
-
+        boolean p=true;
         String nombre = readString_ne("Ingrese el nombre de la persona a eliminar: ");
         Persona personaAEliminar = null;
 
@@ -55,17 +35,21 @@ public class ModeloArrayList {
         }
         if (personaAEliminar != null) {
             personas.remove(personaAEliminar);
-            System.out.println("Persona eliminada.");
+            return p;
+        
         } else {
             System.out.println("Persona no encontrada.");
+            
+            p=false;
+            return p;
         }
     }
 
     public boolean modificarPersona(String nombre,String nuevoNombre, int nuevaEdad, double nuevaAltura) {
 
         boolean e=true;
-
         Persona personaAModificar = null;
+
         for (Persona persona : personas) {
             if (persona.getNombre().equals(nombre)) {
                 personaAModificar = persona;
@@ -96,9 +80,7 @@ public class ModeloArrayList {
             return a;
         }
 
-        for (Persona persona : personas) {
-            System.out.println(persona.getEstadoComoString());
-        }
+
 
         return a;
     }
