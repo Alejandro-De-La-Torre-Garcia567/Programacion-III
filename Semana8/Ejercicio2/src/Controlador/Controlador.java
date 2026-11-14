@@ -30,9 +30,7 @@ public class Controlador {
 
             // Crear el partido
 
-            vista.showMessage(modelo.obtenerPartido());
-            modelo.crearPartido(vista.getGolesLocal(),vista.getGolesVisitante());
-
+            modelo.crearPartido(modelo.obtenerLinea(i),vista.getGolesLocal(),vista.getGolesVisitante());
 
         }
 

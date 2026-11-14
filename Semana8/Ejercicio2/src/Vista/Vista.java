@@ -8,16 +8,6 @@ public class Vista {
             System.out.println(prompt);
         }
 
-        public String getVisitante(){
-
-            return Esdia.readString("Introduzca el equipo visitante: ");
-        }
-
-        public String getLocal(){
-
-            return Esdia.readString("Introduzca el equipo local: ");
-
-        }
 
         public int getGolesLocal(){
 

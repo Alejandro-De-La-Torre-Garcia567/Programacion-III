@@ -7,13 +7,15 @@ public class Partido {
     public static final int[] COLUMNAS = { 20, 20, 1 };
 
     // Atributos
+    String partido;
     int golesLocal;
     int golesVisitante;
     
 
     // Constructores
 
-    public Partido(int golesLocal, int golesVisitante) {
+    public Partido(String partido,int golesLocal, int golesVisitante) {
+        this.partido=partido;
         this.golesLocal = golesLocal;
         this.golesVisitante = golesVisitante;
     }

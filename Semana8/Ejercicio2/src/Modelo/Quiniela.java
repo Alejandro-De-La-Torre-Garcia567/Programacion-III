@@ -1,5 +1,4 @@
 package Modelo;
-
 /**
  * 
  * Clase que representa la quiniela
@@ -9,11 +8,11 @@ public class Quiniela {
 
     // Atributos
     final int NUMERO_PARTIDOS = 15;
-    private Partido[] partidos;
-
+    private Partido[]partidos=new Partido[NUMERO_PARTIDOS];
+    private int i=0;
     // Constructores
 
-    public String crearTabla(Partido[] partidos) {
+    public String crearTabla() {
 
         // Check if the number of matches is correct
         if (partidos.length != NUMERO_PARTIDOS) {
@@ -44,4 +43,12 @@ public class Quiniela {
         return tabla;
     }
 
-}
+    public void añadirPartido(Partido p){
+
+
+        partidos[i]=p;
+        i++;
+    }
+
+
+}   
