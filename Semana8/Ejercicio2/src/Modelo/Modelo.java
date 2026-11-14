@@ -1,0 +1,47 @@
+package Modelo;
+
+
+public class Modelo {
+
+    Quiniela quiniela=new Quiniela();
+    private final int NUMERO_PARTIDOS = 15;
+    private int contador=0;
+
+    Partido [] partidos=new Partido[NUMERO_PARTIDOS];
+
+    public int añadirPartido(String local, String visitante, int golesLocal, int golesVisitante){
+
+        if(contador<partidos.length){
+
+        Partido partido=new Partido(local,visitante,golesLocal,golesVisitante);
+        
+        partidos[contador]=partido;
+        this.contador++;
+        return 0;
+
+        }else
+
+            return 1;
+    }
+
+
+    public int getNumeroPartidos(){
+
+        return NUMERO_PARTIDOS;
+    }
+
+    public String crearTabla(){
+
+       return quiniela.crearTabla(partidos);
+
+    }
+
+
+    public String obtenerTabla(){
+
+        return quiniela.obtenerTablaQuiniela();
+    }
+
+    
+
+}
