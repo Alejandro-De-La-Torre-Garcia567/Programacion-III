@@ -21,7 +21,9 @@ public class Controlador {
             vista.showMessage("\n--- PARTIDO " + (i + 1) + " ---");
 
             // Crear el partido
-            modelo.añadirPartido(vista.getLocal(), vista.getVisitante(), vista.getGolesLocal(), vista.getGolesVisitante());
+
+            vista.showMessage(modelo.obtenerPartido());
+            modelo.crearPartido(vista.getGolesLocal(),vista.getGolesVisitante());
 
 
         }

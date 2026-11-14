@@ -7,17 +7,13 @@ public class Partido {
     public static final int[] COLUMNAS = { 20, 20, 1 };
 
     // Atributos
-    String equipoLocal;
-    String equipoVisitante;
     int golesLocal;
     int golesVisitante;
     
 
     // Constructores
 
-    public Partido(String equipoLocal, String equipoVisitante, int golesLocal, int golesVisitante) {
-        this.equipoLocal = equipoLocal;
-        this.equipoVisitante = equipoVisitante;
+    public Partido(int golesLocal, int golesVisitante) {
         this.golesLocal = golesLocal;
         this.golesVisitante = golesVisitante;
     }
@@ -36,34 +32,7 @@ public class Partido {
     }
 
 
-    /**
-     * @return String Devuelve el estado del partido como una linea de tabla de acuerdo a las columnas establecidas
-     */
-    String asRowTable(){
-        // Devuelve el estado del partido como una linea de tabla de acuerdo a las columnas establecidas
-        return String.format("| %-" + COLUMNAS[0] + "s | %-" + COLUMNAS[1] + "s| %-" + COLUMNAS[2] + "s |", equipoLocal, equipoVisitante, getResultado());
-    }
-
-
     // Getters y setters
-    public String getEquipoLocal() {
-        return equipoLocal;
-    }
-
-
-    public void setEquipoLocal(String equipoLocal) {
-        this.equipoLocal = equipoLocal;
-    }
-
-
-    public String getEquipoVisitante() {
-        return equipoVisitante;
-    }
-
-
-    public void setEquipoVisitante(String equipoVisitante) {
-        this.equipoVisitante = equipoVisitante;
-    }
 
 
     public int getGolesLocal() {

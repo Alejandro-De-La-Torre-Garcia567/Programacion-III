@@ -1,5 +1,5 @@
 package Modelo;
-
+import java.util.List;
 
 /**
  * 
@@ -39,7 +39,7 @@ public class Quiniela {
 
         // Lineas de partidos
         for (Partido partido : partidos) {
-            tabla += partido.asRowTable() + "\n";
+            tabla += partido + "\n";
         }
         tabla += lineaSeparacion + "\n";
         return tabla;
