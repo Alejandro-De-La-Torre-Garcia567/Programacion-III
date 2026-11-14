@@ -10,12 +10,12 @@ public class Vista {
 
         public String getVisitante(){
 
-            return Esdia.readString("Introduce el equipo loca: ");
+            return Esdia.readString("Introduzca el equipo visitante: ");
         }
 
         public String getLocal(){
 
-            return Esdia.readString("Introduzca el equipo visitante: ");
+            return Esdia.readString("Introduzca el equipo local: ");
 
         }
 
@@ -28,6 +28,12 @@ public class Vista {
         public int getGolesVisitante(){
 
             return Esdia.readInt("Introduzca los goles del equipo vistante: ");
+        }
+
+
+        public void mostrarQuiniela(String tabla){
+
+            System.out.println(tabla);
         }
 
     }

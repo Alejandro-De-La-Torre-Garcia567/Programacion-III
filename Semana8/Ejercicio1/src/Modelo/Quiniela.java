@@ -13,21 +13,17 @@ public class Quiniela {
     private Partido[] partidos;
 
     // Constructores
-    public Quiniela() {
-        partidos = new Partido[NUMERO_PARTIDOS];
-    }
 
     public Quiniela(Partido[] partidos) {
 
         // Check if the number of matches is correct
         if (partidos.length != NUMERO_PARTIDOS) {
             throw new IllegalArgumentException("El número de partidos no es correcto");
-        }
+        }else
+            
         this.partidos = partidos;
     }
 
-    
-    // Logica de negocio
 
     // Obtener tabla de la quiniela
     public String obtenerTablaQuiniela() {
@@ -47,19 +43,6 @@ public class Quiniela {
         }
         tabla += lineaSeparacion + "\n";
         return tabla;
-    }
-
-    // Getters y setters
-    public int getNUMERO_PARTIDOS() {
-        return NUMERO_PARTIDOS;
-    }
-
-    public Partido[] getPartidos() {
-        return partidos;
-    }
-
-    public void setPartidos(Partido[] partidos) {
-        this.partidos = partidos;
     }
 
 }

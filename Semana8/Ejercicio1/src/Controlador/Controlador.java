@@ -1,7 +1,8 @@
 package Controlador;
 import es.usal.progiii.tools.Esdia;
-import Modelo.Partido;
-import Modelo.Quiniela;
+import Modelo.*;
+import Vista.*;
+
 
 /**
  * Clase que resuelve el ejercicio de mostrar los partidos del pleno al 15,
@@ -17,7 +18,7 @@ public class Controlador {
 
         // Crear la quiniela
         // Creamos los partidos
-        Partido[] partidos = quiniela.getPartidos(); // Partidos de la quiniela (ojo que los estamos editando directamente)
+        Partido[] partidos = modelo.getPartidos(); // Partidos de la quiniela (ojo que los estamos editando directamente)
 
         // Pedir partidos con Esdia al usuario
         for (int i = 0; i < partidos.length;i++){
@@ -42,7 +43,7 @@ public class Controlador {
         // Mostrar la quiniela
         // Cuando veamos MVC veremos por qué no es buena idea que la clase Quiniela imprima por
         // pantalla
-        System.out.println(quiniela.obtenerTablaQuiniela());
+        vista.mostrarQuiniela(modelo.obtenerTablaQuiniela());
 
     }
 }
