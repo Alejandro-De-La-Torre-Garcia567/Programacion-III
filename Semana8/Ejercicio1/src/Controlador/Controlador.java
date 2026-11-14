@@ -11,12 +11,12 @@ import Modelo.Quiniela;
  * 
  */
 
-public class Exercise5 {
-    public static void main(String[] args) {
+public class Controlador {
+
+    public void run(Vista vista, Modelo modelo) {
 
         // Crear la quiniela
         // Creamos los partidos
-        Quiniela quiniela = new Quiniela();
         Partido[] partidos = quiniela.getPartidos(); // Partidos de la quiniela (ojo que los estamos editando directamente)
 
         // Pedir partidos con Esdia al usuario

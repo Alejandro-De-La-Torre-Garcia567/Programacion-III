@@ -13,13 +13,7 @@ public class Partido {
     int golesVisitante;
     
 
-    // Constructoress
-    public Partido(String equipoLocal, String equipoVisitante) {
-        this.equipoLocal = equipoLocal;
-        this.equipoVisitante = equipoVisitante;
-    }
-
-    // Logica de negocio
+    // Constructores
 
     public Partido(String equipoLocal, String equipoVisitante, int golesLocal, int golesVisitante) {
         this.equipoLocal = equipoLocal;
