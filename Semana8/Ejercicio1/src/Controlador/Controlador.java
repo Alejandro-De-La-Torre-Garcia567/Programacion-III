@@ -16,15 +16,10 @@ public class Controlador {
 
     public void run(Vista vista, Modelo modelo) {
 
-        // Crear la quiniela
-        // Creamos los partidos
-        Partido[] partidos = modelo.getPartidos(); // Partidos de la quiniela (ojo que los estamos editando directamente)
 
-        // Pedir partidos con Esdia al usuario
-        for (int i = 0; i < partidos.length;i++){
+        for (int i = 0; i <modelo.getNumeroPartidos() ;i++){
 
-            // Mostrar qué partido se está añadiendo
-            System.out.println("\n--- PARTIDO " + (i + 1) + " ---");
+            vista.showMessage("\n--- PARTIDO " + (i + 1) + " ---");
 
             // Pedir datos del partido
             String equipoLocal = Esdia.readString("Introduce el equipo local: ");
@@ -33,17 +28,17 @@ public class Controlador {
             int golesVisitante = Esdia.readInt("Introduce los goles del equipo visitante: ");
 
             // Crear el partido
-            Partido partido = new Partido(equipoLocal, equipoVisitante, golesLocal, golesVisitante);
+            modelo.añadirPartido(equipoLocal, equipoVisitante, golesLocal, golesVisitante);
 
-            // Añadir el partido a la quiniela
-            partidos[i] = partido;
 
         }
 
         // Mostrar la quiniela
-        // Cuando veamos MVC veremos por qué no es buena idea que la clase Quiniela imprima por
-        // pantalla
-        vista.mostrarQuiniela(modelo.obtenerTablaQuiniela());
+      
+        vista.mostrarQuiniela(modelo.crearTabla());
+        
+        if(modelo.crearTabla().equals("Tabla creada correctamente"));
+        vista.mostrarQuiniela(modelo.obtenerTabla());
 
     }
 }

@@ -14,14 +14,14 @@ public class Quiniela {
 
     // Constructores
 
-    public Quiniela(Partido[] partidos) {
+    public String crearTabla(Partido[] partidos) {
 
         // Check if the number of matches is correct
         if (partidos.length != NUMERO_PARTIDOS) {
-            throw new IllegalArgumentException("El número de partidos no es correcto");
-        }else
-            
+            return "El número de partidos es incorrecto";
+        }else  
         this.partidos = partidos;
+        return "Tabla creada correctamente";
     }
 
 
