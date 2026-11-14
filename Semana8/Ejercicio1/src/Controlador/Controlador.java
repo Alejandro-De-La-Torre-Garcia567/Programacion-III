@@ -30,7 +30,7 @@ public class Controlador {
       
         vista.mostrarQuiniela(modelo.crearTabla());
         
-        if(modelo.crearTabla().equals("Tabla creada correctamente"));
+        if(modelo.crearTabla().equals("Tabla creada correctamente"))
         vista.mostrarQuiniela(modelo.obtenerTabla());
 
     }

@@ -9,7 +9,7 @@ package Modelo;
 public class Quiniela {
 
     // Atributos
-    final int NUMERO_PARTIDOS = 4;
+    final int NUMERO_PARTIDOS = 15;
     private Partido[] partidos;
 
     // Constructores

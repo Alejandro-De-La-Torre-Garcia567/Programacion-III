@@ -4,7 +4,7 @@ package Modelo;
 public class Modelo {
 
     Quiniela quiniela=new Quiniela();
-    private final int NUMERO_PARTIDOS = 4;
+    private final int NUMERO_PARTIDOS = 15;
     private int contador=0;
 
     Partido [] partidos=new Partido[NUMERO_PARTIDOS];
