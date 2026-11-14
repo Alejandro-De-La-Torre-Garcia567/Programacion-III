@@ -21,7 +21,7 @@ public class Vista {
 
         public int getGolesLocal(){
 
-            return Esdia.readInt("Introduzca los goles del equipo local");
+            return Esdia.readInt("Introduzca los goles del equipo local: ");
         } 
 
 

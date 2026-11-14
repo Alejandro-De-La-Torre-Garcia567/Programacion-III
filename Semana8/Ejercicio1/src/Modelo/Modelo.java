@@ -4,7 +4,7 @@ package Modelo;
 public class Modelo {
 
     Quiniela quiniela=new Quiniela();
-    private final int NUMERO_PARTIDOS = 15;
+    private final int NUMERO_PARTIDOS = 4;
     private int contador=0;
 
     Partido [] partidos=new Partido[NUMERO_PARTIDOS];
@@ -14,9 +14,9 @@ public class Modelo {
         if(contador<partidos.length){
 
         Partido partido=new Partido(local,visitante,golesLocal,golesVisitante);
-        this.contador++;
+        
         partidos[contador]=partido;
-
+        this.contador++;
         return 0;
 
         }else
