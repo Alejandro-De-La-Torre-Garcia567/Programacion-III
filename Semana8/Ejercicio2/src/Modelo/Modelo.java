@@ -10,8 +10,8 @@ public class Modelo {
 
     private Quiniela quiniela=new Quiniela();
     private final int NUMERO_PARTIDOS = 15;
-    private int contador=0;
-    Partido[] partidosArray;
+    private int contador=0,contadorArray=0;
+    Partido[] partidosArray=new Partido[NUMERO_PARTIDOS];
 
 
     public int leerArchivo(){
@@ -45,17 +45,18 @@ public class Modelo {
     
         }else
 
-            return "Error: no se ha podido obtener ningún partido";
+            return "Error: no se ha podido obtener ningún partido o no quedan más en el txt";
         
 
            
     }
 
-    public Partido crearPartido(int golesLocal, int golesVisitante){
+    public void crearPartido(int golesLocal, int golesVisitante){
 
         Partido p=new Partido(golesLocal,golesVisitante);
 
-        return p;
+        partidosArray[contadorArray]=p;
+        contadorArray++;
     }
 
     public int getNumeroPartidos(){

@@ -15,6 +15,14 @@ public class Controlador {
 
     public void run(Vista vista, Modelo modelo) {
 
+        if(modelo.leerArchivo()==0){
+
+            vista.showMessage("Se ha  leido el archivo correctamente");
+        }else{
+
+            vista.showMessage("No se ha podido leer el archivo");
+        }
+
 
         for (int i = 0; i <modelo.getNumeroPartidos() ;i++){
 
