@@ -5,4 +5,12 @@ public class Factura {
     private String concepto,fecha,nif,nombre,direccion;
     private float descuento,iva,importe;
 
+
+    public void StringtoInstance(){
+
+        
+    }
+
+
+
 }
