@@ -10,6 +10,8 @@ public class Modelo {
 
 
     List<Factura> Facturas=new ArrayList<>();
+    List<String> clientes=new ArrayList<>();
+
 
     public String importarFacturaTSV(){
 
@@ -40,10 +42,16 @@ public class Modelo {
 
 
 
-    public void valorMinimoClientes(float valor){
+    public String valorMinimoClientes(float valor){
 
         int i;
         float valorFactura;
+        
+        if(valor<=0){
+
+            return "El importe no puede ser menor o igual a cero, o se ha introducido un tipo erróneo";
+        }
+
 
         for(i=0;i<Facturas.size();i++){
 
@@ -51,13 +59,31 @@ public class Modelo {
 
             if(valorFactura>valor){
 
-
-
+                this.clientes.add(Facturas.get(i).getNombre());
 
             }
         }
 
+        return "Listado creado correctamente";
+
     }
 
+
+    public String listaToString(){
+
+        int i;
+        String tabla="";
+
+        for(i=0;i<clientes.size();i++){
+
+            tabla+=this.clientes.get(i)+"\n";
+
+
+        }
+
+
+        return tabla;
+
+    }
 
 }

@@ -18,7 +18,7 @@ public class Controlador {
 
         if(o==1){
 
-            
+            modelo.valorMinimoClientes(vista.getUserImport());
 
         }else if(o==2){
 

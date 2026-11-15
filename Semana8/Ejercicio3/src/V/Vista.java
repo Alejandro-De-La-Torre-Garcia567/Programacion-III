@@ -1,6 +1,7 @@
 package V;
 import java.util.Scanner;
 
+
 public class Vista {
 
     Scanner sc= new Scanner(System.in);
@@ -29,9 +30,32 @@ public class Vista {
 
     }
 
+    public float getUserImport(){
+
+        try{
+
+            return sc.nextFloat();
+            
+        }catch(Exception e){
+
+            System.out.printf("Tipo de dato incorrecto");
+            return 0;
+        }
+        
+    }
+
 
     public void exit(){
 
         System.out.println("Ha salido del programa");
+    }
+
+
+
+    public void mostrarListadeClientes(String cliente){
+
+        System.out.println(cliente);
+
+
     }
 }
