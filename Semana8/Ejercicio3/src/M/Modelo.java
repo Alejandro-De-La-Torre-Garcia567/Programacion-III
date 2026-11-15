@@ -23,15 +23,15 @@ public class Modelo {
             
         for(String f: facturas){
 
-            Facturas.add(Factura.StringtoInstance(f));
+            this.Facturas.add(Factura.StringtoInstance(f));
 
         }
         
         return "Archivo TSV leído correctamente";
-        
+
         }catch(IOException e){
 
-            return e.getMessage();
+            return "Error al leer el archivo TSV" + e.getMessage();
         }
 
  
