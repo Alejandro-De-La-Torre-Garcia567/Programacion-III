@@ -8,7 +8,7 @@ public class Vista {
 
     public void showMenu(){
 
-        System.out.printf("\tMENÚ\n");
+        System.out.printf("\n\n\n\tMENÚ\n");
         System.out.printf("\t1.Valor mínimo de factura\n");
         System.out.printf("\t2.Listado total de facturas\n");
         System.out.printf("\t3.Exportar a archivo .html\n");
@@ -45,6 +45,10 @@ public class Vista {
         
     }
 
+    public void showMessage(String prompt){
+
+        System.out.println(prompt);
+    }
 
     public void exit(){
 

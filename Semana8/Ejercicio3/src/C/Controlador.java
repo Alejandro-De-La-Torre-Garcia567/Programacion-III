@@ -9,7 +9,7 @@ public class Controlador {
     public void run(Modelo modelo, Vista vista){
 
         modelo.importarFacturaTSV();
-        
+
         int o;
 
         do{
@@ -34,7 +34,7 @@ public class Controlador {
 
         }else if(o==4){
 
-
+           vista.showMessage(modelo.exportarCSV());
 
         }else if (o==5){
 

@@ -105,8 +105,9 @@ public class Modelo {
 
     public String exportarCSV(){
 
-        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturasCSV.txt");
-        
+        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.txt");
+        Path p1=Paths.get(System.getProperty("user.home"),"Desktop", "facturas.csv");
+
         List<String> csv= new ArrayList<>();
 
         try{
@@ -127,16 +128,15 @@ public class Modelo {
 
 
         try{
-        Files.write(p,csv,StandardCharsets.UTF_8);
+        Files.write(p1,csv,StandardCharsets.UTF_8);
 
-        return "CSV escrito correctamente";
+        return "CSV escrito correctamente en el escritorio";
 
         }catch(IOException e){
 
             return "Error al escribir el CSV";
 
         }
-        return "CSV formateado correctamente en el escritorio";
     }
 
 }
