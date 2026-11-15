@@ -86,4 +86,19 @@ public class Modelo {
 
     }
 
+
+    public String listadeFacturas(){
+
+        int i;
+        String tabla="";
+
+        for(i=0;i<Facturas.size();i++){
+
+            tabla+=Facturas.get(i).toString()+"\n";
+
+        }
+
+        return tabla;
+    }
+
 }

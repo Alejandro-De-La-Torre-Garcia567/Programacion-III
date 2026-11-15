@@ -1,4 +1,5 @@
 package M;
+import java.util.Locale;
 
 public class Factura {
 
@@ -101,6 +102,14 @@ public class Factura {
     public float getIva(){
 
         return this.iva; 
+
+    }
+
+
+    @Override
+    public String toString(){
+
+        return String.format(Locale.ENGLISH, "Factura: %s | CLiente: %s (NIF: %s) | Importe: %.2f | Fecha: %s", concepto,nombre,nif,importe,fecha);
 
     }
 }

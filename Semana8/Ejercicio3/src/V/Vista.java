@@ -52,9 +52,9 @@ public class Vista {
 
 
 
-    public void mostrarListadeClientes(String cliente){
+    public void mostrarListadeClientes(String tabla){
 
-        System.out.println(cliente);
+        System.out.println(tabla);
 
 
     }
