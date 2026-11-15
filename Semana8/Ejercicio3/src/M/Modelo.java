@@ -11,7 +11,7 @@ public class Modelo {
 
     List<Factura> Facturas=new ArrayList<>();
 
-    public void importarFacturaTSV(){
+    public String importarFacturaTSV(){
 
         Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.txt");
         
@@ -19,16 +19,19 @@ public class Modelo {
 
         List<String> facturas= Files.readAllLines(p,StandardCharsets.UTF_8);
             
+
             
         for(String f: facturas){
 
             Facturas.add(Factura.StringtoInstance(f));
 
         }
-    
+        
+        return "Archivo TSV leído correctamente";
+        
         }catch(IOException e){
 
-
+            return e.getMessage();
         }
 
  

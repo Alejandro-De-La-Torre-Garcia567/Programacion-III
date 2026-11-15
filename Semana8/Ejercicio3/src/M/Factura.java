@@ -6,27 +6,43 @@ public class Factura {
     private float descuento,iva,importe;
 
 
-    public Factura StringtoInstance(String linea){
+    private Factura(String concepto, float descuento, String fecha, float importe,String nif,String nombre, String direccion,float iva){
+
+        this.concepto=concepto;
+        this.descuento=descuento;
+        this.fecha=fecha;
+        this.importe=importe;
+        this.nif=nif;
+        this.nombre=nombre;
+        this.direccion=direccion;
+        this.iva=iva;
+
+
+    }
+
+
+
+    public static Factura StringtoInstance(String linea){
 
         String [] tokens= linea.split("\t");
 
-        this.concepto=tokens[0];
-        this.descuento=Float.parseFloat(tokens[1]);
-        this.fecha=tokens[2];
-        this.importe=Float.parseFloat(tokens[3]);
-        this.nif=tokens[4];
-        this.nombre=tokens[5];
-        this.direccion=tokens[6];
-        this.iva=Float.parseFloat(tokens[7]);
+        String concepto=tokens[0];
+        float descuento=Float.parseFloat(tokens[1]);
+        String fecha=tokens[2];
+        float importe=Float.parseFloat(tokens[3]);
+        String nif=tokens[4];
+        String nombre=tokens[5];
+        String direccion=tokens[6];
+        float iva=Float.parseFloat(tokens[7]);
 
-        Factura factura=new Factura();
+        Factura factura=new Factura(concepto,descuento,fecha,importe,nif,nombre,direccion,iva);
 
-        if(factura!=null){
+        
 
-            return factura;
-        }
+        return factura;
+        
+        
 
-        return null;
 
     }
 
