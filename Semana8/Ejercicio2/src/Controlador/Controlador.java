@@ -21,6 +21,7 @@ public class Controlador {
         }else{
 
             vista.showMessage("No se ha podido leer el archivo");
+            return;
         }
 
 

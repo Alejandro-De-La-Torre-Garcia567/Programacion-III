@@ -36,7 +36,7 @@ public class Quiniela {
 
         // Lineas de partidos
         for (Partido partido: partidos) {
-            tabla += partido.getPartido() +" "+ partido.getResultado() +":" + "\n";
+            tabla += partido.getPartido() +" "+ ":"+ " "+ partido.getResultado() + "\n";
         }
         tabla += lineaSeparacion + "\n";
         return tabla;
