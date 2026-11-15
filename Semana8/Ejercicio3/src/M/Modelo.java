@@ -101,4 +101,30 @@ public class Modelo {
         return tabla;
     }
 
+
+
+    public String exportarCSV(){
+
+        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturasCSV.txt");
+        String tabla="";
+
+        try{
+        List<String>lista=Files.readAllLines(p,StandardCharsets.UTF_8);
+        
+            for(String linea:lista){
+
+                tabla+=linea.replace("\t",",")+"\n";
+                
+            }
+
+
+        }catch(IOException e){
+
+            return "Error al leer el archivo para convertir a CSV";
+        }
+
+
+        return tabla;
+    }
+
 }
