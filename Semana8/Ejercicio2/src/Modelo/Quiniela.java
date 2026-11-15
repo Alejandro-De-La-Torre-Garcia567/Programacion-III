@@ -18,7 +18,6 @@ public class Quiniela {
         if (partidos.length != NUMERO_PARTIDOS) {
             return "El número de partidos es incorrecto";
         }else  
-        this.partidos = partidos;
         return "Tabla creada correctamente";
     }
 
@@ -28,7 +27,7 @@ public class Quiniela {
         String tabla = "";
 
         // Cabecera de la tabla a partir de las columnas de la clase partido
-        int toltalLength = Partido.COLUMNAS[0] + Partido.COLUMNAS[1] + Partido.COLUMNAS[2] + 10; // 4 barras y 6 espacios
+        int toltalLength = Partido.COLUMNAS[0] + Partido.COLUMNAS[1] + 10; // 4 barras y 6 espacios
         String lineaCabecera = "|"+" ".repeat((toltalLength-10)/2)+"QUINIELA"+" ".repeat((toltalLength-10)/2)+"|";
         String lineaSeparacion = "+" + "-".repeat(toltalLength-3) + "+";
         tabla += lineaSeparacion + "\n";
@@ -36,8 +35,8 @@ public class Quiniela {
         tabla += lineaSeparacion + "\n";
 
         // Lineas de partidos
-        for (Partido partido : partidos) {
-            tabla += partido + "\n";
+        for (Partido partido: partidos) {
+            tabla += partido.getPartido() +" "+ partido.getResultado() + "\n";
         }
         tabla += lineaSeparacion + "\n";
         return tabla;

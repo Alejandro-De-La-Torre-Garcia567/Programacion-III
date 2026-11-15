@@ -10,7 +10,6 @@ public class Partido {
     String partido;
     int golesLocal;
     int golesVisitante;
-    
 
     // Constructores
 
@@ -21,20 +20,30 @@ public class Partido {
     }
 
     // Obtener resultado como string
+
+
     public String getResultado() {
         
         // Si local 1, visitante 2 empate X
         if (golesLocal > golesVisitante) {
+            
             return "1";
         } else if (golesLocal < golesVisitante) {
+            
             return "2";
         } else {
             return "X";
         }
     }
-
+    
 
     // Getters y setters
+
+    public String getPartido(){
+
+
+        return this.partido;
+    }
 
 
     public int getGolesLocal() {

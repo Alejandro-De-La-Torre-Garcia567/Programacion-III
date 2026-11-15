@@ -31,15 +31,15 @@ public class Modelo {
 
     }
 
-    public void obtenerLinea(int i){
+    public String obtenerLinea(int i){
 
-        partidos.get(i);
+        return partidos.get(i);
     }
 
     public void crearPartido(String partido,int golesLocal, int golesVisitante){
 
         Partido p=new Partido(partido,golesLocal,golesVisitante);
-
+        quiniela.añadirPartido(p);
     }
 
     public int getNumeroPartidos(){
@@ -49,7 +49,7 @@ public class Modelo {
 
     public String crearTabla(){
 
-       return quiniela.crearTabla(partidos);
+       return quiniela.crearTabla();
 
     }
 
