@@ -46,6 +46,61 @@ public class Factura {
 
     }
 
+    public String getConcepto(){
+
+        return this.concepto; 
+
+    }
+
+    public float getDescuento(){
+
+        return this.descuento; 
+
+    }
 
 
+    public String getFecha(){
+
+        return this.fecha; 
+
+    }
+
+
+
+    public float getImporte(){
+
+        return this.importe; 
+
+    }
+
+
+
+
+    public String getNif(){
+
+        return this.nif; 
+
+    }
+
+
+    public String getNombre(){
+
+        return this.nombre; 
+
+    }
+
+
+
+
+    public String getDireccion(){
+
+        return this.direccion; 
+
+    }
+
+    public float getIva(){
+
+        return this.iva; 
+
+    }
 }

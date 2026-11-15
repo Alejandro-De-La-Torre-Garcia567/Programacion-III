@@ -39,4 +39,25 @@ public class Modelo {
     }
 
 
+
+    public void valorMinimoClientes(float valor){
+
+        int i;
+        float valorFactura;
+
+        for(i=0;i<Facturas.size();i++){
+
+            valorFactura=( (Facturas.get(i).getImporte()) * (1-Facturas.get(i).getDescuento()) * (1+Facturas.get(i).getIva()) );
+
+            if(valorFactura>valor){
+
+
+
+
+            }
+        }
+
+    }
+
+
 }

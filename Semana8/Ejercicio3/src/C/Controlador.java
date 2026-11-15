@@ -18,7 +18,7 @@ public class Controlador {
 
         if(o==1){
 
-
+            
 
         }else if(o==2){
 
@@ -34,13 +34,11 @@ public class Controlador {
 
         }else if (o==5){
 
-
+           vista.exit(); 
 
         }else
 
             vista.wrongOption();
-    
-        
     
         }while(o!=5);
 

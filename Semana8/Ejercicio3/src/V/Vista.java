@@ -30,5 +30,8 @@ public class Vista {
     }
 
 
+    public void exit(){
 
+        System.out.println("Ha salido del programa");
+    }
 }
