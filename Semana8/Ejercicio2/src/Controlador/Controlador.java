@@ -29,7 +29,7 @@ public class Controlador {
             vista.showMessage("\n--- PARTIDO " + (i + 1) + " ---");
 
             // Crear el partido
-
+            vista.showMessage(modelo.obtenerLinea(i));
             modelo.crearPartido(modelo.obtenerLinea(i),vista.getGolesLocal(),vista.getGolesVisitante());
 
         }
