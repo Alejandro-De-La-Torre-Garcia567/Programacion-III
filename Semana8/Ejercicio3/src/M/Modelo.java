@@ -106,14 +106,16 @@ public class Modelo {
     public String exportarCSV(){
 
         Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturasCSV.txt");
-        String tabla="";
+        
+        List<String> csv= new ArrayList<>();
 
         try{
         List<String>lista=Files.readAllLines(p,StandardCharsets.UTF_8);
         
             for(String linea:lista){
 
-                tabla+=linea.replace("\t",",")+"\n";
+                
+                csv.add(linea.replace("\t",","));
                 
             }
 
@@ -124,7 +126,17 @@ public class Modelo {
         }
 
 
-        return tabla;
+        try{
+        Files.write(p,csv,StandardCharsets.UTF_8);
+
+        return "CSV escrito correctamente";
+
+        }catch(IOException e){
+
+            return "Error al escribir el CSV";
+
+        }
+        return "CSV formateado correctamente en el escritorio";
     }
 
 }
