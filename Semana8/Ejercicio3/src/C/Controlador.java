@@ -8,6 +8,8 @@ public class Controlador {
 
     public void run(Modelo modelo, Vista vista){
 
+        modelo.importarFacturaTSV();
+        
         int o;
 
         do{
@@ -19,12 +21,12 @@ public class Controlador {
         if(o==1){
 
             modelo.valorMinimoClientes(vista.getUserImport());
-            vista.mostrarListadeClientes(modelo.listaToString());
+           vista.mostrarLista(modelo.listaToString());
 
 
         }else if(o==2){
 
-
+            vista.mostrarLista(modelo.listadeFacturas());
 
         }else if(o==3){
 

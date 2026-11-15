@@ -20,7 +20,7 @@ public class Vista {
 
     public int getUserOption(){
 
-        System.out.printf("Introduzca una opción: ");
+        System.out.printf("\n\tIntroduzca una opción: ");
         return sc.nextInt();
     }
 
@@ -34,6 +34,7 @@ public class Vista {
 
         try{
 
+            System.out.printf("\nIntroduzca un importe mínimo: ");
             return sc.nextFloat();
             
         }catch(Exception e){
@@ -52,7 +53,7 @@ public class Vista {
 
 
 
-    public void mostrarListadeClientes(String tabla){
+    public void mostrarLista(String tabla){
 
         System.out.println(tabla);
 
