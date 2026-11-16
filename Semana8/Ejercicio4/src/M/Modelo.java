@@ -20,13 +20,26 @@ public class Modelo {
             List<String> datos=Files.readAllLines(p,StandardCharsets.UTF_8);
 
             
-            
+            for(String linea: datos){
+
+                Persona persona=Persona.personaFactory(linea);
+
+                if(persona==null){
+
+                    return "Ha ocurrido un error al cargar una línea del archivo";
+                }
+
+                this.personas.add(persona);
+
+
+            }
+
 
             return "Se ha leído el archivo correctamente";
 
         }catch(IOException e){
 
-            return "No se ha podido cargar el archivo datos.txt";
+            return "No se ha podido cargar el archivo datos.txt" + e.getMessage();
 
         }
 
