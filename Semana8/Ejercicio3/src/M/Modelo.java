@@ -102,6 +102,27 @@ public class Modelo {
     }
 
 
+    private String crearFilasHTML(){
+
+        String filas="";
+
+        for(Factura factura: Facturas){
+
+            filas += "<tr>";
+            filas += "<td>" + factura.getConcepto() + "</td>";
+            filas += "<td>" + factura.getNombre() + "</td>";
+            filas += "<td>" + factura.getNif() + "</td>";
+            filas += "<td>" + factura.getImporte() + "</td>";
+            filas += "<td>" + factura.getFecha() + "</td>";
+            filas += "</tr>\n";
+
+        }
+
+        return filas;
+
+    }
+
+
 
     public String exportarCSV(){
 
