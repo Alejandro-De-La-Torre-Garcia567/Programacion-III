@@ -10,6 +10,8 @@ public class Controlador {
 
         int o;
 
+        v.showMessage(m.leerDatos());
+
         do{
 
             v.showMenu();
@@ -17,7 +19,7 @@ public class Controlador {
 
             if(o==1){
 
-
+                m.leerArchivo(v.getUserPath());
 
             }else if(o==2){
 

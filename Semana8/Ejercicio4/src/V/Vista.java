@@ -15,10 +15,10 @@ public class Vista {
     public void showMenu(){
 
 
-        System.out.printf("\tMENÚ\n\n");
-        System.out.printf("\t1. Leer fichero TSV del escritorio\n");
-        System.out.printf("\t2. Mostrar datos en forma tabular\n");
-        System.out.printf("\t3. Salir del programa\n");
+        System.out.printf("\n\n\tMENÚ\n\n");
+        System.out.printf("1. Leer fichero TSV del escritorio\n");
+        System.out.printf("2. Mostrar datos en forma tabular\n");
+        System.out.printf("3. Salir del programa\n");
 
     }
 
@@ -38,13 +38,28 @@ public class Vista {
     public int getUserOption(){
 
         try{
-         return sc.nextInt();
+
+        System.out.printf("Elija una opción: ");
+
+        int i=sc.nextInt();
+        sc.nextLine();
+        return i;
             
         }catch(Exception e){
 
             System.out.println("Tipo de dato incorrecto, volviendo al menu");
+            sc.nextLine();
             return -1;
         }
+    }
+
+
+
+    public String getUserPath(){
+
+
+        System.out.printf("Introduzca el nombre del archivo a cargar desde su escritorio: ");
+        return sc.nextLine();
     }
 
 }
