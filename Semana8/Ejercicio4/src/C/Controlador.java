@@ -23,7 +23,7 @@ public class Controlador {
 
             }else if(o==2){
 
-
+                v.showTable(m.crearTabla());
 
 
             }else if(o==3){

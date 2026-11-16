@@ -1,4 +1,5 @@
 package M;
+import java.util.Locale;
 
 public class Persona {
 
@@ -55,6 +56,20 @@ public class Persona {
     public float getPeso(){
 
         return this.peso;
+    }
+
+    @Override
+    public String toString(){
+
+        return String.format(Locale.ENGLISH,"%-20s %-15s %8.2f",this.nombre,this.telefono,this.peso);
+
+    }
+
+
+    public static String cabeceraSeparador(){
+
+        return String.format("\n\n%-20s %-15s %8s\n---------------------------------------------\n","NOMBRE","TELEFONO","PESO");
+
     }
 
 

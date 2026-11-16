@@ -82,4 +82,27 @@ public class Modelo {
         
     }
 
+
+
+    public String crearTabla(){
+
+
+        String tabla=Persona.cabeceraSeparador();
+
+        int i;
+
+        for(i=0;i<personas.size();i++){
+
+        tabla+=personas.get(i).toString()+"\n";
+
+        }
+
+
+
+
+
+        return tabla;
+
+    }
+
 }

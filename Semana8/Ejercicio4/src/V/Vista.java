@@ -62,4 +62,12 @@ public class Vista {
         return sc.nextLine();
     }
 
+    public void showTable(String t){
+
+        
+        System.out.println(t);
+
+    }
+
+
 }
