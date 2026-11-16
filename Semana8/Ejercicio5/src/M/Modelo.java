@@ -2,6 +2,8 @@ package M;
 import java.nio.file.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class Modelo {
 
@@ -44,5 +46,35 @@ public class Modelo {
         return t;
 
     }
+
+
+    public String exportarDatosCSV(){
+
+        int i;
+
+        Path p= Paths.get(System.getProperty("user.home"),"Desktop", "Datos.csv");
+
+        List<String>l=new ArrayList<>();
+
+        for(i=0;i<alumnos.size();i++){
+
+            l.add((this.alumnos.get(i).getDatos().getCSV()));
+        
+        }
+
+        try{
+
+            Files.write(p,l,StandardCharsets.UTF_8);
+            return "Se han exportado los alumnos a CSV correctamente";
+        }catch(IOException e){
+
+            return "No ha sido posible crear el archivo CSV "+e.getMessage();
+        }
+
+
+
+    }
+
+
 
 }

@@ -53,6 +53,11 @@ public class DatosPersonales {
 
     }
 
+    public String getCSV(){
+
+        return String.format("%s,%s,%d,%s",this.nombre,this.apellidos,this.edad,this.nif);
+    }
+
     public String getNombre(){
 
         return this.nombre;

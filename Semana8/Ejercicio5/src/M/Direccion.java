@@ -49,6 +49,12 @@ public class Direccion {
 
     }
 
+
+    public String getCSV(){
+
+        return String.format(",%s,%d,%d,%s",this.calle,this.numero,this.piso,this.letra);
+    }
+
     public String getCalle(){
 
         return this.calle;
