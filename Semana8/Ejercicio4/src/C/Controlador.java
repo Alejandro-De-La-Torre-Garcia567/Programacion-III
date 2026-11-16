@@ -19,7 +19,7 @@ public class Controlador {
 
             if(o==1){
 
-                m.leerArchivo(v.getUserPath());
+                v.showMessage(m.leerArchivo(v.getUserPath()));
 
             }else if(o==2){
 

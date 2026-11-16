@@ -77,7 +77,7 @@ public class Modelo {
         }catch(IOException e){
 
 
-            return "No se ha podido leer el fichero indicado"+e.getMessage();
+            return "No se ha podido leer el archivo indicado "+e.getMessage();
         }
         
     }
