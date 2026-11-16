@@ -41,7 +41,21 @@ public class Persona {
     }
 
 
-    
+    public String getNombre(){
+
+        return this.nombre;
+    }
+
+
+    public String getTelefono(){
+
+        return this.telefono;
+    }
+
+    public float getPeso(){
+
+        return this.peso;
+    }
 
 
 }

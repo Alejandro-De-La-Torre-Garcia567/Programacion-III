@@ -45,4 +45,41 @@ public class Modelo {
 
     }
 
+
+
+
+    public String leerFichero(String nombre){
+
+        Path p=Paths.get(System.getProperty("user.home"),"Desktop",nombre);
+        personas.clear();
+
+
+        try{
+
+            List<String> datos=Files.readAllLines(p,StandardCharsets.UTF_8);
+
+            for(String linea:datos){
+
+                Persona persona=Persona.personaFactory(linea);
+
+
+                if(persona==null){
+
+                    return "Ha ocurrido un error al leer una línea";
+                }
+
+                personas.add(persona);
+
+            }
+
+            return "Se ha leído y cargado correctamente el archivo indicado";
+
+        }catch(IOException e){
+
+
+            return "No se ha podido leer el fichero indicado"+e.getMessage();
+        }
+        
+    }
+
 }
