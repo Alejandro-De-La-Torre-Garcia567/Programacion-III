@@ -30,7 +30,7 @@ public class Controlador {
 
         }else if(o==3){
 
-
+            vista.showMessage(modelo.exportarHTML());
 
         }else if(o==4){
 
