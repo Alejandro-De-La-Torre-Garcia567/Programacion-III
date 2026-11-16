@@ -48,7 +48,7 @@ public class Modelo {
 
 
 
-    public String leerFichero(String nombre){
+    public String leerArchivo(String nombre){
 
         Path p=Paths.get(System.getProperty("user.home"),"Desktop",nombre);
         personas.clear();
