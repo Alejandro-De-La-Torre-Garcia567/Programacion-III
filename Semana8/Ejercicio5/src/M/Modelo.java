@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 public class Modelo {
 
+    List<String> alumnnos=new ArrayList<>();
 
+    
 
 
 }
