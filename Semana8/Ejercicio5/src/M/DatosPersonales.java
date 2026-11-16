@@ -6,7 +6,8 @@ public class DatosPersonales {
 
     private String nombre,apellidos,nif;
     private int edad;
-
+    private static int contadorNif=10000000;
+    private static Random random = new Random();
 
 
     private DatosPersonales(String n, String a, String nif, int e){
@@ -20,7 +21,7 @@ public class DatosPersonales {
 
     public static DatosPersonales datosFactory(){
 
-        Random random = new Random();
+        
 
         String []nombres={"Alejandro", "Lucía", "Carlos", "María", "Javier", "Paula", "Daniel", "Elena", "Adrián", "Sofía", "Hugo", "Marta", "Pablo", "Sara", "Álvaro", "Laura", "Diego", "Carmen", "Mario", "Alba"};
         String []apellidos={"García", "Rodríguez", "González", "Fernández", "López", "Martínez", "Sánchez", "Pérez", "Gómez", "Martín", "Jiménez", "Ruiz", "Hernández", "Díaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez"};
@@ -29,7 +30,6 @@ public class DatosPersonales {
         String a=apellidos[random.nextInt(apellidos.length)]+" "+apellidos[random.nextInt(apellidos.length)];
 
         String letras_nif="TRWAGMYFPDXBNJZSQVHLCKE";
-        int contadorNif=10000000;
 
         int e=random.nextInt(30-18)+18;
 
