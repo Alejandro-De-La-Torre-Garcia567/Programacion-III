@@ -123,6 +123,29 @@ public class Modelo {
     }
 
 
+    private String crearDocumentoHTML(){
+
+        String html="<!doctype html>\n"
+                + "<html lang=\"es\">\n"
+                + "<head>\n"
+                + "  <meta charset=\"UTF-8\">\n"
+                + "  <title>Facturas</title>\n"
+                + "  <style>table, th, td { border: 1px solid black; border-collapse: collapse; }</style>\n"
+                + "</head>\n"
+                + "<body>\n"
+                + "  <h1>Facturas</h1>\n"
+                + "  <table>\n"
+                + "    <tr><th>Concepto</th><th>Cliente</th><th>NIF</th><th>Importe</th><th>Fecha</th></tr>\n"
+                + "%%TABLA%%\n"
+                + "  </table>\n"
+                + "</body>\n"
+                + "</html>\n";
+
+        return html.replace("%%TABLA%%", crearFilasHTML());
+
+    }
+
+
 
     public String exportarCSV(){
 
