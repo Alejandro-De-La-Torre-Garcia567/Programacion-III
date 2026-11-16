@@ -65,15 +65,44 @@ public class Modelo {
         try{
 
             Files.write(p,l,StandardCharsets.UTF_8);
+
             return "Se han exportado los alumnos a CSV correctamente";
+        
         }catch(IOException e){
 
-            return "No ha sido posible crear el archivo CSV "+e.getMessage();
+            return "No ha sido posible crear o añadir al archivo CSV "+e.getMessage();
         }
 
+    }
 
+
+        public String exportarDireccionesCSV(){
+
+        int i;
+
+        Path p= Paths.get(System.getProperty("user.home"),"Desktop", "Direcciones.csv");
+
+        List<String>l=new ArrayList<>();
+
+        for(i=0;i<alumnos.size();i++){
+
+            l.add((this.alumnos.get(i).getDireccion().getCSV()));
+        
+        }
+
+        try{
+
+            Files.write(p,l,StandardCharsets.UTF_8);
+
+            return "Se han exportado las direcciones a CSV correctamente";
+        
+        }catch(IOException e){
+
+            return "No ha sido posible crear o añadir al archivo CSV "+e.getMessage();
+        }
 
     }
+
 
 
 

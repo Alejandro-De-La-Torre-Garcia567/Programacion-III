@@ -27,10 +27,11 @@ public class Controlador {
 
             }else if(o.equals("3")){
 
-
+                v.showMessage(m.exportarDatosCSV());
 
             }else if(o.equals("4")){
 
+                v.showMessage(m.exportarDireccionesCSV());
 
 
             }else
