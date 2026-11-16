@@ -43,6 +43,28 @@ public class DatosPersonales {
         return d;
     }
 
+    public String getNombre(){
+
+        return this.nombre;
+    }
+
+
+    public String getApellidos(){
+
+        return this.apellidos;
+    }
+
+
+    public String getNif(){
+
+        return this.nif;
+    }
+
+
+    public int getEdad(){
+
+        return this.edad;
+    }
 
 
 }

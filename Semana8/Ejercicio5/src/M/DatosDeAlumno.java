@@ -6,7 +6,12 @@ public class DatosDeAlumno {
     private DatosPersonales dp;
 
 
+    public DatosDeAlumno(Direccion d, DatosPersonales dp){
+
+        this.d=d;
+        this.dp=dp;
+
+    }   
 
 
-    
 }
