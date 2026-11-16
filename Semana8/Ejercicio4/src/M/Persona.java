@@ -9,4 +9,15 @@ public class Persona {
     
     
 
+    private Persona(String nombre, int telefono, float peso){
+
+        this.nombre=nombre;
+        this.telefono=telefono;
+        this.peso=peso;
+
+    }
+
+
+
+    
 }
