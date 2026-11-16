@@ -31,7 +31,7 @@ public class DatosPersonales {
 
         String letras_nif="TRWAGMYFPDXBNJZSQVHLCKE";
 
-        int e=random.nextInt(30-18)+18;
+        int e=random.nextInt((30-18)+1)+18;
 
         contadorNif+=random.nextInt(50000)+1;
         char letra=letras_nif.charAt(contadorNif % 23);
