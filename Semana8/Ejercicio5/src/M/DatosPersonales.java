@@ -49,7 +49,7 @@ public class DatosPersonales {
 
     public String toString(){
 
-        return String.format(Locale.ENGLISH,"%-8s %-8s %-2d %-9s",this.nombre,this.apellidos,this.edad,this.nif);
+        return String.format(Locale.ENGLISH,"%-12s %-22s %-2d %-9s",this.nombre,this.apellidos,this.edad,this.nif);
 
     }
 

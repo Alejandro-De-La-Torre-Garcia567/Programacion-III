@@ -44,7 +44,7 @@ public class Direccion {
     @Override
     public String toString(){
 
-        return String.format(Locale.ENGLISH,"%-15s nº%-1d %-3d %-1s",this.calle,this.numero,this.piso,this.letra);
+        return String.format(Locale.ENGLISH,"%-27s nº%-3d %-3d %-4s",this.calle,this.numero,this.piso,this.letra);
 
 
     }
