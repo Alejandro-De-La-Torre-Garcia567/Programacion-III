@@ -146,6 +146,24 @@ public class Modelo {
     }
 
 
+    public String exportarHTML(){
+
+        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.html");
+
+        try{
+
+            Files.write(p, crearDocumentoHTML().getBytes(StandardCharsets.UTF_8));
+            return "HTML escrito correctamente en el escritorio";
+
+        }catch(IOException e){
+
+            return "Error al escribir el HTML: " + e.getMessage();
+
+        }
+
+    }
+
+
 
     public String exportarCSV(){
 
