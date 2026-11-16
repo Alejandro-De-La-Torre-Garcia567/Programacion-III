@@ -23,4 +23,13 @@ public class Modelo {
 
     }
 
+
+    public void mostrarTabla(){
+
+
+
+
+
+    }
+
 }

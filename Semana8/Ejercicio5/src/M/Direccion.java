@@ -1,5 +1,6 @@
 package M;
 import java.util.Random;
+import java.util.Locale;
 
 
 public class Direccion {
@@ -37,6 +38,15 @@ public class Direccion {
         Direccion d=new Direccion(c,l,n,p);
 
         return d;
+    }
+
+
+    @Override
+    public String toString(){
+
+        return String.format(Locale.ENGLISH,"%-15s nº%-1d %-3d %-1s",this.calle,this.numero,this.piso,this.letra);
+
+
     }
 
     public String getCalle(){

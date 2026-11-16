@@ -1,5 +1,6 @@
 package M;
 import java.util.Random;
+import java.util.Locale;
 
 public class DatosPersonales {
 
@@ -41,6 +42,15 @@ public class DatosPersonales {
 
 
         return d;
+    }
+
+
+    @Override
+
+    public String toString(){
+
+        return String.format(Locale.ENGLISH,"%-8s %-8s %-2d %-9s",this.nombre,this.apellidos,this.edad,this.nif);
+
     }
 
     public String getNombre(){

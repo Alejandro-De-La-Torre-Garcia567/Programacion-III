@@ -14,4 +14,17 @@ public class DatosDeAlumno {
     }   
 
 
+
+    public Direccion getDireccion(){
+
+        return this.d;
+    }
+
+
+    public DatosPersonales getDatos(){
+
+        return this.dp;
+    }
+
+
 }
