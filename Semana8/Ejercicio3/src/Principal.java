@@ -8,11 +8,10 @@ public class Principal{
     public static void main(String[]args){
 
         Modelo m=new Modelo();
-        Controlador c= new Controlador();
         Vista v=new Vista();
+        Controlador c= new Controlador(m,v);
 
-
-        c.run(m,v);
+        c.run();
 
 
     }

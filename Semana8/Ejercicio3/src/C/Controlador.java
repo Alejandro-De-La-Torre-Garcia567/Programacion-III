@@ -5,8 +5,16 @@ import V.*;
 public class Controlador {
 
 
+    private Modelo modelo;
+    private Vista vista;
 
-    public void run(Modelo modelo, Vista vista){
+    public Controlador(Modelo m,Vista v){
+
+        this.modelo=m;
+        this.vista=v;
+    }
+
+    public void run(){
 
         modelo.importarFacturaTSV();
 
