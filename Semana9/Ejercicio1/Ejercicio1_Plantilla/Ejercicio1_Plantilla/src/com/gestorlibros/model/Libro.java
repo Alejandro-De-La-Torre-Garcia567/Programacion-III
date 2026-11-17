@@ -5,6 +5,7 @@ import java.util.Locale;
 
 public class Libro implements Serializable {
 
+    private static final long serialVersionUID=1L;
     String ISBN;
     String titulo;
     String autor;

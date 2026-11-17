@@ -77,7 +77,17 @@ public class View {
 
     private void importBooksFromCSV() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+
+
+        if(c.importBooksFromCSV()==1){
+
+            System.out.println("Se han importado los libros desde csv correctamente");
+       
+       
+        }else
+
+            System.out.println("Ha ocurrido un error al importar los libros desde csv");
+
     }
 
     private void importarBooksXML() {
@@ -87,7 +97,17 @@ public class View {
 
     private void importarBooksJSON() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'importarBooksJSON'");
+
+       if(c.importBooksFromJSON()==1){
+
+        System.out.println("Se han importado los libros desde JSON correctamente");
+
+       }else
+
+        System.out.println("Ha ocurrido un error al importar los libros desde JSON");
+
+
+
     }
 
     private void exportBooksToXML() {
@@ -97,12 +117,31 @@ public class View {
 
     private void exportarBooksJSON() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'exportarBooksJSON'");
+
+        if(c.exportBooksToJSON()==1){
+
+            System.out.println("Se han exportado los libros a JSON correctamente");
+
+
+        }else
+
+            System.out.println("Ha ocurrido un error al exportar los libros a JSON");
+
+
     }
 
     private void exportarBooksCSV() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'exportarBooksCSV'");
+
+
+        if(c.exportBooksToCSV()==1){
+
+            System.out.println("Libros exportados a csv correctamente");
+        
+        }else
+
+            System.out.println("Ha ocurrido un error al exportar los libros a csv");
+
     }
 
     private void editarLibroDelModelo() {

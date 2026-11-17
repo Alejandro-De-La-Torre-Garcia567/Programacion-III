@@ -10,6 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ObjectInputStream;
 
 import es.usal.progiii.tools.Rutas;
@@ -162,11 +164,58 @@ public class GestorLibrosModel {
 
     // Serialization and Deserialization ------------------------------------------
     public int saveStateOfTheApp(){
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+
+        
+        
+        try{
+        
+        FileOutputStream fos=new FileOutputStream(pathToBinary.toFile());
+        BufferedOutputStream bos=new BufferedOutputStream(fos); 
+        ObjectOutputStream oos= new ObjectOutputStream(bos);
+
+            oos.writeObject(libros);
+            oos.close();
+
+        return 1;
+    
+        }catch(IOException e){
+
+
+                return -1;
+            }
+
     }
 
     public int loadStateOfTheApp(){
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+
+        try{
+
+            FileInputStream fis=new FileInputStream(pathToBinary.toFile());
+            BufferedInputStream bis=new BufferedInputStream(fis);
+            ObjectInputStream ois=new ObjectInputStream(bis);
+            
+            List<Libro>librosBin=(List<Libro>) ois.readObject();
+
+
+            for(Libro l:librosBin){
+
+                if(!libros.contains(l)){
+
+                    libros.add(l);
+                }
+
+            }
+            ois.close();
+
+            return 1;
+
+        }catch(IOException | ClassNotFoundException e){
+
+
+            return -1;
+        }
+
+        
     }
 
 
