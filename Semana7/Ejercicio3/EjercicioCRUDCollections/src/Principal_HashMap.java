@@ -10,9 +10,9 @@ public class Principal_HashMap {
 
     ModeloHashMap modelo= new ModeloHashMap();
     VistaHashMap vista= new VistaHashMap();
-    ControladorHashMap controlador= new ControladorHashMap();
+    ControladorHashMap controlador= new ControladorHashMap(modelo,vista);
 
-    controlador.run(modelo,vista);
+    controlador.run();
 
     }
 

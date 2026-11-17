@@ -4,7 +4,22 @@ import MVC_HashMap.M.*;
 
 public class ControladorHashMap {
 
-        public void run(ModeloHashMap modelo, VistaHashMap vista){
+
+
+private ModeloHashMap modelo;
+private VistaHashMap vista;
+
+
+    public ControladorHashMap(ModeloHashMap m, VistaHashMap v){
+
+        this.modelo=m;
+        this.vista=v;
+
+    }
+
+
+
+        public void run(){
         int opcion;
 
         do {

@@ -7,8 +7,8 @@ public class Principal_HashSet {
     public static void main(String[] args) {
         ModeloHashSet modelo = new ModeloHashSet();
         VistaHashSet vista = new VistaHashSet();
-        ControladorHashSet controlador = new ControladorHashSet();
+        ControladorHashSet controlador = new ControladorHashSet(modelo,vista);
 
-        controlador.run(modelo, vista);
+        controlador.run();
     }
 }

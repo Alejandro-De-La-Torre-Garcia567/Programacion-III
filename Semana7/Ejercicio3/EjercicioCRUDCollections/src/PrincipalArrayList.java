@@ -7,9 +7,9 @@ public class PrincipalArrayList {
     public static void main(String args[]){
     ModeloArrayList m= new ModeloArrayList();
     VistaArrayList v= new VistaArrayList();
-    ControladorArrayList c= new ControladorArrayList();
+    ControladorArrayList c= new ControladorArrayList(m,v);
 
-    c.run(m,v);
+    c.run();
 }
 
 

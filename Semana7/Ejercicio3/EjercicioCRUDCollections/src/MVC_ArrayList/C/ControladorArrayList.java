@@ -6,7 +6,19 @@ import MVC_ArrayList.V.VistaArrayList;
 
 public class ControladorArrayList {
 
-    public void run(ModeloArrayList modelo, VistaArrayList vista ){
+    private ModeloArrayList modelo;
+    VistaArrayList vista;
+
+    public ControladorArrayList(ModeloArrayList m, VistaArrayList v){
+
+
+        this.modelo=m;
+        this.vista=v;
+
+    }
+
+
+    public void run(){
 
     
         

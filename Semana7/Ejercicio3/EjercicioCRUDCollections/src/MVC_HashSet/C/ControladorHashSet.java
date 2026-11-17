@@ -5,7 +5,16 @@ import MVC_HashSet.V.VistaHashSet;
 
 public class ControladorHashSet {
 
-    public void run(ModeloHashSet modelo, VistaHashSet vista) {
+    private ModeloHashSet modelo;
+    private VistaHashSet vista;
+
+    public ControladorHashSet(ModeloHashSet m, VistaHashSet v){
+
+        this.modelo=m;
+        this.vista=v;
+    }
+
+    public void run() {
         int opcion;
 
         do {
