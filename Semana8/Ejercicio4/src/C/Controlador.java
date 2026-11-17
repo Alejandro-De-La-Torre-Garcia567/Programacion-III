@@ -4,9 +4,18 @@ import V.*;
 
 public class Controlador {
 
+    private Modelo m;
+    private Vista v;
 
 
-    public void run(Modelo m, Vista v){
+    public Controlador(Modelo m, Vista v){
+
+        this.v=v;
+        this.m=m;
+
+    }
+
+    public void run(){
 
         int o;
 
