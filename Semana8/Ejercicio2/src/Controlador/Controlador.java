@@ -13,7 +13,18 @@ import Vista.*;
 
 public class Controlador {
 
-    public void run(Vista vista, Modelo modelo) {
+    private Vista vista;
+    private Modelo modelo;
+
+
+    public Controlador(Modelo m, Vista v){
+
+        this.vista=v;
+        this.modelo=m;
+
+    }
+
+    public void run() {
 
         if(modelo.leerArchivo()==0){
 
