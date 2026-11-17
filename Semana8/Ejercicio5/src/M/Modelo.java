@@ -27,26 +27,11 @@ public class Modelo {
 
     }
 
+    public List<DatosDeAlumno> obtenerAlumnos(){
 
-    public String mostrarTabla(){
-
-        String cabecera=String.format("%-12s %-22s %-4s %-9s %-23s %-3s %-4s %-3s\n--------------------------------------------------------------------------------------------\n","NOMBRE","APELLIDOS","EDAD","NIF","CALLE","NUMERO","PISO","LETRA");
-
-        String t=cabecera;
-
-        int i;
-
-        for(i=0;i<20;i++){
-
-            t+=((alumnos.get(i).getDatos().toString()) +"  "+ (alumnos.get(i).getDireccion().toString()) )+"\n";
-
-
-        }
-
-        return t;
+        return alumnos;
 
     }
-
 
     public String exportarDatosCSV(){
 

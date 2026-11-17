@@ -1,6 +1,7 @@
 package C;
 import M.*;
 import V.*;
+import java.util.List;
 
 public class Controlador {
 
@@ -15,45 +16,35 @@ public class Controlador {
         this.v=v;
     }
 
-    public void run(){
-
-        v.showMessage(m.crearAlumnos());
-
-        String o;
-
-        do{
-
-            v.showMenu();
-
-            o=v.getUserOption();
-
-            if(o.equals("1")){
-
-            v.showMessage(m.crearAlumnos());
  
-            }else if(o.equals("2")){
+    public void initApp(){
 
-                v.showMessage(m.mostrarTabla());
-
-            }else if(o.equals("3")){
-
-                v.showMessage(m.exportarDatosCSV());
-
-            }else if(o.equals("4")){
-
-                v.showMessage(m.exportarDireccionesCSV());
-
-
-            }else
-
-                v.wrongOption();
-
-        }while(!o.equals("q"));
-        
+        v.initMenu();
 
 
     }
 
+    public List<DatosDeAlumno> obtenerAlumnos(){
+
+        return m.obtenerAlumnos();
+    }
+
+    public int exportDirectionsToCSV(){
+
+        return m.exportDirectionsToCSV;
+    }
+
+    public int exportDataToCSV(){
+
+        return m.exportDataToCSV;
+
+    }
+
+    public int createNewList(){
+
+
+        return m.createNewList;
+    }
 
 
 }

@@ -14,7 +14,7 @@ public class Principal{
     Vista v=new Vista();
      Controlador c=new Controlador(m,v);
 
-        c.run();
+        c.initApp();
 
 
     }
