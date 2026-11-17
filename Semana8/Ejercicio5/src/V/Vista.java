@@ -29,7 +29,7 @@ public class Vista {
         System.out.println("3.Exportar datos personales (CSV)");
         System.out.println("4.Exportar direcciones (CSV)");
         System.out.println("q.Salir");
-
+        System.out.printf("Introduzca una opción: ");
             String option=sc.nextLine();
 
             switch(option){
@@ -48,16 +48,22 @@ public class Vista {
 
                 case"3":
 
-                    c.exportDataToCSV();
+                    exportDataToCSV();
 
                 break;
 
 
                 case"4":
 
-                    c.exportDirectionsToCSV();
+                    exportDirectionsToCSV();
 
                 break;
+
+                case"q":
+
+                    System.out.println("Ha salido del programa");
+                    exit=true;
+                    break;
 
                 default:
                     System.out.println("Opción no válida");
@@ -71,6 +77,30 @@ public class Vista {
 
     }
 
+
+        private void exportDirectionsToCSV(){
+
+            if(c.exportDirectionsToCSV()==1){
+
+                System.out.println("Se han exportado las direcciones a CSV correctamente");
+
+            }else
+
+                System.out.println("No se han podido exportar a CSV las direcciones");
+
+        }
+
+        private void exportDataToCSV(){
+
+            if(c.exportDataToCSV()==1){
+
+                System.out.println("Se ha exportado la información personal a CSV correctamente");
+
+            }else
+
+                System.out.println("No ha sido posible exportar la información personal a CSV");
+
+        }
 
         private void createNewList(){
 
@@ -115,5 +145,6 @@ public class Vista {
 
             this.c=c;
         }
+
 
 }

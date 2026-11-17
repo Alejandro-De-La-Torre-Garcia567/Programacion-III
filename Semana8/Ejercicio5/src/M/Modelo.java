@@ -9,7 +9,7 @@ public class Modelo {
 
     List<DatosDeAlumno> alumnos=new ArrayList<>();
 
-    public String crearAlumnos(){
+    public int createNewList(){
 
         alumnos.clear();
         int i;
@@ -23,7 +23,7 @@ public class Modelo {
             alumnos.add(a);
         }
 
-        return "Lista de alumnos creada correctamente";
+        return 1;
 
     }
 
@@ -33,7 +33,7 @@ public class Modelo {
 
     }
 
-    public String exportarDatosCSV(){
+    public int exportDataToCSV(){
 
         int i;
 
@@ -51,17 +51,17 @@ public class Modelo {
 
             Files.write(p,l,StandardCharsets.UTF_8);
 
-            return "Se han exportado los alumnos a CSV correctamente";
+            return 1;
         
         }catch(IOException e){
 
-            return "No ha sido posible crear o añadir al archivo CSV "+e.getMessage();
+            return -1;
         }
 
     }
 
 
-        public String exportarDireccionesCSV(){
+        public int exportDirectionsToCSV(){
 
         int i;
 
@@ -79,11 +79,11 @@ public class Modelo {
 
             Files.write(p,l,StandardCharsets.UTF_8);
 
-            return "Se han exportado las direcciones a CSV correctamente";
+            return 1;
         
         }catch(IOException e){
 
-            return "No ha sido posible crear o añadir al archivo CSV "+e.getMessage();
+            return -1;
         }
 
     }

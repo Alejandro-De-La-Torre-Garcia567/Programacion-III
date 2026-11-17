@@ -14,6 +14,8 @@ public class Controlador {
 
         this.m=m;
         this.v=v;
+
+        v.setControlador(this);
     }
 
  
@@ -31,19 +33,18 @@ public class Controlador {
 
     public int exportDirectionsToCSV(){
 
-        return m.exportDirectionsToCSV;
+        return m.exportDirectionsToCSV();
     }
 
     public int exportDataToCSV(){
 
-        return m.exportDataToCSV;
+        return m.exportDataToCSV();
 
     }
 
     public int createNewList(){
 
-
-        return m.createNewList;
+        return m.createNewList();
     }
 
 
