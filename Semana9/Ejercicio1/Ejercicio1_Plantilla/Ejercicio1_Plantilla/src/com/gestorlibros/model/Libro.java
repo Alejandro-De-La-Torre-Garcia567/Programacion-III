@@ -1,6 +1,6 @@
 package com.gestorlibros.model;
 
-
+import java.io.Serializable;
 import java.util.Locale;
 
 public class Libro implements Serializable {

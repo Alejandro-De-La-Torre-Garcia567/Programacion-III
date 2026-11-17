@@ -3,6 +3,7 @@ package com.gestorlibros.model;
 import java.nio.file.Path;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -52,21 +53,103 @@ public class GestorLibrosModel {
     // Export and Import data ------------------------------------------
     public int exportBooksToCSV() {
 
-        
+        List<String>lineas=new ArrayList<>();
 
+        for(Libro l: libros){
+
+            lineas.add(l.asDelimitedString(","));
+
+        }
+
+        try{
+            
+            Files.write(pathToCSV,lineas,StandardCharsets.UTF_8);
+            
+            return 1;
+        }catch(IOException e){
+
+            return -1;
+
+        }
 
     }
 
     public int importBooksFromCSV() {
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+
+        
+
+        try{
+
+        List<String>lineas=Files.readAllLines(pathToCSV,StandardCharsets.UTF_8);
+            
+        for(String l: lineas){
+
+            libros.add(Libro.fromDelimitedString(l,","));
+            
+            }
+        
+        
+            return 1;
+        }catch(IOException e){
+
+            return -1;
+        }
+
+
     }
 
     public int exportBooksToJSON() {
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+
+
+        Gson gson=new Gson();
+
+        String json =gson.toJson(libros);
+
+        try{
+
+        Files.write(pathToJSON,json.getBytes(StandardCharsets.UTF_8));
+        return 1;
+
+        }catch(IOException e){
+
+                return -1;
+
+            }
     }
 
     public int importBooksFromJSON() {
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+
+        Gson gson=new Gson();
+
+
+
+        try{
+
+        String l=Files.readString(pathToJSON,StandardCharsets.UTF_8);
+        
+        Type tipoLista=new TypeToken<List<Libro>>(){}.getType();
+
+        List<Libro>librosJson=gson.fromJson(l,tipoLista);
+
+            for(Libro libro:librosJson){
+
+                if(!this.libros.contains(libro)){
+
+                    this.libros.add(libro);
+
+                }
+
+            }
+
+        return 1;
+
+        }catch(IOException e){
+
+            return -1;
+
+        }
+
+
     }
 
     public int importBooksFromXML() {
