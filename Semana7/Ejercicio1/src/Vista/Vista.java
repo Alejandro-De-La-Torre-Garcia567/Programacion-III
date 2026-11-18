@@ -1,5 +1,6 @@
 package Vista;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import Controlador.*;
 
 public class Vista {
@@ -8,6 +9,7 @@ public class Vista {
     private Controlador c;
     private boolean num1=false;
     private boolean num2=false;
+    private boolean sumaCalculada=false;
 
     public void initMenu(){
 
@@ -25,8 +27,13 @@ public class Vista {
 
                 case "1":
 
-                    setNum1();
-                    setNum2();
+                    num1=false;
+                    num2=false;
+                    sumaCalculada=false;
+
+                    if(setNum1()){
+                        setNum2();
+                    }
 
                     break;
                     case "2":
@@ -43,6 +50,7 @@ public class Vista {
                             case "4":
                             
                             System.out.println("Ha salido del programa");
+                            exit=true;
 
                                 break;
                                 default:
@@ -68,21 +76,25 @@ public class Vista {
 
 
 
-    private void setNum1(){
+    private boolean setNum1(){
 
         int i;
 
         System.out.printf("Introduzca el primer número: ");
-        try{i=sc.nextInt();
+        try{
+            i=sc.nextInt();
+            sc.nextLine();
 
         c.setNum1(i);
         System.out.println("Número establecido correctamente");
         this.num1=true;
+        return true;
 
-        }catch(Exception e){
+        }catch(InputMismatchException e){
 
+            sc.nextLine();
             System.out.println("Formato incorrecto");
-            return;
+            return false;
         }
 
  
@@ -90,22 +102,26 @@ public class Vista {
 
 
 
-    private void setNum2(){
+    private boolean setNum2(){
 
         int i;
         
      System.out.printf("Introduzca el segundo número: ");
 
-        try{i=sc.nextInt();
+        try{
+            i=sc.nextInt();
+            sc.nextLine();
 
         c.setNum2(i);
         System.out.println("Número establecido correctamente");
             num2=true;
+            return true;
 
-        }catch(Exception e){
+        }catch(InputMismatchException e){
 
+            sc.nextLine();
             System.out.println("Formato incorrecto");
-            return;
+            return false;
         }
 
 
@@ -126,6 +142,7 @@ public class Vista {
         }
 
         c.calculateSum();
+        sumaCalculada=true;
         System.out.println("Suma calculada correctamente");
 
     }
@@ -138,6 +155,12 @@ public class Vista {
             System.out.println("No se han introducido ambos números");
             return;
 
+        }
+
+        if(!sumaCalculada){
+
+            System.out.println("Primero debe calcular la suma");
+            return;
         }
         
         int i=c.showRessult();
