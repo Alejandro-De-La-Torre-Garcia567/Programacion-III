@@ -22,11 +22,14 @@ public class Controlador {
         this.vista=v;
         this.modelo=m;
 
+
+        this.v.setControlador(this);
+
     }
 
     public void run() {
 
-        if(modelo.leerArchivo()==0){
+        if(modelo.leerArchivo()==1){
 
             vista.showMessage("Se ha  leido el archivo correctamente");
         }else{

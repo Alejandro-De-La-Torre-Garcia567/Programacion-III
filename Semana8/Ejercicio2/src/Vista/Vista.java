@@ -1,7 +1,12 @@
 package Vista;
 import es.usal.progiii.tools.Esdia;
+import Modelo.Quiniela;
+import Controlador.*;
 
 public class Vista {
+
+        Controlador c;
+
 
         public void showMessage(String prompt){
 
@@ -21,9 +26,17 @@ public class Vista {
         }
 
 
-        public void mostrarQuiniela(String tabla){
+        public void mostrarQuiniela(){
 
-            System.out.println(tabla);
+            Quiniela.obtenerTabla();
+        }
+
+
+
+        public void setControlador(Controlador c){
+
+            this.c=c;
+
         }
 
     }
