@@ -170,7 +170,26 @@ public class View {
 
     private void borrarLibroDelModelo() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'borrarLibroDelModelo'");
+
+        List<Libro>libros=c.getLibros();
+        String titulo = Esdia.readString_ne("Introduzca el título del libro: ");
+        String autor = Esdia.readString_ne("Introduzca el autor del libro: ");
+        String isbn = Esdia.readString_ne("Introduzca el ISBN del libro: ");
+        String editorial = Esdia.readString_ne("Introduzca la editorial del libro: ");
+        int anyoPublicacion = Esdia.readInt("Introduzca el año de publicación del libro: ");
+        int numPaginas = Esdia.readInt("Introduzca el número de páginas del libro: ");
+        float precio = Esdia.readFloat("Introduzca el precio del libro: ");
+
+        Libro l=new Libro(isbn,titulo,autor,editorial,anyoPublicacion,numPaginas,precio);
+
+
+            if(libros.contains(l)){
+
+            c.removeLibro(l);
+                System.out.println("Libro borrado correctamente del sistema");
+            }else
+                System.out.println("No hay ningún libro con ese isbn");
+
     }
 
     private void anadirLibroAlModelo() {
