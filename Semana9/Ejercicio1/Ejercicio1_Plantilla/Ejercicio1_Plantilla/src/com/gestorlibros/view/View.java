@@ -163,6 +163,7 @@ public class View {
 
     private void editarLibroDelModelo() {
         // TODO Auto-generated method stub
+        mostrarLibrosModelo(false);
 
         List<Libro>libros=c.getLibros();
         String titulo = Esdia.readString_ne("Introduzca el título del libro: ");
@@ -187,6 +188,8 @@ public class View {
 
     private void borrarLibroDelModelo() {
         // TODO Auto-generated method stub
+
+        mostrarLibrosModelo(false);
 
         List<Libro>libros=c.getLibros();
         String titulo = Esdia.readString_ne("Introduzca el título del libro: ");
@@ -267,6 +270,12 @@ public class View {
 
     public void showErrorMessage(String string) {
         System.err.println(string);
+    }
+
+
+    public void showMessage(String prompt){
+
+        System.out.println(prompt);
     }
     
 }

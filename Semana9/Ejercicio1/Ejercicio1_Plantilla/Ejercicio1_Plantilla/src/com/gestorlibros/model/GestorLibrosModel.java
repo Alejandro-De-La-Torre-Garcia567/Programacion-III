@@ -13,7 +13,6 @@ import java.io.FileInputStream;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ObjectInputStream;
-import java.nio.file.Paths;
 import es.usal.progiii.tools.Rutas;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -163,7 +162,7 @@ public class GestorLibrosModel {
 
             String xml=Files.readString(pathToXML,StandardCharsets.UTF_8);
 
-            mapper.readValue(xml,mapper.getTypeFactory().constructCollectionType(List.class,Libro.class));
+            this.libros=mapper.readValue(xml,mapper.getTypeFactory().constructCollectionType(List.class,Libro.class));
 
             return 1;
         }catch(IOException e){

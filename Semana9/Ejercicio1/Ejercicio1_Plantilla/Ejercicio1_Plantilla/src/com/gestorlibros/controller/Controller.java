@@ -21,14 +21,26 @@ public class Controller {
     public void initApp() {
 
         // Load data
-        m.loadStateOfTheApp();
+        if(m.loadStateOfTheApp()==1){
+
+            v.showMessage("Se han cargado los datos binarios correctamente");
+
+        }else
+            v.showMessage("No se ha podido cargar ningún dato");
 
         // Show Menu
         v.startMenu();
 
         //Save data
 
-        m.saveStateOfTheApp();
+        if(m.saveStateOfTheApp()==1){
+
+            v.showMessage("Se han guardado los datos binarios correctamente");
+
+        }else
+            v.showMessage("No se ha podido guardar ningún dato");
+
+        
     }
 
     public ArrayList<Libro> getLibros() {
