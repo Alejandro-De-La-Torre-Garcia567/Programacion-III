@@ -5,14 +5,16 @@ import Controlador.*;
 public class Vista {
 
     Scanner sc= new Scanner(System.in);
-    Controlador c;
+    private Controlador c;
+    private boolean num1=false;
+    private boolean num2=false;
 
     public void initMenu(){
 
         boolean exit=false;
         String option;
 
-        while(exit){
+        while(!exit){
         System.out.printf("1.-Leer los números\n2.-Calcular la suma\n3.-Mostrar el resultado\n4.-Salir\n");
             
             System.out.printf("Introduzca una opción: ");    
@@ -70,8 +72,12 @@ public class Vista {
 
         int i;
 
-
+        System.out.printf("Introduzca el primer número: ");
         try{i=sc.nextInt();
+
+        c.setNum1(i);
+        System.out.println("Número establecido correctamente");
+        this.num1=true;
 
         }catch(Exception e){
 
@@ -79,8 +85,7 @@ public class Vista {
             return;
         }
 
-        c.setNum1(i);
-        System.out.println("Número establecido correctamente");
+ 
     }
 
 
@@ -89,8 +94,13 @@ public class Vista {
 
         int i;
         
-        
+     System.out.printf("Introduzca el segundo número: ");
+
         try{i=sc.nextInt();
+
+        c.setNum2(i);
+        System.out.println("Número establecido correctamente");
+            num2=true;
 
         }catch(Exception e){
 
@@ -99,14 +109,21 @@ public class Vista {
         }
 
 
-        c.setNum2(i);
-        System.out.println("Número establecido correctamente");
+ 
     }
 
 
 
 
     private void calculateSum(){
+
+
+        if(num1==false || num2==false){
+
+            System.out.println("No se han introducido ambos números");
+            return;
+
+        }
 
         c.calculateSum();
         System.out.println("Suma calculada correctamente");
@@ -116,8 +133,15 @@ public class Vista {
 
     private void showRessult(){
 
+        if(num1==false || num2==false){
+
+            System.out.println("No se han introducido ambos números");
+            return;
+
+        }
+        
         int i=c.showRessult();
-        System.out.printf("El resultado de la suma es: %d",i);
+        System.out.printf("El resultado de la suma es: %d\n",i);
 
     }
 
