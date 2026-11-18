@@ -1,29 +1,37 @@
 package MVC_HashSet.M;
 
 import java.util.HashSet;
+import java.util.Set;
 import MVC_HashSet.Persona;
 
 public class ModeloHashSet {
 
-    private HashSet<Persona> personas = new HashSet<>();
+    private final Set<Persona> personas = new HashSet<>();
 
-    public boolean agregarPersona(String nombre, int edad, double altura) {
-        return personas.add(new Persona(nombre, edad, altura));
+    public boolean agregarPersona(Persona persona) {
+        if (persona == null) {
+            return false;
+        }
+
+        return personas.add(persona);
     }
 
     public boolean eliminarPersona(String nombre) {
         return personas.remove(new Persona(nombre, 0, 0));
     }
 
-    public boolean modificarPersona(String nombre, String nuevoNombre, int nuevaEdad, double nuevaAltura) {
-        Persona personaAnterior = new Persona(nombre, 0, 0);
+    public boolean modificarPersona(String nombre, Persona personaNueva) {
+        if (nombre == null || personaNueva == null) {
+            return false;
+        }
 
+        Persona personaAnterior = new Persona(nombre, 0, 0);
         if (!personas.contains(personaAnterior)) {
             return false;
         }
 
-        Persona personaNueva = new Persona(nuevoNombre, nuevaEdad, nuevaAltura);
-        if (!nombre.equals(nuevoNombre) && personas.contains(personaNueva)) {
+        if (!nombre.equals(personaNueva.getNombre())
+                && personas.contains(personaNueva)) {
             return false;
         }
 
@@ -31,16 +39,7 @@ public class ModeloHashSet {
         return personas.add(personaNueva);
     }
 
-    public String listarPersonas() {
-        if (personas.isEmpty()) {
-            return "No hay personas en el HashSet.";
-        }
-
-        String resultado = "";
-        for (Persona persona : personas) {
-            resultado += persona.getEstadoComoString() + "\n";
-        }
-
-        return resultado;
+    public Set<Persona> getPersonas() {
+        return new HashSet<>(personas);
     }
 }

@@ -1,71 +1,38 @@
 package MVC_HashSet.C;
 
 import MVC_HashSet.M.ModeloHashSet;
+import MVC_HashSet.Persona;
 import MVC_HashSet.V.VistaHashSet;
+import java.util.Set;
 
 public class ControladorHashSet {
 
-    private ModeloHashSet modelo;
-    private VistaHashSet vista;
+    private final ModeloHashSet modelo;
+    private final VistaHashSet vista;
 
-    public ControladorHashSet(ModeloHashSet m, VistaHashSet v){
-
-        this.modelo=m;
-        this.vista=v;
+    public ControladorHashSet(ModeloHashSet modelo, VistaHashSet vista) {
+        this.modelo = modelo;
+        this.vista = vista;
+        this.vista.setControlador(this);
     }
 
     public void run() {
-        int opcion;
+        vista.initMenu();
+    }
 
-        do {
-            vista.showMenu();
-            opcion = vista.getUserOption();
+    public boolean agregarPersona(Persona persona) {
+        return modelo.agregarPersona(persona);
+    }
 
-            switch (opcion) {
-                case 1: {
-                    String nombre = vista.getPersonaName();
-                    int edad = vista.getPersonaAge();
-                    double altura = vista.getPersonaHeight();
+    public boolean eliminarPersona(String nombre) {
+        return modelo.eliminarPersona(nombre);
+    }
 
-                    if (modelo.agregarPersona(nombre, edad, altura)) {
-                        vista.showMessage("Persona añadida correctamente.");
-                    } else {
-                        vista.showMessage("Ya existe una persona con ese nombre.");
-                    }
-                    break;
-                }
-                case 2: {
-                    String nombre = vista.getPersonaName();
+    public boolean modificarPersona(String nombre, Persona personaNueva) {
+        return modelo.modificarPersona(nombre, personaNueva);
+    }
 
-                    if (modelo.eliminarPersona(nombre)) {
-                        vista.showMessage("Persona eliminada correctamente.");
-                    } else {
-                        vista.showMessage("No se ha encontrado a esa persona.");
-                    }
-                    break;
-                }
-                case 3: {
-                    String nombre = vista.getPersonaName();
-                    String nuevoNombre = vista.getPersonaNewName();
-                    int edad = vista.getPersonaAge();
-                    double altura = vista.getPersonaHeight();
-
-                    if (modelo.modificarPersona(nombre, nuevoNombre, edad, altura)) {
-                        vista.showMessage("Persona modificada correctamente.");
-                    } else {
-                        vista.showMessage("No se pudo modificar: comprueba que exista y que el nuevo nombre no esté repetido.");
-                    }
-                    break;
-                }
-                case 4:
-                    vista.showMessage(modelo.listarPersonas());
-                    break;
-                case 5:
-                    vista.showMessage("Saliendo del programa.");
-                    break;
-                default:
-                    vista.showMessage("Opción no válida.");
-            }
-        } while (opcion != 5);
+    public Set<Persona> obtenerPersonas() {
+        return modelo.getPersonas();
     }
 }

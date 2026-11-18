@@ -17,6 +17,14 @@ public class Persona {
         return nombre;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -27,10 +35,6 @@ public class Persona {
 
     public void setAltura(double altura) {
         this.altura = altura;
-    }
-
-    public String getEstadoComoString() {
-        return "Persona [nombre=" + nombre + ", edad=" + edad + ", altura=" + altura + "]";
     }
 
     
