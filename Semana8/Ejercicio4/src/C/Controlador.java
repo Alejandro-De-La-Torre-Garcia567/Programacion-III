@@ -20,26 +20,32 @@ public class Controlador {
 
         public void init(){
 
+            initialTSV();
             v.initMenu();
 
         }
 
+        public int readTSV(String a){
 
-        public int showTable(){
-
-            return m.showTable();
-
-        }
-
-        public int readTSV(){
-
-            return m.readTSV();
+            return m.readTSV(a);
         }
 
 
         public List<Persona> getPersonas(){
 
             return m.getPersonas();
+        }
+
+
+        public void initialTSV(){
+
+            if(m.leerDatos()==1){
+
+                v.showMessage("Se han cargado los datos correctamente");
+            
+            }else
+
+                v.showMessage("Ha ocurrido un error al cargar los datos");
         }
 
 

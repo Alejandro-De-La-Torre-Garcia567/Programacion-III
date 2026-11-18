@@ -14,6 +14,11 @@ public class Vista {
     public void initMenu(){
 
 
+        boolean exit=false;
+
+        while(!exit){
+
+
         System.out.printf("\n\n\tMENÚ\n\n");
         System.out.printf("1. Leer fichero TSV del escritorio\n");
         System.out.printf("2. Mostrar datos en forma tabular\n");
@@ -21,10 +26,7 @@ public class Vista {
         System.out.printf("Introduzca una opción: ");
 
         int option=sc.nextInt();
-
-        boolean exit=false;
-
-        while(!exit){
+        sc.nextLine();
 
         switch(option){
 
@@ -43,6 +45,7 @@ public class Vista {
             case 3:
 
             System.out.println("Ha salido del programa");
+            exit=true;
             break;
 
             default:
@@ -57,6 +60,12 @@ public class Vista {
     }
 
 
+     public void showMessage(String l){
+
+        System.out.println(l);
+        
+     }
+
     private void showTable(){
 
         List<Persona> personas=c.getPersonas();
@@ -70,17 +79,21 @@ public class Vista {
 
         tabla+=personas.get(i).toString()+"\n";
 
-        
+    
 
-            System.out.println(tabla);
+        }
 
-    }
+         System.out.println(tabla);
 
     }
 
     private void readTSV(){
 
-        if(c.readTSV()==1){
+        System.out.printf("Introduzca el nombre del archivo a cargar: ");
+
+        String a=sc.nextLine();
+
+        if(c.readTSV(a)==1){
 
             System.out.println("Se ha leído el TSV correctamente");
 

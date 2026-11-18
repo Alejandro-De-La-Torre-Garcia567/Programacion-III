@@ -10,7 +10,7 @@ public class Modelo {
     List<Persona> personas= new ArrayList<>();
 
 
-    public String leerDatos(){
+    public int leerDatos(){
 
         Path p= Paths.get(System.getProperty("user.home"), "Desktop", "datos.txt");
 
@@ -26,7 +26,7 @@ public class Modelo {
 
                 if(persona==null){
 
-                    return "Ha ocurrido un error al cargar una línea del archivo";
+                    return -1;
                 }
 
                 this.personas.add(persona);
@@ -35,20 +35,25 @@ public class Modelo {
             }
 
 
-            return "Se ha leído el archivo correctamente";
+            return 1;
 
         }catch(IOException e){
 
-            return "No se ha podido cargar el archivo datos.txt" + e.getMessage();
+            return -1;
 
         }
 
     }
 
 
+    public List<Persona> getPersonas(){
+
+        return this.personas;
+
+    }
 
 
-    public String leerArchivo(String nombre){
+    public int readTSV(String nombre){
 
         Path p=Paths.get(System.getProperty("user.home"),"Desktop",nombre);
         personas.clear();
@@ -65,19 +70,19 @@ public class Modelo {
 
                 if(persona==null){
 
-                    return "Ha ocurrido un error al leer una línea";
+                    return -1;
                 }
 
                 personas.add(persona);
 
             }
 
-            return "Se ha leído y cargado correctamente el archivo indicado";
+            return 1;
 
         }catch(IOException e){
 
 
-            return "No se ha podido leer el archivo indicado "+e.getMessage();
+            return -1;
         }
         
     }
