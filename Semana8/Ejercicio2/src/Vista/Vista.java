@@ -1,43 +1,39 @@
 package Vista;
+
 import es.usal.progiii.tools.Esdia;
-import Modelo.Quiniela;
-import Controlador.*;
+import Controlador.Controlador;
+import java.util.List;
 
 public class Vista {
 
-        Controlador c;
+    private Controlador controlador;
 
+    public void solicitarResultados(List<String> partidos) {
+        for (int i = 0; i < partidos.size(); i++) {
+            String partido = partidos.get(i);
 
-        public void showMessage(String prompt){
+            System.out.println("\n--- PARTIDO " + (i + 1) + " ---");
+            System.out.println(partido);
 
-            System.out.println(prompt);
+            int golesLocal = Esdia.readInt("Introduzca los goles del equipo local: ");
+            int golesVisitante = Esdia.readInt("Introduzca los goles del equipo visitante: ");
+
+            if (!controlador.registrarPartido(partido, golesLocal, golesVisitante)) {
+                showMessage("No se pudo añadir el resultado de este partido.");
+                return;
+            }
         }
-
-
-        public int getGolesLocal(){
-
-            return Esdia.readInt("Introduzca los goles del equipo local: ");
-        } 
-
-
-        public int getGolesVisitante(){
-
-            return Esdia.readInt("Introduzca los goles del equipo vistante: ");
-        }
-
-
-        public void mostrarQuiniela(){
-
-            Quiniela.obtenerTabla();
-        }
-
-
-
-        public void setControlador(Controlador c){
-
-            this.c=c;
-
-        }
-
     }
 
+    public void mostrarQuiniela(String tabla) {
+        System.out.println(tabla);
+    }
+
+    public void showMessage(String mensaje) {
+        System.out.println(mensaje);
+    }
+
+    public void setControlador(Controlador controlador) {
+        this.controlador = controlador;
+    }
+}

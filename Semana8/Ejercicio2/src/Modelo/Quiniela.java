@@ -1,52 +1,58 @@
 package Modelo;
+
 /**
- * 
- * Clase que representa la quiniela
- * 
+ * Representa una quiniela con sus 15 partidos.
  */
 public class Quiniela {
 
-    // Atributos
-    final int NUMERO_PARTIDOS = 15;
-    private Partido[]partidos=new Partido[NUMERO_PARTIDOS];
-    private int i=0;
-    // Constructores
+    private static final int NUMERO_PARTIDOS = 15;
 
-    public String crearTabla() {
+    private final Partido[] partidos = new Partido[NUMERO_PARTIDOS];
+    private int partidosRegistrados = 0;
 
-        // Check if the number of matches is correct
-        if (partidos.length != NUMERO_PARTIDOS) {
-            return "El número de partidos es incorrecto";
-        }else  
-        return "Tabla creada correctamente";
-    }
-
-
-    // Obtener tabla de la quiniela
-    public String obtenerTablaQuiniela() {
-        String tabla = "";
-
-        // Cabecera de la tabla a partir de las columnas de la clase partido
-        int toltalLength = Partido.COLUMNAS[0] + Partido.COLUMNAS[1] + 10; // 4 barras y 6 espacios
-        String lineaCabecera = "|"+" ".repeat((toltalLength-10)/2)+"QUINIELA"+" ".repeat((toltalLength-10)/2)+"|";
-        String lineaSeparacion = "+" + "-".repeat(toltalLength-3) + "+";
-        tabla += lineaSeparacion + "\n";
-        tabla += lineaCabecera + "\n";
-        tabla += lineaSeparacion + "\n";
-
-        // Lineas de partidos
-        for (Partido partido: partidos) {
-            tabla += partido.getPartido() +" "+ ":"+ " "+ partido.getResultado() + "\n";
+    public boolean añadirPartido(Partido partido) {
+        if (partido == null || partidosRegistrados >= partidos.length) {
+            return false;
         }
-        tabla += lineaSeparacion + "\n";
-        return tabla;
+
+        partidos[partidosRegistrados] = partido;
+        partidosRegistrados++;
+        return true;
     }
 
-    public void añadirPartido(Partido p){
-
-        partidos[i]=p;
-        i++;
+    public boolean estaCompleta() {
+        return partidosRegistrados == partidos.length;
     }
 
+    public String obtenerTablaQuiniela() {
+        if (!estaCompleta()) {
+            return "La quiniela está incompleta: hay " + partidosRegistrados
+                    + " de " + partidos.length + " partidos.";
+        }
 
-}   
+        int longitud = Partido.COLUMNAS[0] + Partido.COLUMNAS[1] + 10;
+        int espaciosTitulo = longitud - 2 - "QUINIELA".length();
+        int espaciosIzquierda = espaciosTitulo / 2;
+        int espaciosDerecha = espaciosTitulo - espaciosIzquierda;
+
+        String separador = "+" + "-".repeat(longitud - 2) + "+";
+        String cabecera = "|" + " ".repeat(espaciosIzquierda) + "QUINIELA"
+                + " ".repeat(espaciosDerecha) + "|";
+
+        StringBuilder tabla = new StringBuilder();
+        tabla.append(separador).append(System.lineSeparator());
+        tabla.append(cabecera).append(System.lineSeparator());
+        tabla.append(separador).append(System.lineSeparator());
+
+        for (int i = 0; i < partidosRegistrados; i++) {
+            Partido partido = partidos[i];
+            tabla.append(partido.getPartido())
+                    .append(" : ")
+                    .append(partido.getResultado())
+                    .append(System.lineSeparator());
+        }
+
+        tabla.append(separador).append(System.lineSeparator());
+        return tabla.toString();
+    }
+}

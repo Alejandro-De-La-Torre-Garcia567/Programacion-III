@@ -1,60 +1,37 @@
 package Controlador;
-import Modelo.*;
-import Vista.*;
 
-
-/**
- * Clase que resuelve el ejercicio de mostrar los partidos del pleno al 15,
- * pedir los resultados y mostrar finalmente la quiniela.
- * 
- * Utilizar POO para su resolución creando clases que modelen el problema.
- * 
- */
+import Modelo.Modelo;
+import Vista.Vista;
 
 public class Controlador {
 
-    private Vista vista;
-    private Modelo modelo;
+    private final Vista vista;
+    private final Modelo modelo;
 
-
-    public Controlador(Modelo m, Vista v){
-
-        this.vista=v;
-        this.modelo=m;
-
-
-        this.v.setControlador(this);
-
+    public Controlador(Modelo modelo, Vista vista) {
+        this.vista = vista;
+        this.modelo = modelo;
+        this.vista.setControlador(this);
     }
 
     public void run() {
-
-        if(modelo.leerArchivo()==1){
-
-            vista.showMessage("Se ha  leido el archivo correctamente");
-        }else{
-
-            vista.showMessage("No se ha podido leer el archivo");
+        if (modelo.leerArchivo() != 1) {
+            vista.showMessage("No se pudo cargar equipos.txt. Comprueba que esté en el Escritorio y tenga exactamente 15 partidos.");
             return;
         }
 
+        vista.showMessage("Se han cargado los 15 partidos correctamente.");
+        vista.solicitarResultados(modelo.getPartidos());
 
-        for (int i = 0; i <modelo.getNumeroPartidos() ;i++){
-
-            vista.showMessage("\n--- PARTIDO " + (i + 1) + " ---");
-
-            // Crear el partido
-            vista.showMessage(modelo.obtenerLinea(i));
-            modelo.crearPartido(modelo.obtenerLinea(i),vista.getGolesLocal(),vista.getGolesVisitante());
-
+        if (!modelo.estaCompleta()) {
+            vista.showMessage("No se pudo completar la quiniela con los 15 resultados.");
+            return;
         }
 
-        // Mostrar la quiniela
-      
-        vista.mostrarQuiniela(modelo.crearTabla());
-        
-        if(modelo.crearTabla().equals("Tabla creada correctamente"))
         vista.mostrarQuiniela(modelo.obtenerTabla());
+    }
 
+    public boolean registrarPartido(String partido, int golesLocal, int golesVisitante) {
+        return modelo.registrarPartido(partido, golesLocal, golesVisitante);
     }
 }
