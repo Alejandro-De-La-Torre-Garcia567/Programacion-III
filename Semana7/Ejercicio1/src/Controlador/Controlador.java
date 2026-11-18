@@ -12,53 +12,44 @@ public class Controlador {
 
         this.v=v;
         this.m=m;
+
+        this.v.setControlador(this);
     }
 
 
-    public void run(){
+    public void init(){
 
-        boolean t=true;
-        boolean s=false;
-        boolean d=false;
+        v.initMenu();
 
-        while(t){
+    }
 
-           
 
-            v.showMenu();
+    public int showRessult(){
 
-            v.showMessage("\nIntroduzca una opción: ");
-            int o=v.getOption();
+        return m.getSuma();
 
-            if(o==1){
-    
-                m.setNum1(v.getNumberInput("Introduzca el primer número: "));
-                m.setNum2(v.getNumberInput("Introduzca el segundo número: "));
-                s=true;
+    }
 
-            }else if(o==2 && s){
 
-            v.showMessage("\n\nSuma calculada correctamente\n\n");
-            m.calcularSuma();
-            d=true;
+    public void calculateSum(){
 
-            }else if(o==3 && s && d){
+        m.calcularSuma();
 
-            v.showResult(m.getSuma(),"El resultado de la suma es: \n\n");
-            
-            }else if(4==o){
-
-                v.showMessage("Saliendo del programa");
-                t=false;
-           
-            }else
-
-                v.showMessage("\n\nOpción incorrecta\n\n");
+    }
 
 
 
+    public void setNum1(int i){
 
-        }
+        m.setNum1(i);
+    }
+
+
+
+    public void setNum2(int i){
+
+        m.setNum2(i);
+
     }
 
 }
