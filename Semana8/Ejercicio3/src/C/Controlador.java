@@ -1,6 +1,7 @@
 package C;
 import M.*;
 import V.*;
+import java.util.List;
 
 public class Controlador {
 
@@ -14,46 +15,49 @@ public class Controlador {
         this.vista=v;
     }
 
-    public void run(){
 
-        modelo.importarFacturaTSV();
+    public void init(){
 
-        int o;
+        if(modelo.importarFacturaTSV()==1){
 
-        do{
+            System.out.println("Se han cargado las facturas correctamente");
         
-        vista.showMenu();
-        o=vista.getUserOption();
-
-
-        if(o==1){
-
-            modelo.valorMinimoClientes(vista.getUserImport());
-           vista.mostrarLista(modelo.listaToString());
-
-
-        }else if(o==2){
-
-            vista.mostrarLista(modelo.listadeFacturas());
-
-        }else if(o==3){
-
-            vista.showMessage(modelo.exportarHTML());
-
-        }else if(o==4){
-
-           vista.showMessage(modelo.exportarCSV());
-
-        }else if (o==5){
-
-           vista.exit(); 
-
+        
         }else
+            System.out.println("Ha ocurrido un error al cargar las facturas");
 
-            vista.wrongOption();
-    
-        }while(o!=5);
+        vista.initMenu();
+        
+    }
+
+
+    public int minimumValue(float n){
+
+        return modelo.valorMinimoClientes(n);
 
     }
+
+
+    public int exportToHtml(){
+
+        return modelo.exportarHTML();
+    }
+
+
+    public int exportToCSV(){
+
+        return modelo.exportarCSV();
+    }
+
+
+    public List<Factura> getFacturas(){
+
+
+        return modelo.getFacturas();
+    }
+
+
+
+
 
 }

@@ -109,7 +109,7 @@ public class Factura {
     @Override
     public String toString(){
 
-        return String.format(Locale.ENGLISH, "Factura: %s | CLiente: %s (NIF: %s) | Importe: %.2f | Fecha: %s", concepto,nombre,nif,importe,fecha);
+        return String.format(Locale.ENGLISH, "Factura: %s | CLiente: %s (NIF: %s) | Importe: %.2f | Fecha: %s | %s", concepto,nombre,nif,importe,fecha,direccion);
 
     }
 }

@@ -13,7 +13,7 @@ public class Modelo {
     List<String> clientes=new ArrayList<>();
 
 
-    public String importarFacturaTSV(){
+    public int importarFacturaTSV(){
 
         Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.txt");
         
@@ -29,11 +29,11 @@ public class Modelo {
 
         }
         
-        return "Archivo TSV leído correctamente";
+        return 1;
 
         }catch(IOException e){
 
-            return "Error al leer el archivo TSV" + e.getMessage();
+            return -1;
         }
 
  
@@ -42,16 +42,11 @@ public class Modelo {
 
 
 
-    public String valorMinimoClientes(float valor){
+    public int valorMinimoClientes(float valor){
 
         int i;
         float valorFactura;
         
-        if(valor<=0){
-
-            return "El importe no puede ser menor o igual a cero, o se ha introducido un tipo erróneo";
-        }
-
 
         for(i=0;i<Facturas.size();i++){
 
@@ -64,41 +59,15 @@ public class Modelo {
             }
         }
 
-        return "Listado creado correctamente";
+        return 1;
 
     }
 
+    
+    public List<Factura> getFacturas(){
 
-    public String listaToString(){
+        return Facturas;
 
-        int i;
-        String tabla="";
-
-        for(i=0;i<clientes.size();i++){
-
-            tabla+=this.clientes.get(i)+"\n";
-
-
-        }
-
-
-        return tabla;
-
-    }
-
-
-    public String listadeFacturas(){
-
-        int i;
-        String tabla="";
-
-        for(i=0;i<Facturas.size();i++){
-
-            tabla+=Facturas.get(i).toString()+"\n";
-
-        }
-
-        return tabla;
     }
 
 
@@ -146,18 +115,18 @@ public class Modelo {
     }
 
 
-    public String exportarHTML(){
+    public int exportarHTML(){
 
         Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.html");
 
         try{
 
             Files.write(p, crearDocumentoHTML().getBytes(StandardCharsets.UTF_8));
-            return "HTML escrito correctamente en el escritorio";
+            return 1;
 
         }catch(IOException e){
 
-            return "Error al escribir el HTML: " + e.getMessage();
+            return -1;
 
         }
 
@@ -165,7 +134,7 @@ public class Modelo {
 
 
 
-    public String exportarCSV(){
+    public int exportarCSV(){
 
         Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.txt");
         Path p1=Paths.get(System.getProperty("user.home"),"Desktop", "facturas.csv");
@@ -185,18 +154,18 @@ public class Modelo {
 
         }catch(IOException e){
 
-            return "Error al leer el archivo para convertir a CSV";
+            return -1;
         }
 
 
         try{
         Files.write(p1,csv,StandardCharsets.UTF_8);
 
-        return "CSV escrito correctamente en el escritorio";
+        return 1;
 
         }catch(IOException e){
 
-            return "Error al escribir el CSV";
+            return -1;
 
         }
     }
