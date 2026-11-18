@@ -1,10 +1,10 @@
 package com.gestorlibros.view;
+import java.util.List;
 
 import java.util.ArrayList;
-
+import com.gestorlibros.model.Libro;
 import es.usal.progiii.tools.Esdia;
 import com.gestorlibros.controller.Controller;
-import com.gestorlibros.model.Libro;
 
 public class View {
 
@@ -13,7 +13,7 @@ public class View {
     public void startMenu(){
 
         // Bucle infinito con Esdia
-
+        
         boolean exit = false;
 
         while (!exit) {
@@ -146,7 +146,26 @@ public class View {
 
     private void editarLibroDelModelo() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editarLibroDelModelo'");
+
+        List<Libro>libros=c.getLibros();
+        String titulo = Esdia.readString_ne("Introduzca el título del libro: ");
+        String autor = Esdia.readString_ne("Introduzca el autor del libro: ");
+        String isbn = Esdia.readString_ne("Introduzca el ISBN del libro: ");
+        String editorial = Esdia.readString_ne("Introduzca la editorial del libro: ");
+        int anyoPublicacion = Esdia.readInt("Introduzca el año de publicación del libro: ");
+        int numPaginas = Esdia.readInt("Introduzca el número de páginas del libro: ");
+        float precio = Esdia.readFloat("Introduzca el precio del libro: ");
+
+
+        Libro l=new Libro(isbn,titulo,autor,editorial,anyoPublicacion,numPaginas,precio);
+
+
+            if(libros.contains(l)){
+                c.updateLibro(l);
+                System.out.println("Se ha modificado el libro correctamente");
+            }else
+
+                System.out.println("No hay ningún libro con ese isbn");
     }
 
     private void borrarLibroDelModelo() {
