@@ -126,6 +126,7 @@ public class Vista {
             if(!c.hayCalculosRealizados()){
 
                 System.out.println("Primero tienes que calcular los ingresos");
+                return;
             }
 
 
