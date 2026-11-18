@@ -22,11 +22,11 @@ public class Controlador {
 
         if(modelo.importarFacturaTSV()==1){
 
-            System.out.println("Se han cargado las facturas correctamente");
+            vista.showMessage("Se han cargado las facturas correctamente");
         
         
         }else
-            System.out.println("Ha ocurrido un error al cargar las facturas");
+            vista.showMessage("Ha ocurrido un error al cargar las facturas");
 
         vista.initMenu();
         

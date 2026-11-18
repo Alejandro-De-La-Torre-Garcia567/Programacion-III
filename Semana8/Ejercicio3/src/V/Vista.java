@@ -93,19 +93,27 @@ public class Vista {
         float valor;
         
         System.out.printf("Introduzca un valor mínimo para crear el listado: ");
-        valor=sc.nextFloat();
+        try{
+            
+            valor=sc.nextFloat();
 
+        }catch(Exception e){
+
+            System.out.println("Tipo de dato incorrecto"+e.getMessage());
+            return;
+        }
 
 
         if(valor<=0){
 
-            System.out.println("El importe no puede ser menor o igual a cero, o se ha introducido un tipo erróneo");
-        }
+            System.out.println("El importe no puede ser menor o igual a cero");
+
+        }else{
 
         c.minimumValue(valor);
-
+            
         System.out.println("Lista de facturas con valor mínimo creado correctamente");
-
+            }
         }
 
 
@@ -138,6 +146,12 @@ public class Vista {
         public void setControlador(Controlador c){
 
             this.c=c;
+        }
+
+
+        public void showMessage(String p){
+
+            System.out.println(p);
         }
 
 }
