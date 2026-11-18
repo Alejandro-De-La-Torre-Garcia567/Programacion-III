@@ -15,7 +15,7 @@ public class Modelo {
 
     public int importarFacturaTSV(){
 
-        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.txt");
+        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.tsv");
         
         try{
 
@@ -136,7 +136,7 @@ public class Modelo {
 
     public int exportarCSV(){
 
-        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.txt");
+        Path p= Paths.get(System.getProperty("user.home"), "Desktop", "facturas.tsv");
         Path p1=Paths.get(System.getProperty("user.home"),"Desktop", "facturas.csv");
 
         List<String> csv= new ArrayList<>();
