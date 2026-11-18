@@ -9,11 +9,9 @@ public class Modelo {
 
     Partido [] partidos=new Partido[NUMERO_PARTIDOS];
 
-    public int añadirPartido(String local, String visitante, int golesLocal, int golesVisitante){
+    public int añadirPartido(Partido partido){
 
         if(contador<partidos.length){
-
-        Partido partido=new Partido(local,visitante,golesLocal,golesVisitante);
         
         partidos[contador]=partido;
         this.contador++;

@@ -14,7 +14,7 @@ public class Controlador {
         this.vista.setControlador(this);
     }
 
-    public void run() {
+    public void init() {
         if (modelo.leerArchivo() != 1) {
             vista.showMessage("No se pudo cargar equipos.txt. Comprueba que esté en el Escritorio y tenga exactamente 15 partidos.");
             return;

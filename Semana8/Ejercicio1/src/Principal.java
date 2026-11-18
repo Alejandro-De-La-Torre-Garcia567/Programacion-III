@@ -11,7 +11,7 @@ public class Principal {
         Modelo m=new Modelo();
         Controlador c= new Controlador(m,v);
 
-        c.run();
+        c.init();
 
     }
 

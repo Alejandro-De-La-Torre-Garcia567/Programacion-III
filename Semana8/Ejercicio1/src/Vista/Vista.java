@@ -1,39 +1,44 @@
 package Vista;
 import es.usal.progiii.tools.Esdia;
+import Controlador.*;
 
 public class Vista {
+
+        private Controlador c;
+
 
         public void showMessage(String prompt){
 
             System.out.println(prompt);
         }
 
-        public String getVisitante(){
 
-            return Esdia.readString("Introduzca el equipo visitante: ");
-        }
+        public void initV(){
 
-        public String getLocal(){
+            int i;
 
-            return Esdia.readString("Introduzca el equipo local: ");
+            for(i=0;i<c.getPartidos();i++){
 
-        }
+                
 
-        public int getGolesLocal(){
 
-            return Esdia.readInt("Introduzca los goles del equipo local: ");
+            }
+
+
+
         } 
-
-
-        public int getGolesVisitante(){
-
-            return Esdia.readInt("Introduzca los goles del equipo vistante: ");
-        }
 
 
         public void mostrarQuiniela(String tabla){
 
             System.out.println(tabla);
+        }
+        
+
+        public void setControlador(Controlador c){
+
+            this.c=c;
+
         }
 
     }

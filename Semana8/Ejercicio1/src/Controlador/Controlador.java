@@ -21,18 +21,21 @@ public class Controlador {
 
         this.vista=v;
         this.modelo=m;
+
+        this.vista.setControlador(this);
     }
 
-    public void run() {
+
+    public void init(){
+
+        vista.initV();
+
+    }
+
+    public void añadirPartido(Partido p) {
 
 
-        for (int i = 0; i <modelo.getNumeroPartidos() ;i++){
-
-            vista.showMessage("\n--- PARTIDO " + (i + 1) + " ---");
-
-            // Crear el partido
-            modelo.añadirPartido(vista.getLocal(), vista.getVisitante(), vista.getGolesLocal(), vista.getGolesVisitante());
-
+            modelo.añadirPartido(p);
 
         }
 
@@ -44,4 +47,3 @@ public class Controlador {
         vista.mostrarQuiniela(modelo.obtenerTabla());
 
     }
-}
