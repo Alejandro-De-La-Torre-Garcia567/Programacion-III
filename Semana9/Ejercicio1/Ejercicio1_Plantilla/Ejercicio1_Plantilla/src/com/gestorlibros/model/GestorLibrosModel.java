@@ -84,8 +84,11 @@ public class GestorLibrosModel {
         List<String>lineas=Files.readAllLines(pathToCSV,StandardCharsets.UTF_8);
             
         for(String l: lineas){
+            
+            Libro librito=Libro.fromDelimitedString(l,",");
 
-            libros.add(Libro.fromDelimitedString(l,","));
+            if(!libros.contains(librito)&&librito!=null)
+            libros.add(librito);
             
             }
         
@@ -162,7 +165,17 @@ public class GestorLibrosModel {
 
             String xml=Files.readString(pathToXML,StandardCharsets.UTF_8);
 
-            this.libros=mapper.readValue(xml,mapper.getTypeFactory().constructCollectionType(List.class,Libro.class));
+            List<Libro>lib=mapper.readValue(xml,mapper.getTypeFactory().constructCollectionType(List.class,Libro.class));
+
+
+            for(Libro l:lib){
+
+
+                if(!libros.contains(l))
+                    libros.add(l);
+
+            }
+
 
             return 1;
         }catch(IOException e){
