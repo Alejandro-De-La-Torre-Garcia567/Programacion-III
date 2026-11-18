@@ -1,98 +1,39 @@
 package MVC_ArrayList.C;
+
 import MVC_ArrayList.M.ModeloArrayList;
+import MVC_ArrayList.M.Persona;
 import MVC_ArrayList.V.VistaArrayList;
-
-
+import java.util.List;
 
 public class ControladorArrayList {
 
-    private ModeloArrayList modelo;
-    VistaArrayList vista;
+    private final ModeloArrayList modelo;
+    private final VistaArrayList vista;
 
-    public ControladorArrayList(ModeloArrayList m, VistaArrayList v){
-
-
-        this.modelo=m;
-        this.vista=v;
-
+    public ControladorArrayList(ModeloArrayList modelo, VistaArrayList vista) {
+        this.modelo = modelo;
+        this.vista = vista;
+        this.vista.setControlador(this);
     }
 
-
-    public void run(){
-
-    
-        
-        int opcion;
-        
-        do {
-
-            vista.showMenu();
-            opcion=vista.getUserOption();
-
-            switch (opcion) {
-                
-                
-
-                case 1:
-
-                    String nombre=vista.getPersonaName();
-                    int edad=vista.getPersonaAge();
-                    double altura=vista.getPersonaHeight();
-                    modelo.agregarPersona(nombre,edad,altura);
-
-                    vista.showMessage("Persona añadida correctamente");
-
-                    break;
-                    
-                
-                case 2:
-
-                    nombre=vista.getPersonaName();
-
-                   if(modelo.eliminarPersona(nombre)==false){
-                    vista.showMessage("No se ha encontrado ninguna persona con ese nombre");
-                   
-                    break;
-                    }
-                    
-                    vista.showMessage("Persona eliminada correctamente");
-                    break;
-
-                case 3:
-                    
-                    nombre=vista.getPersonaName();
-                    String nuevoNombre=vista.getPersonaNewName();
-                    edad=vista.getPersonaAge();
-                    altura=vista.getPersonaHeight();
-
-                    if(modelo.modificarPersona(nombre,nuevoNombre,edad,altura)==false){
-
-                        vista.showMessage("No se ha encontrado ninguna persona con ese nombre");
-                        break;
-                    }
-
-                    vista.showMessage("Persona modificada correctamente");
-
-                    break;
-
-                case 4:
-                    
-                    vista.showMessage(modelo.listarPersonas());
-                    break;
-                case 5:
-
-                    vista.showMessage("Saliendo del programa");
-                    break;
-                default:
-                
-                vista.showMessage("Opción no válida");
-            }
-        } while (opcion != 5);
-
-
+    public void run() {
+        vista.initMenu();
     }
 
+    public boolean agregarPersona(Persona persona) {
+        return modelo.agregarPersona(persona);
+    }
 
+    public boolean eliminarPersona(String nombre) {
+        return modelo.eliminarPersona(nombre);
+    }
+
+    public boolean modificarPersona(String nombre, String nuevoNombre,
+            int edad, double altura) {
+        return modelo.modificarPersona(nombre, nuevoNombre, edad, altura);
+    }
+
+    public List<Persona> obtenerPersonas() {
+        return modelo.getPersonas();
+    }
 }
-
-
