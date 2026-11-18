@@ -12,6 +12,6 @@ public class Principal{
         Modelo modelo= new Modelo();
         Controlador controlador= new Controlador(modelo,vista);
 
-        controlador.run();
+        controlador.init();
     }
 }

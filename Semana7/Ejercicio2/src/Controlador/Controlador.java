@@ -1,123 +1,102 @@
 package Controlador;
-import Modelo.Modelo;
-import Vista.Vista;
 
-public class Controlador {
+import Modelo.*;
+import Vista.*;
 
-    Modelo m;
-    Vista v;
 
-    public Controlador(Modelo m, Vista v){
+public class Controlador{
+
+    private static final int NUMERO_ALMACENES=5;
+
+    private final Modelo m;
+    private Vista v;
+
+    private boolean ventasRegistradas=false;
+    private boolean preciosRegistrados=false;
+    private boolean calculosRealizados=false;
+
+    public Controlador(Modelo m,Vista v){
 
         this.m=m;
         this.v=v;
+
+        this.v.setControlador(this);
     }
 
-    public void run(){
 
-    boolean t=true;
-    boolean ventas=false;
-    boolean precios=false;
-    boolean calculos=false;
+    public void init(){
 
-
-        while(t){
-            
-            v.showMessage("\n\n");
-
-            v.showMenu();
-            String o= v.getUserOption();
-
-
-            if(o.equals("q")){
-
-                v.showMessage("\n\nSaliendo del programa");
-                break;
-
-            
-            }else if(1==Integer.parseInt(o)){
-
-                int i;
-
-                if(ventas==true){
-
-                    v.showMessage("\n\nSe han eliminado los almacenes anteriores\n\n");
-                m.deleteAlmacen();
-
-                }
-
-                for(i=0;i<5;i++){
-
-                    m.setAlmacen();
-
-                    v.getAlmacenUnidadesText("\n\nIntroduzca la cantidad de unidades vendidas por el almacen %d del primer producto: ",i);
-                    m.setUnidades1(v.getAlmacenUnidades(),i);
-                    
-                }
-
-
-                for(i=0;i<5;i++){
-
-                    v.getAlmacenUnidadesText("\n\nIntroduzca la cantidad de unidades vendidas por el almacen %d del segundo producto: ",i);
-                    m.setUnidades2(v.getAlmacenUnidades(),i);
-                    
-                }
-
-                v.buffer();
-
-                ventas=true;
+        v.initMenu();
+    }
 
 
 
-            }else if(2==Integer.parseInt(o) && ventas){
+    public void registrarVentas(int[]producto1, int[]producto2){
 
+        m.deleteAlmacen();
 
-                v.showMessage("Introduzca el precio global para el producto 1: ");
-                m.setPrecio1(v.getUserPrecio());
+        for(int i=0;i<NUMERO_ALMACENES;i++){
 
-                v.showMessage("\nIntroduzca el precio global para el producto 2: ");
-                m.setPrecio2(v.getUserPrecio());
-
-                v.buffer();
-
-                precios=true;
-
-            }else if(3==Integer.parseInt(o) && precios && ventas){
-            
-
-                int i;
-
-                for(i=0;i<5;i++){
-
-                    m.calcularIngresos1(i);
-                    m.calcularIngresos2(i);
-                }
-
-                m.calcularIngresosTotales();
-                v.showMessage("\n\nIngresos calculados correctamente\n\n");
-
-
-                calculos=true;
-
-            }else if(4==Integer.parseInt(o) && precios && ventas && calculos){
-
-                int i;
-
-                for(i=0;i<5;i++){
-
-                    v.showFinalResults(i,m.getIngresos1(i)+m.getIngresos2(i));
-
-                }
-
-                v.showTotal(m.getIngresosTotales());
-
-            }else
-
-                v.showMessage("\n\nOpción incorrecta o datos insufcientes\n\n");
+            m.setAlmacen();
+            m.setUnidades1(producto1[i],i);
+            m.setUnidades2(producto2[i],i);
 
         }
 
+        ventasRegistradas=true;
+        calculosRealizados=false;
 
+    }
+
+
+    public void registrarPrecios(double precio1,double precio2){
+
+        m.setPrecio1(precio1);
+        m.setPrecio2(precio2);
+
+        preciosRegistrados=true;
+        calculosRealizados=false;
+
+    }
+
+
+    public boolean calcularIngresos(){
+
+        if(!ventasRegistradas || !preciosRegistrados){
+
+            return false;
+        }
+
+
+        for(int i=0;i<NUMERO_ALMACENES;i++){
+
+            m.calcularIngresos1(i);
+            m.calcularIngresos2(i);
+        }
+
+
+
+        m.calcularIngresosTotales();
+        calculosRealizados=true;
+        return true;
+    }
+
+
+
+    public boolean hayCalculosRealizados(){
+
+        return calculosRealizados;
+    }
+
+    public double getIngresosAlmacen(int almacen){
+
+        return m.getIngresos1(almacen)+m.getIngresos2(almacen);
+    }
+
+    public double getIngresosTotales(){
+
+
+        return m.getIngresosTotales();
     }
 
 }
