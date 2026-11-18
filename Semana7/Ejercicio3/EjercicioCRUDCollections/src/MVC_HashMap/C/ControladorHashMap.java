@@ -1,86 +1,38 @@
 package MVC_HashMap.C;
-import MVC_HashMap.V.*;
-import MVC_HashMap.M.*;
+
+import MVC_HashMap.M.ModeloHashMap;
+import MVC_HashMap.M.Persona;
+import MVC_HashMap.V.VistaHashMap;
+import java.util.Map;
 
 public class ControladorHashMap {
 
+    private final ModeloHashMap modelo;
+    private final VistaHashMap vista;
 
-
-private ModeloHashMap modelo;
-private VistaHashMap vista;
-
-
-    public ControladorHashMap(ModeloHashMap m, VistaHashMap v){
-
-        this.modelo=m;
-        this.vista=v;
-
+    public ControladorHashMap(ModeloHashMap modelo, VistaHashMap vista) {
+        this.modelo = modelo;
+        this.vista = vista;
+        this.vista.setControlador(this);
     }
 
-
-
-        public void run(){
-        int opcion;
-
-        do {
-            vista.showMenu();
-            opcion = vista.getUserOption();
-            
-            switch (opcion) {
-                case 1:
-
-                    String dni=vista.getPersonaDni();
-                    String nombre=vista.getPersonaName();
-                    int edad=vista.getPersonaAge();
-                    double altura=vista.getPersonaHeight();
-                    modelo.agregarPersona(dni,nombre,edad,altura);
-
-                    vista.showMessage("Persona añadida correctamente");
-                    break;
-
-                case 2:
-
-                    dni=vista.getPersonaDni();
-
-                    if(false==modelo.eliminarPersona(dni)){
-
-                        vista.showMessage("No se ha encontrado a una persona con ese DNI");
-                        break;
-                    }
-
-                    vista.showMessage("Persona eliminada correctamente");
-
-                    break;
-
-                case 3:
-
-                    dni=vista.getPersonaDni();
-                    nombre=vista.getPersonaName();
-                    edad=vista.getPersonaAge();
-                    altura=vista.getPersonaHeight();
-                    
-                    if (!modelo.modificarPersona(dni, nombre, edad, altura)) {
-
-                        vista.showMessage("No se ha encontrado a ninguna persona con ese DNI");
-                    } else {
-                        vista.showMessage("Persona modificada correctamente");
-                    }
-
-                    break;
-
-                case 4:
-
-                    vista.showMessage(modelo.listarPersonas());
-
-                    break;
-                case 5:
-                    System.out.println("¡Hasta luego!");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-            }
-        } while (opcion != 5);
+    public void run() {
+        vista.initMenu();
     }
 
+    public boolean agregarPersona(String dni, Persona persona) {
+        return modelo.agregarPersona(dni, persona);
+    }
 
+    public boolean eliminarPersona(String dni) {
+        return modelo.eliminarPersona(dni);
+    }
+
+    public boolean modificarPersona(String dni, Persona persona) {
+        return modelo.modificarPersona(dni, persona);
+    }
+
+    public Map<String, Persona> obtenerPersonas() {
+        return modelo.getPersonas();
+    }
 }
