@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ObjectInputStream;
-
+import java.nio.file.Paths;
 import es.usal.progiii.tools.Rutas;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -155,11 +155,50 @@ public class GestorLibrosModel {
     }
 
     public int importBooksFromXML() {
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");  
+
+
+        try{
+            
+            XmlMapper mapper=new XmlMapper();
+
+            String xml=Files.readString(pathToXML,StandardCharsets.UTF_8);
+
+            mapper.readValue(xml,mapper.getTypeFactory().constructCollectionType(List.class,Libro.class));
+
+            return 1;
+        }catch(IOException e){
+
+            return -1;
+        }
+
+
+
+
+
     }
 
-    public int exportBooksToXML() {
-        throw new UnsupportedOperationException("Unimplemented method 'importBooksFromCSV'");
+    public int exportBooksToXML(List<Libro> libros) {
+
+        XmlMapper mapper=new XmlMapper();
+
+
+        try{
+        String xml=mapper.writeValueAsString(libros);
+        
+        Files.write(pathToXML,xml.getBytes(StandardCharsets.UTF_8));
+
+
+        return 1;
+
+        }catch(IOException e){
+
+
+        return -1;
+        }
+
+
+
+
     }
 
     // Serialization and Deserialization ------------------------------------------
