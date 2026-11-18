@@ -110,10 +110,27 @@ public class Vista {
 
         }else{
 
-        c.minimumValue(valor);
-            
-        System.out.println("Lista de facturas con valor mínimo creado correctamente");
+            List<String> clientes=c.minimumValue(valor);
+            mostrarClientes(clientes);
+        }
+        }
+
+
+        private void mostrarClientes(List<String> clientes){
+
+            if(clientes.isEmpty()){
+
+                System.out.println("No hay clientes con facturas superiores a ese importe");
+                return;
             }
+
+            System.out.println("Clientes con facturas superiores al importe indicado:");
+
+            for(String cliente: clientes){
+
+                System.out.println("- " + cliente);
+            }
+
         }
 
 

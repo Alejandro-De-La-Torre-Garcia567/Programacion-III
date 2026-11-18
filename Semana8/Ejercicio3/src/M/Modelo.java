@@ -10,7 +10,6 @@ public class Modelo {
 
 
     List<Factura> Facturas=new ArrayList<>();
-    List<String> clientes=new ArrayList<>();
 
 
     public int importarFacturaTSV(){
@@ -42,24 +41,22 @@ public class Modelo {
 
 
 
-    public int valorMinimoClientes(float valor){
+    public List<String> valorMinimoClientes(float valor){
 
-        int i;
-        float valorFactura;
-        
+        List<String> clientesEncontrados=new ArrayList<>();
 
-        for(i=0;i<Facturas.size();i++){
+        for(Factura factura: Facturas){
 
-            valorFactura=( (Facturas.get(i).getImporte()) * (1-Facturas.get(i).getDescuento()) * (1+Facturas.get(i).getIva()) );
+            float valorFactura=factura.getImporte() * (1-factura.getDescuento()) * (1+factura.getIva());
 
             if(valorFactura>valor){
 
-                this.clientes.add(Facturas.get(i).getNombre());
+                clientesEncontrados.add(factura.getNombre());
 
             }
         }
 
-        return 1;
+        return clientesEncontrados;
 
     }
 

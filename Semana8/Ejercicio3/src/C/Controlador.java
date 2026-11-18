@@ -33,7 +33,7 @@ public class Controlador {
     }
 
 
-    public int minimumValue(float n){
+    public List<String> minimumValue(float n){
 
         return modelo.valorMinimoClientes(n);
 
