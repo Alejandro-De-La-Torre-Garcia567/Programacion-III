@@ -98,7 +98,7 @@ public class Vista {
             valor=sc.nextFloat();
 
         }catch(Exception e){
-
+            sc.nextLine();
             System.out.println("Tipo de dato incorrecto"+e.getMessage());
             return;
         }
