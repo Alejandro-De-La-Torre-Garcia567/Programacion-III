@@ -23,15 +23,20 @@ public class Modelo {
     }
 
 
+    public int crearTabla(){
+
+        return this.quiniela.crearTabla(partidos);
+
+    }
+
+    public Quiniela getQuiniela(){
+
+        return this.quiniela;
+    }
+
     public int getNumeroPartidos(){
 
         return NUMERO_PARTIDOS;
-    }
-
-    public String crearTabla(){
-
-       return quiniela.crearTabla(partidos);
-
     }
 
 

@@ -29,6 +29,7 @@ public class Controlador {
     public void init(){
 
         vista.initV();
+        vista.mostrarQuiniela();
 
     }
 
@@ -40,10 +41,23 @@ public class Controlador {
         }
 
         // Mostrar la quiniela
-      
-        vista.mostrarQuiniela(modelo.crearTabla());
-        
-        if(modelo.crearTabla().equals("Tabla creada correctamente"))
-        vista.mostrarQuiniela(modelo.obtenerTabla());
+    
+    public int getPartidos(){
+
+       return modelo.getNumeroPartidos();
+
+    }
+
+    public int crearTabla(){
+
+        return modelo.crearTabla();
+    }
+
+    public Quiniela getQuiniela(){
+
+
+        return modelo.getQuiniela();
+
+    }
 
     }
