@@ -92,7 +92,17 @@ public class View {
 
     private void importarBooksXML() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'importarBooksXML'");
+
+
+        if(c.importBooksFromXML()==1){
+
+
+            System.out.println("Se han importado los libros desde XML correctamente");
+        }else
+
+            System.out.println("Ha ocurrido un error al importar los libros");
+
+
     }
 
     private void importarBooksJSON() {
@@ -112,7 +122,14 @@ public class View {
 
     private void exportBooksToXML() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'exportBooksToXML'");
+
+            if(c.exportBooksToXML()==1){
+
+                System.out.println("Se han exportado los libros a XML correctamente");
+            }else
+
+                System.out.println("Ha ocurrido un error al exportar los libros");
+
     }
 
     private void exportarBooksJSON() {

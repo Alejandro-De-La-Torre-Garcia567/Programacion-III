@@ -177,7 +177,7 @@ public class GestorLibrosModel {
 
     }
 
-    public int exportBooksToXML(List<Libro> libros) {
+    public int exportBooksToXML() {
 
         XmlMapper mapper=new XmlMapper();
 

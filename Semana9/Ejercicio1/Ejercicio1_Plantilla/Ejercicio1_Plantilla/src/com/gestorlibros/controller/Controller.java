@@ -21,12 +21,14 @@ public class Controller {
     public void initApp() {
 
         // Load data
-        
+        m.loadStateOfTheApp();
 
         // Show Menu
         v.startMenu();
 
         //Save data
+
+        m.saveStateOfTheApp();
     }
 
     public ArrayList<Libro> getLibros() {
