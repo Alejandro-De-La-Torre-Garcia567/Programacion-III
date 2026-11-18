@@ -27,6 +27,7 @@ public class Factura {
 
         String [] tokens= linea.split("\t");
 
+        try{
         String concepto=tokens[0];
         float descuento=Float.parseFloat(tokens[1]);
         String fecha=tokens[2];
@@ -37,11 +38,11 @@ public class Factura {
         float iva=Float.parseFloat(tokens[7]);
 
         Factura factura=new Factura(concepto,descuento,fecha,importe,nif,nombre,direccion,iva);
-
-        
-
         return factura;
-        
+        }catch(Exception e){
+
+            return null;
+        }
         
 
 

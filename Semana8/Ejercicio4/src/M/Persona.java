@@ -30,14 +30,19 @@ public class Persona {
             return null;
         }
 
-
+        try{
         String n=tokens[0];
         String t=tokens[1];
         float p=Float.parseFloat(tokens[2]);
 
         Persona personita=new Persona(n,t,p);
-
         return personita;
+        }catch(Exception e){
+
+
+            return null;
+        }
+        
 
     }
 

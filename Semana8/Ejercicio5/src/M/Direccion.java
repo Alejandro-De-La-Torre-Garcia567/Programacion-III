@@ -28,7 +28,7 @@ public class Direccion {
         String[] calles={"Calle Toro", "Calle Zamora", "Avenida de Portugal", "Paseo de Carmelitas", "Calle Rúa Mayor", "Avenida de Mirat", "Calle Gran Vía", "Calle Libreros", "Paseo de la Estación", "Avenida de Villamayor", "Calle Compañía", "Ronda del Corpus", "Calle Van Dyck", "Paseo de Canalejas", "Calle Peña Primera", "Avenida de Federico Anaya", "Calle San Pablo", "Plaza Mayor", "Calle Rector Lucena", "Calle María Auxiliadora"};
         String[] letras={"A", "B", "C", "D", "E", "F", "Izq", "Dcha"};
 
-
+        
         String c=calles[random.nextInt(calles.length)];
         String l=letras[random.nextInt(letras.length)];
 

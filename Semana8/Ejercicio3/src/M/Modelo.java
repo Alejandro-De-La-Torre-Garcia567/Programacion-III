@@ -24,7 +24,10 @@ public class Modelo {
             
         for(String f: facturas){
 
-            this.Facturas.add(Factura.StringtoInstance(f));
+            Factura fa=Factura.StringtoInstance(f);
+
+            if(fa!=null)
+            Facturas.add(fa);
 
         }
         
