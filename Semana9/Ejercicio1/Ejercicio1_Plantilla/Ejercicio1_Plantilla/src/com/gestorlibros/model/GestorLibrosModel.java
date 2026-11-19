@@ -114,11 +114,16 @@ public class GestorLibrosModel {
         Files.write(pathToJSON,json.getBytes(StandardCharsets.UTF_8));
         return 1;
 
+
+        }catch(JsonProcessingException e){
+
+        return -1;
+        
         }catch(IOException e){
 
                 return -1;
 
-            }
+        }
     }
 
     public int importBooksFromJSON() {
